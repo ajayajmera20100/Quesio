@@ -11,7 +11,9 @@
   <link rel="stylesheet" href="/dashboard/vendors/css/vendor.bundle.base.css">
 
   <link rel="stylesheet" href="/dashboard/css/vertical-layout-light/style.css">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="assets/images/Q.ico">
 </head>
 
@@ -23,8 +25,24 @@
 
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
+          <li class="nav-item" id="brandq">
+            <a class="navbar-brand" href="index.html" style="display: inline-block;
+            padding-top: 0.3rem;
+            margin-right: 1rem;
+            font-size: 2.5rem;
+            line-height: inherit;
+            white-space: nowrap;
+            font-weight: bold;
+            font-family: Merienda One, cursive;
+            color: white;
+            padding-left: 1rem;"
+            
+            >
+              Quesio
+            </a>
+          </li>
           <li class="nav-item">
-            <div class="d-flex sidebar-profile">
+            <div class="d-flex sidebar-profile" style="padding: 1rem 1.125rem;">
               <div class="sidebar-profile-name">
                 <p class="sidebar-designation">Welcome</p>
                 <p class="sidebar-name">ADMIN</p>
@@ -92,6 +110,13 @@
               <i class="typcn typcn-document menu-icon"></i>
               <span class="menu-title">Subjects</span>
 
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="typcn typcn-lock-closed menu-icon"></i>
+              <span class="menu-title">Logout</span>
+              
             </a>
           </li>
 
@@ -207,19 +232,25 @@
   <script src="/dashboard/js/settings.js"></script>
   <script src="/dashboard/js/todolist.js"></script>
   <script>
-    let counter = 0;
+    let counter =0;
     let hamburgerbtn = document.getElementById("hbtn")
+    let brandq = document.getElementById("brandq")
+
+
     window.onload = () => {
-      hamburgerbtn.style.transform = "translateX(8.5rem)"
-    }
-    hamburgerbtn.addEventListener('click', () => {
-      if (counter == 0) {
-        hamburgerbtn.style.transform = "translateX(-0.5rem)"
-        counter = 1;
+      hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.4rem)"
       }
-      else {
-        hamburgerbtn.style.transform = "translateX(8.5rem)"
-        counter = 0;
+    hamburgerbtn.addEventListener('click',() => {
+      
+      if(counter == 0){
+        hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.4rem)"
+        brandq.style.transform = "translateX(-10rem)"
+        counter =1;
+      }
+      else{
+        hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.4rem)"
+        brandq.style.transform = "translateX(0rem)"
+        counter =0;
       }
     })
   </script>
