@@ -15,5 +15,13 @@ Router.get('/',(req, res)=>{
   res.render('moderatorDashboard'); 
 })
 
+Router.get('/moderatorquestions',(req, res)=>{
+  res.render('moderate-questions'); 
+})
+
+
+Router.get('/profile',(req, res)=>{
+  res.render('profile'); 
+})
 
 export default Router;
