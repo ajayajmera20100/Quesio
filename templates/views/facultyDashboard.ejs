@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Quesio | Faculty Dashboard</title>
+
+  <link rel="stylesheet" href="./dashboard/vendors/typicons.font/font/typicons.css" />
+  <link rel="stylesheet" href="./dashboard/vendors/css/vendor.bundle.base.css" />
+
+  <link rel="stylesheet" href="./dashboard/css/vertical-layout-light/style.css" />
+
+  <link rel="icon" type="image/x-icon" href="assets/images/Q.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" type="text/css"
+    href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container-scroller">
+
+    <div class="container-fluid page-body-wrapper" style="padding-top:0; min-height: 100vh;">
+
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+
+          <li class="nav-item">
+            <a class="navbar-brand" href="index.html" style="display: inline-block;
+                    padding-top: 0.3rem;
+                    margin-right: 1rem;
+                    font-size: 2.5rem;
+                    line-height: inherit;
+                    white-space: nowrap;
+                    font-weight: bold;
+                    font-family: Merienda One, cursive;
+                    color: white;
+                    padding-left: 1rem;">
+              Quesio
+            </a>
+          </li>
+          <li class="nav-item">
+            <div class="d-flex sidebar-profile">
+              <div class="sidebar-profile-name">
+                <p class="sidebar-designation" style="display: inline;">Welcome</p>
+                <p class="sidebar-name">FACULTY</p>
+              </div>
+              <button class="navbar-toggler navbar-toggler align-self-center d-lg-flex transition-btn" type="button"
+                style="color: aliceblue;margin-top: 0.85rem;" data-toggle="minimize" id="hbtn"
+                style="transform: translateX(8.5rem);">
+                <span class="typcn typcn-th-menu"></span>
+              </button>
+            </div>
+
+            <p class="sidebar-menu-title">Dash menu</p>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./index">
+              <i class="typcn typcn-home menu-icon"></i>
+              <span class="menu-title">Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./faculty">
+              <i class="typcn typcn-device-desktop menu-icon"></i>
+              <span class="menu-title">Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./index">
+              <i class="typcn typcn-user-outline menu-icon"></i>
+              <span class="menu-title">Profile
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./login">
+              <i class="typcn typcn-device-desktop menu-icon"></i>
+              <span class="menu-title">Logout
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+
+
+      <div class="main-panel">
+        <div class="content-wrapper flex">
+          <div class="row">
+            <div class="col-sm-12">
+              <h2 class="mb-0 font-weight-bold" style="padding-bottom: 1rem;border-bottom: 2px solid #6206a8;">FACULTY
+                DASHBOARD</h2>
+
+            </div>
+          </div>
+
+          <div class="row margin-card-top">
+            <div class="col-xl-4 col-sm-6 col-12 div-small">
+              <div class="card shadow-lg">
+                <div class="card-content">
+                  <div class="card-body">
+                    <div class="media d-flex">
+                      <div class="align-self-center">
+                        <i class="fa fa-code font-large-2 float-left"></i>
+                      </div>
+                      <div class="media-body text-right">
+                        <h3>3</h3>
+                        <span>No. of Subjects</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-sm-6 col-12">
+              <div class="card shadow-lg">
+                <div class="card-content">
+                  <div class="card-body">
+                    <div class="media d-flex">
+                      <div class="align-self-center">
+                        <i class="fa fa-question font-large-2 float-left"></i>
+                      </div>
+                      <div class="media-body text-right">
+                        <h3>15</h3>
+                        <span>No. of Questions</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card margin-card-top">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-10">
+                  <h4 class="card-title col-lg-4">Questions Uploaded</h4>
+                </div>
+
+                <div class="col-md-2">
+                  <button type="button" class="btn btn-primary-new" style="align-content: center;" data-toggle="modal"
+                    data-target=".bd-example-modal-lg">Add
+                    Question</button>
+
+                  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content p-5">
+                        <div class="modal-header">
+                          <h2 class="modal-title" id="exampleModalLongTitle">Edit Submissions</h2>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form action="questions.html" method="POST">
+                            <div class="row">
+                              <div class="form-group col-md-4">
+                                <label for="subject-name">Name Of The Subject : <sup>*</sup></label>
+                              </div>
+                              <div class="form-group col-md-8">
+                                <div class="input-group">
+                                  <select class="custom-select" id="subject-name" required>
+                                    <option value="">Choose...</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="form-group col-md-4">
+                                <label for="chapter-name">Name Of The Chapter : <sup>*</sup></label>
+                              </div>
+                              <div class="form-group col-md-8">
+                                <div class="input-group">
+                                  <select class="custom-select" id="chapter-name" required>
+                                    <option value="">Choose...</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                              <div class="form-group col-md-4">
+                                <label for="difficulty">Difficulty Level : <sup>*</sup></label>
+                              </div>
+                              <div class="btn-group-sm btn-group-toggle col-md-8" data-toggle="buttons" id="difficulty">
+                                <label class="btn btn-secondary active">
+                                  <input type="radio" name="diff-options" id="diff-option1" required> Easy
+                                </label>
+                                <label class="btn btn-secondary">
+                                  <input type="radio" name="diff-options" id="diff-option2" required> Medium
+                                </label>
+                                <label class="btn btn-secondary">
+                                  <input type="radio" name="diff-options" id="diff-option3" required> Hard
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="form-group col-md-2">
+                                <label for="question">Enter Question : <sup>*</sup></label>
+                              </div>
+                              <div class="col-md-10">
+                                <input type="text" class="form-control" id="question" name="question"
+                                  placeholder="Question" required>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="form-group col-md-2">
+                                <label for="question">Option 1 : <sup>*</sup></label>
+                              </div>
+                              <div class="col-md-7">
+                                <input type="text" class="form-control" id="question" name="question"
+                                  placeholder="Option 1" required>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="option" id="option1" value="option1">
+                                <label class="form-check-label" for="option1">
+                                  Correct Answer
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="form-group col-md-2">
+                                <label for="question">Option 2 : <sup>*</sup></label>
+                              </div>
+                              <div class="col-md-7">
+                                <input type="text" class="form-control" id="question" name="question"
+                                  placeholder="Option 2" required>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="option" id="option2" value="option2">
+                                <label class="form-check-label" for="option2">
+                                  Correct Answer
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="form-group col-md-2">
+                                <label for="question">Option 3 : <sup>*</sup></label>
+                              </div>
+                              <div class="col-md-7">
+                                <input type="text" class="form-control" id="question" name="question"
+                                  placeholder="Option 3" required>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="option" id="option3" value="option3">
+                                <label class="form-check-label" for="option3">
+                                  Correct Answer
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="form-group col-md-2">
+                                <label for="question">Option 4 : <sup>*</sup></label>
+                              </div>
+                              <div class="col-md-7">
+                                <input type="text" class="form-control" id="question" name="question"
+                                  placeholder="Option 4" required>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="option" id="option4" value="option4">
+                                <label class="form-check-label" for="option4">
+                                  Correct Answer
+                                </label>
+                              </div>
+                            </div>
+
+                            <div class="text-center">
+                              <p class="form-footer-text">* Your Submissions Will Be Supervised By The Experts.</p>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary" data-dismiss="modal">Save Changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th style="font-weight: bold;">
+                        Sr No.
+                      </th>
+                      <th style="font-weight: bold;">
+                        Question
+                      </th>
+                      <th style="font-weight: bold;">
+                        Branch
+                      </th>
+                      <th style="font-weight: bold;">
+                        Subject
+                      </th>
+
+                      <th style="font-weight: bold;">
+                        Edit
+                      </th>
+
+                      <th style="font-weight: bold;">
+                        Status
+                      </th>
+                      <th style="font-weight: bold;">
+                        Delete
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <h5>1</h5>
+                      </td>
+                      <td>
+                        <select class="form-control form-control-lg" id="exampleFormControlSelect1"
+                          style="width: 100%;">
+                          <option>
+                            <h5> What is an operating system?</h5>
+                          </option>
+                          <option>
+                            <h5>* interface between the hardware and application programs
+                              </h5>
+                          </option>
+                          <option>
+                            <h5> * collection of programs that manages hardware resources
+                              </h5>
+                          </option>
+                          <option>
+                            <h5> * system service provider to the application programs
+                             </h5>
+                          </option>
+                          <option>
+                            <h5> * all of the mentioned</h5>
+                          </option>
+                        </select>
+                      </td>
+                      <td>
+                        <h5>INFT</h5>
+                      </td>
+
+                      <td>
+                        <h5>OS</h5>
+                      </td>
+                      </td>
+                      <td>
+                        <button type="button" class="btn  btn-sm btn-primary-new " data-toggle="modal"
+                          data-target=".bd-example-modal-lg">Edit</button>
+                        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+                          aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-lg">
+                            <div class="modal-content p-5">
+                              <div class="modal-header">
+                                <h2 class="modal-title" id="exampleModalLongTitle">Edit Submissions</h2>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <form action="questions.html" method="POST">
+                                  <div class="row">
+                                    <div class="form-group col-md-4">
+                                      <label for="subject-name">Name Of The Subject : <sup>*</sup></label>
+                                    </div>
+                                    <div class="form-group col-md-8">
+                                      <div class="input-group">
+                                        <select class="custom-select" id="subject-name" required>
+                                          <option value="">Choose...</option>
+                                          <option value="1">One</option>
+                                          <option value="2">Two</option>
+                                          <option value="3">Three</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                      <label for="chapter-name">Name Of The Chapter : <sup>*</sup></label>
+                                    </div>
+                                    <div class="form-group col-md-8">
+                                      <div class="input-group">
+                                        <select class="custom-select" id="chapter-name" required>
+                                          <option value="">Choose...</option>
+                                          <option value="1">One</option>
+                                          <option value="2">Two</option>
+                                          <option value="3">Three</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="row d-flex justify-content-center">
+                                    <div class="form-group col-md-4">
+                                      <label for="difficulty">Difficulty Level : <sup>*</sup></label>
+                                    </div>
+                                    <div class="btn-group-sm btn-group-toggle col-md-8" data-toggle="buttons"
+                                      id="difficulty">
+                                      <label class="btn btn-secondary active">
+                                        <input type="radio" name="diff-options" id="diff-option1" required> Easy
+                                      </label>
+                                      <label class="btn btn-secondary">
+                                        <input type="radio" name="diff-options" id="diff-option2" required> Medium
+                                      </label>
+                                      <label class="btn btn-secondary">
+                                        <input type="radio" name="diff-options" id="diff-option3" required> Hard
+                                      </label>
+                                    </div>
+                                  </div>
+
+                                  <div class="row">
+                                    <div class="form-group col-md-2">
+                                      <label for="question">Enter Question : <sup>*</sup></label>
+                                    </div>
+                                    <div class="col-md-10">
+                                      <input type="text" class="form-control" id="question" name="question"
+                                        placeholder="Question" required>
+                                    </div>
+                                  </div>
+
+                                  <div class="row">
+                                    <div class="form-group col-md-2">
+                                      <label for="question">Option 1 : <sup>*</sup></label>
+                                    </div>
+                                    <div class="col-md-7">
+                                      <input type="text" class="form-control" id="question" name="question"
+                                        placeholder="Option 1" required>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="option" id="option1"
+                                        value="option1">
+                                      <label class="form-check-label" for="option1">
+                                        Correct Answer
+                                      </label>
+                                    </div>
+                                  </div>
+
+                                  <div class="row">
+                                    <div class="form-group col-md-2">
+                                      <label for="question">Option 2 : <sup>*</sup></label>
+                                    </div>
+                                    <div class="col-md-7">
+                                      <input type="text" class="form-control" id="question" name="question"
+                                        placeholder="Option 2" required>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="option" id="option2"
+                                        value="option2">
+                                      <label class="form-check-label" for="option2">
+                                        Correct Answer
+                                      </label>
+                                    </div>
+                                  </div>
+
+                                  <div class="row">
+                                    <div class="form-group col-md-2">
+                                      <label for="question">Option 3 : <sup>*</sup></label>
+                                    </div>
+                                    <div class="col-md-7">
+                                      <input type="text" class="form-control" id="question" name="question"
+                                        placeholder="Option 3" required>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="option" id="option3"
+                                        value="option3">
+                                      <label class="form-check-label" for="option3">
+                                        Correct Answer
+                                      </label>
+                                    </div>
+                                  </div>
+
+                                  <div class="row">
+                                    <div class="form-group col-md-2">
+                                      <label for="question">Option 4 : <sup>*</sup></label>
+                                    </div>
+                                    <div class="col-md-7">
+                                      <input type="text" class="form-control" id="question" name="question"
+                                        placeholder="Option 4" required>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="radio" name="option" id="option4"
+                                        value="option4">
+                                      <label class="form-check-label" for="option4">
+                                        Correct Answer
+                                      </label>
+                                    </div>
+                                  </div>
+
+                                  <div class="text-center">
+                                    <p class="form-footer-text">* Your Submissions Will Be Supervised By The Experts.
+                                    </p>
+                                  </div>
+                                </form>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Save Changes</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </td>
+                      <td>
+                        <label class="badge badge-success">Approved</label>
+                      </td>
+
+                      <td>
+                        <button type="button" class="btn  btn-sm btn-danger-new ">Delete</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h5>2</h5>
+                      </td>
+
+                      <td>
+                        <select class="form-control form-control-lg" id="exampleFormControlSelect1"
+                          style="width: 100%;">
+                          <option>
+                            <h5>Where is linear searching used?</h5>
+                          </option>
+                          <option>
+                            <h5> * When the list has only a few elements
+                              </h5>
+                          </option>
+                          <option>
+                            <h5> * When performing a single search in an unordered list
+                              </h5>
+                          </option>
+                          <option>
+                            <h5> * Used all the time
+                             </h5>
+                          </option>
+                          <option>
+                            <h5> * When the list has only a few elements and When performing a single search</h5>
+                          </option>
+                        </select>
+
+                      </td>
+
+                      <td>
+                        <h5>INFT</h5>
+                      </td>
+                      <td>
+                        <h5>DSA</h5>
+                      </td>
+
+                      <td>
+                        <button type="button" class="btn  btn-sm btn-primary-new ">Edit</button>
+                      </td>
+
+                      <td>
+                        <label class="badge badge-success">Approved</label>
+                      </td>
+                      <td>
+                        <button type="button" class="btn  btn-sm btn-danger-new ">Delete</button>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="./dashboard/vendors/js/vendor.bundle.base.js"></script>
+
+  <script src="./dashboard/js/off-canvas.js"></script>
+  <script src="./dashboard/js/hoverable-collapse.js"></script>
+  <script src="./dashboard/js/template.js"></script>
+  <script src="./dashboard/js/settings.js"></script>
+  <script src="./dashboard/js/todolist.js"></script>
+
+  <script src="./dashboard/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="./dashboard/vendors/chart.js/Chart.min.js"></script>
+
+  <script src="./dashboard/js/dashboard.js"></script>
+  <script>
+    let counter = 0;
+    let hamburgerbtn = document.getElementById("hbtn")
+    window.onload = () => {
+      hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-6.4rem)"
+    }
+    hamburgerbtn.addEventListener('click', () => {
+
+      if (counter == 0) {
+        hamburgerbtn.style.transform = "translateX(-0.5rem)"
+        counter = 1;
+      }
+      else {
+        hamburgerbtn.style.transform = "translateX(8.5rem)"
+        counter = 0;
+      }
+    })
+  </script>
+
+</body>
+
+</html>

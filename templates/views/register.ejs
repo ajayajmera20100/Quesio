@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quesio | Sign Up</title>
+    <link rel="stylesheet" href="assets/vendors/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/Q.ico">
+</head>
+
+<body style="overflow-x:hidden; background-image: linear-gradient(45deg, #c395e5,  #6206a8);">
+
+    <div class="row">
+        <div class="col-lg-9 mx-auto border border-light rounded-lg pt-4 mx-5 my-5 shadow-lg bg-white">
+            <div class="card-body">
+                <div class="row w-300">
+                    <div class="col-md-2 mb-4">
+                        <button type="button" class="btn btn-primary btn-rounded btn-icon" style="padding: 12%; ">
+                            <a href="/">
+                                <img src="assets\images\home.png" style="height: 24px;" alt="App store"></a>
+                        </button>
+                    </div>
+                    <div class="col-md-10" style="padding-left: 265px;">
+                        <h1 class="auth-section-title mt-3" style="font-size: xx-large">Register Here !</h1>
+                    </div>
+                </div>
+                <p class="auth-section-subtitle text-center">Create Your Account To Contribute.
+                </p>
+                <form action="/register" method="POST">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label" for="name">Full Name : <sup>*</sup></label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="name" name="name"
+                                        placeholder="Name Surname" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label" for="email">Email ID : <sup>*</sup></label>
+                                <div class="col-md-9">
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="support@quesio.com" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label" for="phoneno">Phone No. : <sup>*</sup></label>
+                                <div class="col-md-9">
+                                    <input type="number" class="form-control" id="phoneno" name="phoneno"
+                                        placeholder="912345XXXX" required maxlength="10">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row ">
+                                <label class="col-md-3 col-form-label" for="university">University :
+                                    <sup>*</sup></label>
+                                <div class="col-md-9">
+                                    <select class="custom-select text-muted" id="university" name="university"
+                                        style="height: 3.5rem; padding-left: 30px;" required>
+                                        <option value="">Choose University</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label" for="college">College : <sup>*</sup></label>
+                                <div class="col-md-9">
+                                    <select class="custom-select text-muted" id="college" name="college"
+                                        style="height: 3.5rem; padding-left: 30px;" required>
+                                        <option value="">Choose College</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label" for="branch">Branch : <sup>*</sup></label>
+                                <div class="col-md-9">
+                                    <select class="custom-select text-muted" id="branch" name="branch"
+                                        style="height: 3.5rem; padding-left: 30px;" required>
+                                        <option value="">Choose Branch</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label" for="password">Password : <sup>*</sup></label>
+                                <div class="col-md-9">
+                                    <input type="password" class="form-control" id="password" name="password"
+                                        placeholder="Password" required minlength="8">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-md-3 col-form-label" for="ugc">Upload UGC : <sup>*</sup></label>
+                                <div class="col-md-9">
+                                    <input type="file" class="form-control" id="ugc" name="ugc" placeholder="UGC"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 form-group mt-3">
+                            <label for="nochapter">Subjects & Experience : <sup>*</sup></label>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" id="nochapter" name="nochapter"
+                                placeholder="Enter The Number Of Subjects" required>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-outline-dark mt-1 mx-5" value="set"
+                                onclick="generate()">Enter</button>
+                        </div>
+                        <div class="col-md-12">
+                            <div id="k"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-center mt-4">
+                            <button class="btn btn-primary btn-auth-submit" type="submit">Sign Up</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="text-center">
+                    <p class="mb-0">
+                        Already Have An Account ?
+                        <a href="/login" class="text-dark font-weight-bold ">Log In</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="assets/vendors/jquery/jquery.min.js"></script>
+    <script src="assets/vendors/popper.js/popper.min.js"></script>
+    <script src="assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script>
+
+        let k = document.getElementById("k");
+
+        function generate() {
+
+
+
+            var a = parseInt(document.getElementById("nochapter").value);
+
+            var ch = document.getElementById("ch");
+
+            let div = ``;
+
+            for (i = 0; i < a; i++) {
+
+                div = div + `<div class="col-md-12 d-flex">
+                                <div class="col-md-6 m-1">
+                                    <select class="custom-select col-md-12 text-muted" id="subjects" name="subjects" required>
+                                        <option value="">Choose Subjects</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 m-1">
+                                    <input type="text" class="form-control col-md-12 text-muted" style="height:2.5rem;" id="" name=""
+                                    placeholder="Enter The Years Of Experience" required>
+                                </div> 
+                        </div>`;
+
+            }
+
+            k.innerHTML = div;
+
+        }
+
+    </script>
+</body>
+
+</html>
