@@ -15,5 +15,10 @@ Router.get('/',(req, res)=>{
   res.render('facultyDashboard'); 
 })
 
+Router.get('/profile', (req, res) => {
+  res.render('profile');
+
+});
+
 
 export default Router;
