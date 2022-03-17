@@ -57,22 +57,17 @@ Router.get('/college', async (req, res) => {
     const collegedata = await UserModel.aggregate([
         {
             $match: { isVarified: { $eq: 1 } }
-
         },
         {
             "$group": {
                 "_id": "$college",
                 "faculty":{$sum:"$isFaculty"},
-                "expert":{$sum:"$isExpert"},
-                "data": { $push: "$$ROOT.question_submited" }
+                "expert":{$sum:"$isExpert"}
 
             }
         }
 
     ])
-
-
-
 
     res.render('adminCollege',{collegedata})
 })
@@ -135,16 +130,31 @@ Router.get('/subjects', async(req, res) => {
                 "_id": "$subject.subject_name",
                 "faculty":{$sum:"$isFaculty"},
                 "expert":{$sum:"$isExpert"},
-                "data": { $push: "$$ROOT.question_submited" }
+                "questions": { $push: "$$ROOT.question_submited" }
 
             }
         }
 
     ])
-   
+    let subject_detail=[]
+    subjects.forEach(subject=>{
+        let facultycount=0
+        let expertcount=0
+        let questioncount=0
+        data.forEach(data=>{
+            if(data._id.includes(subject.subject_name)){
+                facultycount=facultycount+data.faculty;
+                expertcount=expertcount+data.expert;
+                questioncount=questioncount+data.questions[0].length
+            }
+        })
+    subject_detail.push({'subject':subject.subject_name,"faculty":facultycount,"expert":expertcount,'questioncount':questioncount})
+    })
+
+//    res.send(subject_detail)
 
   
-    res.render('adminSubject')
+    res.render('adminSubject',{subject_detail})
 })
 
 

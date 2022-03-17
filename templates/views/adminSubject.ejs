@@ -242,22 +242,23 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <% subject_detail.forEach((data,index)=>{%> 
                         <tr>
                           <td>
-                            <h5>1</h5>
+                            <h5><%=index+1 %> </h5>
                           </td>
                           <td>
-                            <h5>DBMS</h5>
+                            <h5><%=data.subject  %> </h5>
                           </td>
                           <td>
-                            <h5>2</h5>
+                            <h5><%=data.faculty  %> </h5>
                           </td>
                           <td>
-                            <h5>1</h5>
+                            <h5><%=data.expert  %> </h5>
                           </td>
 
                           <td>
-                            <h5>8</h5>
+                            <h5><%=data.questioncount %> </h5>
                           </td>
                           <td>
                             <button type="button" class="btn btn-primary btn-sm btn-danger ">Delete</button>
@@ -265,27 +266,7 @@
 
 
                         </tr>
-                        <tr>
-                          <td>
-                            <h5>2</h5>
-                          </td>
-
-                          <td>
-                            <h5>ADMT</h5>
-                          </td>
-                          <td>
-                            <h5>3</h5>
-                          </td>
-                          <td>
-                            <h5>1</h5>
-                          </td>
-                          <td>
-                            <h5>11</h5>
-                          </td>
-                          <td>
-                            <button type="button" class="btn btn-primary btn-sm btn-danger ">Delete</button>
-                          </td>
-                        </tr>
+                       <% })  %> 
 
                       </tbody>
                     </table>
