@@ -21,6 +21,7 @@ Router.use(cookieParser())
 // Access: Public
 // Method : GET
 Router.get('/',async(req, res)=>{
+try {
   const encrypteduserdata= req.cookies.jwt;
   const userdata=jwt_decode(encrypteduserdata)
   const userid = JSON.parse(JSON.stringify(userdata.user))
@@ -29,10 +30,11 @@ Router.get('/',async(req, res)=>{
   const subjects = fromdatabase.subject.map(elem=>{
     return elem.subject_name
   })
-  
-
-
   res.render('questions',{subjects:subjects}); 
+} catch (error) {
+  res.send(error)
+}
+
 })
 
 // Route: /questions
@@ -55,6 +57,7 @@ Router.get('/update:qid',async(req, res)=>{
 Router.post('/',isAuth, async(req, res)=>{
   try {
      const {subject,chapter,diff,question,option1,option2,option3,option4,correct} = req.body;
+     await QuestionModel.findQuestion(question);
      const questions = new QuestionModel({
       question:question,
       options:[option1,option2,option3,option4],
@@ -67,6 +70,20 @@ Router.post('/',isAuth, async(req, res)=>{
      })
     //  console.log(questions)
      await questions.save();
+    const getid = questions.getId()
+    // console.log(getid)
+    const encrypteduserdata= req.cookies.jwt;
+    const userdata=jwt_decode(encrypteduserdata)
+    const userid = JSON.parse(JSON.stringify(userdata.user))
+
+
+
+    const updated = await UserModel.findByIdAndUpdate(userid,{
+    $push:{
+    question_submited:getid
+    }
+    })
+    await updated.save()
      res.json({message:"Data added to the database"})
     }
     catch (error) {
