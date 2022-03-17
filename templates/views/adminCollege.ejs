@@ -25,7 +25,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item" id="brandq">
-            <a class="navbar-brand" href="index.html" style="display: inline-block;
+            <a class="navbar-brand" href="/" style="display: inline-block;
             padding-top: 0.3rem;
             margin-right: 1rem;
             font-size: 2.5rem;
@@ -219,70 +219,37 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <% collegelist.forEach((college,index)=>{ %>
+                        <% collegedata.forEach((data,index)=>{ %>
                         <tr>
                           <td>
                             <h5><%=index+1 %></h5>
                           </td>
                           <td>
-                            <h5><%=college %></h5>
+                            <h5><%=data._id %></h5>
                           </td>
                           
-                        <!-- ---------------------------------- -->
-                       <% collegefaculty.forEach(faculty=>{ %> 
-                        <%if(college == faculty._id){ %>
-                                    
-                          <% infaculty=true} %> 
-                            
-                       <%  })%> 
-
-                       <% if(infaculty==true){ %> 
-                        <% collegefaculty.forEach(faculty=>{ %> 
-                          <%if(college == faculty._id){ %>
-                            <td>
-                              <h5><%= faculty.faculty %> </h5>
-                            </td>
-                            <% infaculty=true} %> 
-                              
-                         <%  })%> 
-                       
-                        <%  }else{ %> 
-                          <td>
-                            <h5>0</h5>
-                          </td>
-                          <% } %> 
-                          <!-- ---------------------------- -->
-                        
-                          <% collegeexpert.forEach(expert=>{ %> 
-                            <%if(college == expert._id){ %>
-                                        
-                              <% inexpert=true} %> 
-                                
-                           <%  })%> 
-    
-                           <% if(inexpert==true){ %> 
-                            <% collegeexpert.forEach(expert=>{ %> 
-                              <%if(college == expert._id){ %>
-                                <td>
-                                  <h5><%= expert.moderator %> </h5>
-                                </td>
-                                <% inexpert=true} %> 
-                                  
-                             <%  })%> 
-                            <%  }else{ %> 
-                              <td>
-                                <h5>0</h5>
-                              </td>
-                              <% } %> 
-                                                 
-                             
                       
+                      
+
+                      
+                            <td>
+                              <h5><%= data.faculty %> </h5>
+                            </td>
+                           
+                      
+                        
+                         
+                          
+                                <td>
+                                  <h5><%= data.expert %> </h5>
+                                </td>
+                               
                           <td>
                             <button type="button" class="btn btn-primary btn-sm btn-danger ">Delete</button>
                           </td>
 
                         </tr>
-                        <% infaculty=false,inexpert=false}) %>
+                        <% }) %>
 
                         
                       </tbody>

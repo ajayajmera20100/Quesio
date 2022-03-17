@@ -23,8 +23,8 @@ Router.get('/', async (req, res) => {
     const approved_question = await QuestionModel.find({ isValid: { '$eq': true } }).count()
     const pending_question = await QuestionModel.find({ isValid: { '$eq': false } }).count()
     const total_college = await CollegeModel.find().count()
-    const total_faculty = await UserModel.find({ isVarified: { '$eq': true } }).count()
-    const total_moderator = await UserModel.find({ isExpert: { '$eq': true } }).count()
+    const total_faculty = await UserModel.find({ isVarified: { '$eq': 1 } }).count()
+    const total_moderator = await UserModel.find({ isExpert: { '$eq': 1 } }).count()
     const total_subject = await SubjectModel.find().count()
 
 
@@ -53,79 +53,97 @@ Router.get('/', async (req, res) => {
 
 
 Router.get('/college', async (req, res) => {
-    const collegefaculty = await UserModel.aggregate([
-        { $match: { isExpert: { $eq: false } } },
+   
+    const collegedata = await UserModel.aggregate([
+        {
+            $match: { isVarified: { $eq: 1 } }
+
+        },
         {
             "$group": {
                 "_id": "$college",
-                faculty: { $sum: 1 }
+                "faculty":{$sum:"$isFaculty"},
+                "expert":{$sum:"$isExpert"},
+                "data": { $push: "$$ROOT.question_submited" }
+
             }
-        }])
-    const collegeexpert = await UserModel.aggregate([
-        { $match: { isExpert: { $eq: true } } },
-        {
-            "$group": {
-                "_id": "$college",
-                moderator: { $sum: 1 }
-            }
-        }])
+        }
+
+    ])
 
 
 
-const collegelist=[]
-const data=[]
-collegefaculty.forEach(faculty => {
-    collegelist.push(faculty._id)
-});
-collegeexpert.forEach(moderator => {
-   collegelist.push(moderator._id)
-});
-let uniquecollegelist=[... new Set(collegelist)]
 
-
-uniquecollegelist.forEach(moderator => {
-    data.push(moderator._id)
- });
-
-
-// res.send(collegeexpert)
-console.log(collegeexpert)
-console.log(collegefaculty)
-console.log(collegelist)
-
-res.render('adminCollege', { collegefaculty, collegeexpert,collegelist,infaculty:false,inexpert:false })
+    res.render('adminCollege',{collegedata})
 })
 
 
-Router.get('/faculty',async (req, res) => {
-    const facultydata= await UserModel.find({'isVarified':true,'isExpert':false})
+Router.get('/faculty', async (req, res) => {
+    const facultydata = await UserModel.find({ 'isVarified': 1, 'isExpert': 0 })
 
-    res.render('adminFaculty',{facultydata})
+    res.render('adminFaculty', { facultydata })
 })
 
-Router.get('/moderator',async (req, res) => {
-    const moderatordata= await UserModel.find({'isVarified':true,'isExpert':true})
-    
-    res.render('adminModerator',{moderatordata})
+Router.get('/moderator', async (req, res) => {
+    const moderatordata = await UserModel.find({ 'isVarified': 1, 'isExpert': 1 })
+
+    res.render('adminModerator', { moderatordata })
 })
 
 Router.get('/questions', async (req, res) => {
-    const questiondata = await QuestionModel.find()
+    const questiondata = await QuestionModel.find({isValid:true})
     res.render('adminQuestions', { questiondata: questiondata })
 })
 
 
-Router.get('/moderator', (req, res) => {
-    res.render('adminModerator')
+
+Router.get('/branchs', async (req, res) => {
+    const branchdata = await UserModel.aggregate([
+        {
+            $match: { isVarified: { $eq: 1 } }
+
+        },
+        {
+            "$group": {
+                "_id": "$branch",
+                "faculty":{$sum:"$isFaculty"},
+                "expert":{$sum:"$isExpert"},
+                "data": { $push: "$$ROOT.question_submited" }
+
+            }
+        }
+
+    ])
+    // res.send(branchdata)
+
+// console.log(branchdata);
+
+    res.render('adminBranch',{branchdata})
+    
 })
 
 
-Router.get('/branchs', (req, res) => {
-    res.render('adminBranch')
-})
+Router.get('/subjects', async(req, res) => {
+    const subjects=await SubjectModel.aggregate([{$project:{_id:0,subject_name:1}}])
+    const data = await UserModel.aggregate([
+        {
+            $match: { isVarified: { $eq: 1 } }
 
+        },
+        {
+            "$group": {
+                "_id": "$subject.subject_name",
+                "faculty":{$sum:"$isFaculty"},
+                "expert":{$sum:"$isExpert"},
+                "data": { $push: "$$ROOT.question_submited" }
 
-Router.get('/subjects', (req, res) => {
+            }
+        }
+
+    ])
+   
+
+  
     res.render('adminSubject')
 })
 

@@ -232,74 +232,33 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>
-                            <h5>1</h5>
-                          </td>
-                          <td>
-                            <h5>CMPN</h5>
-                          </td>
-                          <td>
-                            <h5>2</h5>
-                          </td>
-                          <td>
-                            <h5>0</h5>
-                          </td>
-
-                          <td>
-                            <h5>7</h5>
-                          </td>
-                          <td>
-                            <button type="button" class="btn btn-primary btn-sm btn-danger ">Delete</button>
-                          </td>
-
-
-                        </tr>
-                        <tr>
-                          <td>
-                            <h5>2</h5>
-                          </td>
-                          <td>
-                            <h5>EXTC</h5>
-                          </td>
-                          <td>
-                            <h5>1</h5>
-                          </td>
-                          <td>
-                            <h5>1</h5>
-                          </td>
-
-                          <td>
-                            <h5>12</h5>
-                          </td>
-                          <td>
-                            <button type="button" class="btn btn-primary btn-sm btn-danger ">Delete</button>
-                          </td>
-
-
-                        </tr>
-
-                        <tr>
-                          <td>
-                            <h5>3</h5>
-                          </td>
-
-                          <td>
-                            <h5>INFT</h5>
-                          </td>
-                          <td>
-                            <h5>2</h5>
-                          </td>
-                          <td>
-                            <h5>1</h5>
-                          </td>
-                          <td>
-                            <h5>5</h5>
-                          </td>
-                          <td>
-                            <button type="button" class="btn btn-primary btn-sm btn-danger ">Delete</button>
-                          </td>
-                        </tr>
+                        <% branchdata.forEach((data,index)=>{ %> 
+                          <tr>
+                            <td>
+                              <h5><%=index+1 %> </h5>
+                            </td>
+                            <td>
+                              <h5><%=data._id  %> </h5>
+                            </td>
+                            <td>
+                              <h5><%=data.faculty  %></h5>
+                            </td>
+                            <td>
+                              <h5><%=data.expert  %></h5>
+                            </td>
+  
+                            <td>
+                              <h5><%=data.data.length  %> </h5>
+                            </td>
+                            <td>
+                              <button type="button" class="btn btn-primary btn-sm btn-danger ">Delete</button>
+                            </td>
+  
+  
+                          </tr>
+                        <% }) %> 
+                        
+                       
 
                       </tbody>
                     </table>
