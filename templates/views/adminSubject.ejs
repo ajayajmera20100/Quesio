@@ -35,9 +35,7 @@
             font-weight: bold;
             font-family: Merienda One, cursive;
             color: white;
-            padding-left: 1rem;"
-            
-            >
+            padding-left: 1rem;">
               Quesio
             </a>
           </li>
@@ -116,7 +114,7 @@
             <a class="nav-link" href="/">
               <i class="typcn typcn-lock-closed menu-icon"></i>
               <span class="menu-title">Logout</span>
-              
+
             </a>
           </li>
 
@@ -242,31 +240,41 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <% subject_detail.forEach((data,index)=>{%> 
-                        <tr>
-                          <td>
-                            <h5><%=index+1 %> </h5>
-                          </td>
-                          <td>
-                            <h5><%=data.subject  %> </h5>
-                          </td>
-                          <td>
-                            <h5><%=data.faculty  %> </h5>
-                          </td>
-                          <td>
-                            <h5><%=data.expert  %> </h5>
-                          </td>
+                        <% subject_detail.forEach((data,index)=>{%>
+                          <tr>
+                            <td>
+                              <h5>
+                                <%=index+1 %>
+                              </h5>
+                            </td>
+                            <td>
+                              <h5>
+                                <%=data.subject %>
+                              </h5>
+                            </td>
+                            <td>
+                              <h5>
+                                <%=data.faculty %>
+                              </h5>
+                            </td>
+                            <td>
+                              <h5>
+                                <%=data.expert %>
+                              </h5>
+                            </td>
 
-                          <td>
-                            <h5><%=data.questioncount %> </h5>
-                          </td>
-                          <td>
-                            <button type="button" class="btn btn-primary btn-sm btn-danger ">Delete</button>
-                          </td>
+                            <td>
+                              <h5>
+                                <%=data.questioncount %>
+                              </h5>
+                            </td>
+                            <td>
+                              <button type="button" class="btn btn-primary btn-sm btn-danger ">Delete</button>
+                            </td>
 
 
-                        </tr>
-                       <% })  %> 
+                          </tr>
+                          <% }) %>
 
                       </tbody>
                     </table>
@@ -302,25 +310,25 @@
   <script src="/dashboard/js/settings.js"></script>
   <script src="/dashboard/js/todolist.js"></script>
   <script>
-    let counter =0;
+    let counter = 0;
     let hamburgerbtn = document.getElementById("hbtn")
     let brandq = document.getElementById("brandq")
 
 
     window.onload = () => {
       hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.4rem)"
-      }
-    hamburgerbtn.addEventListener('click',() => {
-      
-      if(counter == 0){
+    }
+    hamburgerbtn.addEventListener('click', () => {
+
+      if (counter == 0) {
         hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.4rem)"
         brandq.style.transform = "translateX(-10rem)"
-        counter =1;
+        counter = 1;
       }
-      else{
+      else {
         hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.4rem)"
         brandq.style.transform = "translateX(0rem)"
-        counter =0;
+        counter = 0;
       }
     })
   </script>

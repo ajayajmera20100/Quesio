@@ -12,13 +12,14 @@ import { SubjectModel } from '../models/subject'
 
 // Authorisation
 import isAuth from "../isauth";
+import req from "express/lib/request";
 
 const Router = express.Router();
 Router.use(cookieParser())
 
 
 
-Router.get('/', async (req, res) => {
+Router.get('/',isAuth, async (req, res) => {
     const total_ques = await QuestionModel.find().count()
     const approved_question = await QuestionModel.find({ isValid: { '$eq': true } }).count()
     const pending_question = await QuestionModel.find({ isValid: { '$eq': false } }).count()
@@ -52,7 +53,7 @@ Router.get('/', async (req, res) => {
 })
 
 
-Router.get('/college', async (req, res) => {
+Router.get('/college', isAuth,async (req, res) => {
    
     const collegedata = await UserModel.aggregate([
         {
@@ -72,27 +73,32 @@ Router.get('/college', async (req, res) => {
     res.render('adminCollege',{collegedata})
 })
 
+Router.post('/college',(req,res)=>{
+    console.log("req.body")
+})
 
-Router.get('/faculty', async (req, res) => {
-    const facultydata = await UserModel.find({ 'isVarified': 1, 'isExpert': 0 })
+
+
+Router.get('/faculty', isAuth,async (req, res) => {
+    const facultydata = await UserModel.find({ 'isFaculty': 1 })
 
     res.render('adminFaculty', { facultydata })
 })
 
-Router.get('/moderator', async (req, res) => {
-    const moderatordata = await UserModel.find({ 'isVarified': 1, 'isExpert': 1 })
+Router.get('/moderator',isAuth, async (req, res) => {
+    const moderatordata = await UserModel.find({ 'isExpert': 1 })
 
     res.render('adminModerator', { moderatordata })
 })
 
-Router.get('/questions', async (req, res) => {
+Router.get('/questions',isAuth, async (req, res) => {
     const questiondata = await QuestionModel.find({isValid:true})
     res.render('adminQuestions', { questiondata: questiondata })
 })
 
 
 
-Router.get('/branchs', async (req, res) => {
+Router.get('/branchs',isAuth, async (req, res) => {
     const branchdata = await UserModel.aggregate([
         {
             $match: { isVarified: { $eq: 1 } }
@@ -117,8 +123,11 @@ Router.get('/branchs', async (req, res) => {
     
 })
 
+Router.post('/addbranch',(req,res)=>{
+    console.log(req.body)
+})
 
-Router.get('/subjects', async(req, res) => {
+Router.get('/subjects',isAuth, async(req, res) => {
     const subjects=await SubjectModel.aggregate([{$project:{_id:0,subject_name:1}}])
     const data = await UserModel.aggregate([
         {

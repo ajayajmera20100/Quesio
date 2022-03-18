@@ -1,6 +1,7 @@
 //Library
 import express from "express";
 import jwt from "jsonwebtoken";
+import jwt_decode from 'jwt-decode';
 import cookieParser from "cookie-parser";
 
 // models
@@ -14,9 +15,9 @@ Router.use(cookieParser())
 
 
 
-Router.get('/as',isAuth,(req,res)=>{
-    // res.json({token: req.mytoken})
-    res.render('home')
+Router.get('/as', isAuth, (req, res) => {
+  // res.json({token: req.mytoken})
+  res.send(req.cookies.jwt)
 })
 
 // Route: /login
@@ -24,31 +25,57 @@ Router.get('/as',isAuth,(req,res)=>{
 // params: none
 // Access: Public
 // Method : GET
-Router.get('/',(req, res)=>{
-  res.render('login'); 
+Router.get('/', (req, res) => {
   
+  res.render('login');
+
 })
+
+Router.get('/you',(req,res)=>{
+  const encrypteduserdata =req.cookies.jwt;
+  
+  const userdata = jwt_decode(encrypteduserdata);
+  
+  const usertype = JSON.parse(JSON.stringify(userdata.usertype))
+  
+  if (usertype == 'admin') { res.redirect('/admin') }
+  if (usertype == 'faculty') { res.redirect('/faculty') }
+  if (usertype == 'expert') { res.redirect('/moderator') }
+  
+} )
 
 // Route: /login
 // Description : Loging in user
 // params: none
 // Access: Public
 // Method : POST
-Router.post('/',async(req, res)=>{
+Router.post('/', async (req, res) => {
   try {
-    const user = await UserModel.findByEmailAndPassword(req.body.password,req.body.email);
-    // generate jwt token
-    const token = user.generateJwtToken();
-    // console.log(token)
-    // res.redirect('/')
-   res.cookie('jwt',token)
-    // res.json({
-    //   token:token
-    // })
-    res.redirect('/admin')
+    const user = await UserModel.findByEmailAndPassword(req.body.password, req.body.email);
+   
+    if (user.isuser) {
+      // generate jwt token
+      const token = user.user.generateJwtToken();
+      // console.log(token)
+      // res.redirect('/')
+      res.cookie('jwt', token)
+      // res.json({
+      //   token:token
+      // })
+   
+    } else {
+     
+      const token = user.admin.generateJwtTokenadmin();
+      res.cookie('jwt', token)
+      
+    }
+    console.log("brake5")
+    res.redirect('/login/you')
+   
+
   } catch (error) {
-      console.log(`You got a error ${error.message}`);
-      res.json({"error":error.message});
+    console.log(`You got a error ${error.message}`);
+    res.json({ "error": error.message });
   }
 })
 

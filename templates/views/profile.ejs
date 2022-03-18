@@ -92,7 +92,7 @@
             <div class="d-flex sidebar-profile">
               <div class="sidebar-profile-name">
                 <p class="sidebar-designation" style="display: inline;">Welcome</p>
-                <p class="sidebar-name">FACULTY</p>
+                <p class="sidebar-name"><%=usertype %> </p>
               </div>
             </div>
 
@@ -105,13 +105,21 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/faculty">
+            <a class="nav-link" href="/<%=usertype %> ">
               <i class="typcn typcn-device-desktop menu-icon"></i>
               <span class="menu-title">Dashboard
             </a>
           </li>
+          <% if(usertype=='moderator'){ %> 
           <li class="nav-item">
-            <a class="nav-link" href="/faculty/profile">
+            <a class="nav-link" href="/<%=usertype %>/moderatorquestions ">
+              <i class="typcn typcn-device-desktop menu-icon"></i>
+              <span class="menu-title">Questions to Approve
+            </a>
+          </li>
+          <% } %> 
+          <li class="nav-item">
+            <a class="nav-link" href="/<%=usertype %>/profile">
               <i class="typcn typcn-user-outline menu-icon"></i>
               <span class="menu-title">Profile
             </a>

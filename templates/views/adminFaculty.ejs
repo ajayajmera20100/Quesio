@@ -202,13 +202,23 @@
                                   View
                                 </button>
                               </td>
+                              <% if(data.isVarified){%> 
+                                <td>
+                                  <button type="button" class="btn btn-primary btn-sm">
+                                    Approved
+                                  </button>
+                                </td>
+                                <% }else{ %> 
+                                  <td>
+                                    <button type="button" class="btn btn-primary btn-sm">
+                                      Pending
+                                    </button>
+                                  </td>
+                                  <% } %> 
+                             
+
                               <td>
-                                <button type="button" class="btn btn-primary btn-sm">
-                                  Approved
-                                </button>
-                              </td>
-                              <td>
-                                <button type="button" class="btn btn-primary btn-sm btn-danger">
+                                <button type="button" onclick="location.href='/admin/deletefaculty'" class="btn btn-primary btn-sm btn-danger">
                                   Delete
                                 </button>
                               </td>
@@ -815,6 +825,9 @@
           counter =0;
         }
       })
+
+
+  
     </script>
     <!-- endinject -->
     <!-- plugin js for this page -->

@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+import jwt from "jsonwebtoken";
+
 const AdminSchema=new mongoose.Schema({
     name:{type:String,required:true},
     phone:{type:Number},
@@ -8,5 +10,13 @@ const AdminSchema=new mongoose.Schema({
 },{
     timestamps:true,
 });
+
+
+// Statics
+AdminSchema.methods.generateJwtTokenadmin = function () {
+    return jwt.sign({ admin: this._id,usertype:"admin" }, "Quesio8bit");
+};
+
+
 
 export const AdminModel=mongoose.model("admins",AdminSchema);
