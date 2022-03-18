@@ -42,7 +42,7 @@
             <div class="d-flex sidebar-profile" style="padding: 1rem 1.125rem;">
               <div class="sidebar-profile-name">
                 <p class="sidebar-designation">Welcome</p>
-                <p class="sidebar-name">MODERATOR</p>
+                <p class="sidebar-name"><MODERATOR></p>
               </div>
               <button class="navbar-toggler navbar-toggler align-self-center d-lg-flex transition-btn" type="button"
                 style="color: aliceblue;margin-top: 0.85rem;" data-toggle="minimize" id="hbtn"
@@ -68,7 +68,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/moderator/moderatorquestions">
               <i class="typcn typcn-device-desktop menu-icon"></i>
-              <span class="menu-title">Questions To Approve
+              <span class="menu-title">Questions To Validate
             </a>
           </li>
           <li class="nav-item">
@@ -91,7 +91,7 @@
         <div class="content-wrapper">
           <div class="row">
             <div class="col-sm-12" style="display: flex;justify-content: space-between;padding-bottom: 1rem;">
-              <h1 class="mb-0 font-weight-bold" style="padding-top:0.75rem;display: flex;">Questions To Approve</h1>
+              <h1 class="mb-0 font-weight-bold" style="padding-top:0.75rem;display: flex;">Questions To Validate</h1>
 
             </div>
           </div>
@@ -127,36 +127,30 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <% pendingquestions.forEach((question,index)=>{ %> 
                         <tr>
                           <td>
-                            <h5>num</h5>
+                            <h5><%=index+1 %> </h5>
                           </td>
                           <td>
                             <select class="form-control form-control-lg" id="exampleFormControlSelect1"
                               style="width: 100%">
                               <option>
-                                <h5>This is a sample question ................</h5>
+                                <h5><%=question.question %> </h5>
                               </option>
+                              <% question.options.forEach((option,opt)=>{ %> 
                               <option>
-                                <h5>option1</h5>
+                                <h5><%=opt+1%>) <%=option %>  </h5>
                               </option>
-                              <option>
-                                <h5>option2</h5>
-                              </option>
-                              <option>
-                                <h5>option3</h5>
-                              </option>
-                              <option>
-                                <h5>option4</h5>
-                              </option>
+                              <% }) %> 
                             </select>
                           </td>
                           <td>
-                            <h5>Sample</h5>
+                            <h5><%=question.branch %> </h5>
                           </td>
 
                           <td>
-                            <h5>Sample</h5>
+                            <h5><%=question.subject %> </h5>
                           </td>
                           </td>
                           <td>
@@ -167,49 +161,8 @@
                             <button type="button" class="btn btn-primary btn-sm btn-danger ">Delete</button>
                           </td>
                         </tr>
-                        <tr>
-                          <td>
-                            <h5>num</h5>
-                          </td>
-
-                          <td>
-                            <select class="form-control form-control-lg" id="exampleFormControlSelect1"
-                              style="width: 100%">
-                              <option>
-                                <h5>This is a sample question ................</h5>
-                              </option>
-                              <option>
-                                <h5>option1</h5>
-                              </option>
-                              <option>
-                                <h5>option2</h5>
-                              </option>
-                              <option>
-                                <h5>option3</h5>
-                              </option>
-                              <option>
-                                <h5>option4</h5>
-                              </option>
-                            </select>
-
-                          </td>
-
-                          <td>
-                            <h5>Sample</h5>
-                          </td>
-                          <td>
-                            <h5>Sample</h5>
-                          </td>
-
-                          <td>
-                            <button type="button" class="btn btn-success btn-sm">Approve</button>
-                          </td>
-
-                          <td>
-                            <button type="button" class="btn btn-primary btn-sm btn-danger ">Delete</button>
-                          </td>
-                        </tr>
-
+                       
+                        <% }) %> 
                       </tbody>
                     </table>
                   </div>

@@ -92,7 +92,7 @@
             <div class="d-flex sidebar-profile">
               <div class="sidebar-profile-name">
                 <p class="sidebar-designation" style="display: inline;">Welcome</p>
-                <p class="sidebar-name"><%=usertype %> </p>
+                <p class="sidebar-name"><%=profile.name  %> </p>
               </div>
             </div>
 
@@ -112,9 +112,9 @@
           </li>
           <% if(usertype=='moderator'){ %> 
           <li class="nav-item">
-            <a class="nav-link" href="/<%=usertype %>/moderatorquestions ">
+            <a class="nav-link" href="/moderator/moderatorquestions ">
               <i class="typcn typcn-device-desktop menu-icon"></i>
-              <span class="menu-title">Questions to Approve
+              <span class="menu-title">Questions to Validate
             </a>
           </li>
           <% } %> 
@@ -144,48 +144,48 @@
             </div>
           </div>
           <div class="mt-0 m-3">
-            <form action="/faculty/profile">
+            <form action="/<%=usertype %>/profile">
               <div class="pl-5 ml-5">
                 <div class="row">
                   <div class="col-md-6 mb-3 p-1">
                     <label for="inputlg">Name</label>
-                    <input type="text" class="form-control bg-white ml-2" value="Rahul Roy" id="name" name="name"
+                    <input type="text" class="form-control bg-white ml-2" value="<%=profile.name  %> " id="name" name="name"
                       placeholder="Enter Your Full Name *" Disabled>
                   </div>
                   <div class="col-md-6 mb-3 p-1">
                     <label for="email" class="ml-2">Email-ID</label>
-                    <input type="email" class="form-control bg-white" value="rahul@gmail.com" id="email" name="email"
+                    <input type="email" class="form-control bg-white" value="<%=profile.email_id  %> " id="email" name="email"
                       placeholder="Enter Your Email Address" Disabled>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-6 mb-3 p-1">
                     <label for="username" class="ml-2">Username</label>
-                    <input type="text" class="form-control bg-white" value="RahulRoy" id="username" name="username"
+                    <input type="text" class="form-control bg-white" value="<%=profile.username  %>" id="username" name="username"
                       placeholder="Enter Your Username" Disabled>
                   </div>
                   <div class="form-group col-md-6 mb-3 p-1">
                     <label for="password" class="ml-2">Password</label>
-                    <input type="text" class="form-control bg-white" id="password" value="*********" name="password"
+                    <input type="text" class="form-control bg-white" id="password" value="<%=profile.password  %>" name="password"
                       placeholder="Enter Your Password" Disabled>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-6 mb-3 p-1">
                     <label for="university" class="ml-2">University/Board Name</label>
-                    <input type="text" class="form-control bg-white" value="Mumbai University" id="university" name="university"
+                    <input type="text" class="form-control bg-white" value="<%=profile.university  %>" id="university" name="university"
                       placeholder="Enter Your University Or Board Name" Disabled>
                   </div>
                   <div class="form-group col-md-6 mb-3 p-1">
                     <label for="branch" class="ml-2">Branch</label>
-                    <input type="text" class="form-control bg-white" value="INFT" id="branch" name="branch"
+                    <input type="text" class="form-control bg-white" value="<%=profile.branch  %>" id="branch" name="branch"
                       placeholder="Enter Your Branch" Disabled>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-6 mb-3 p-1">
                     <label for="college" class="ml-2">College Name</label>
-                    <input type="text" class="form-control bg-white" id="college" value="VJIT" name="college"
+                    <input type="text" class="form-control bg-white" id="college" value="<%=profile.college  %>" name="college"
                       placeholder="Enter Your College Name" Disabled>
                   </div>
                   <div class="col-md-5 mb-3 p-1">
@@ -193,10 +193,10 @@
                     <div class="dropdown">
                       <select class="custom-select col-10 text-muted p-2 pl-4" style="height:3rem;border:none;"
                         id="subjects" name="branch" value="Click Here To Get Your Subjects" required>
-                        <option value="Click Here To Get Your Subjects">Click Here To See Your Subjects</option>
-                        <option value="1" disabled>DBMS</option>
-                        <option value="2" selected disabled>OS</option>
-                        <option value="3" disabled>ADMT</option>
+                        <option  selected value="Click Here To Get Your Subjects">Click Here To See Your Subjects</option>
+                        <% profile.subject.forEach(data=>{ %> 
+                        <option value="<%=data.subject_name %> "><%=data.subject_name %></option>
+                        <% }) %> 
                       </select>
                     </div>
                   </div>
@@ -204,7 +204,7 @@
                 <div class="row">
                   <div class="form-group col-md-6 mb-3 p-1">
                     <label for="phone" class="ml-2">Phone Number</label>
-                    <input type="number" class="form-control bg-white" id="phone" value="8789786890" name="phone"
+                    <input type="number" class="form-control bg-white" id="phone" value="<%=profile.phone  %>" name="phone"
                       placeholder="Enter Your Contact Number" Disabled>
                   </div>
                 </div>

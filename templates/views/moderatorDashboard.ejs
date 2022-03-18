@@ -81,7 +81,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/moderator/moderatorquestions">
               <i class="typcn typcn-device-desktop menu-icon"></i>
-              <span class="menu-title">Questions To Approve
+              <span class="menu-title">Questions To Validate
             </a>
           </li>
           <li class="nav-item">
@@ -98,6 +98,7 @@
           </li>
         </ul>
       </nav>
+
 
       <div class="main-panel">
         <div class="content-wrapper flex">
@@ -119,7 +120,7 @@
                         <i class="fa fa-code font-large-2 float-left"></i>
                       </div>
                       <div class="media-body text-right">
-                        <h3>4</h3>
+                        <h3><%=moderatordetail.subject.length  %> </h3>
                         <span>No. of Subjects</span>
                       </div>
                     </div>
@@ -136,15 +137,17 @@
                         <i class="fa fa-question font-large-2 float-left"></i>
                       </div>
                       <div class="media-body text-right">
-                        <h3>18</h3>
-                        <span>No. of Questions</span>
+                        <h3><%=moderatordetail.question_submited.length %> </h3>
+                        <span>No. of Questions Submitted</span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            
           </div>
+          
           <div class="card margin-card-top">
             <div class="card-body">
               <div class="row">
@@ -333,39 +336,30 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <%moderatordetail.question_submited.forEach((question,index)=>{  %> 
                     <tr>
                       <td>
-                        <h5>1</h5>
+                        <h5><%=index+1 %></h5>
                       </td>
                       <td>
                         <select class="form-control form-control-lg" id="exampleFormControlSelect1"
                           style="width: 100%;">
                           <option>
-                            <h5> What is an operating system?</h5>
+                            <h5> <%=question.question  %> </h5>
                           </option>
+                          <% question.options.forEach((option,index)=>{ %> 
                           <option>
-                            <h5>* interface between the hardware and application programs
-                              </h5>
+                            <h5><%=index+1 %>) <%=option %>   </h5>
                           </option>
-                          <option>
-                            <h5> * collection of programs that manages hardware resources
-                              </h5>
-                          </option>
-                          <option>
-                            <h5> * system service provider to the application programs
-                             </h5>
-                          </option>
-                          <option>
-                            <h5> * all of the mentioned</h5>
-                          </option>
+                          <% }) %> 
                         </select>
                       </td>
                       <td>
-                        <h5>INFT</h5>
+                        <h5><%=question.branch %> </h5>
                       </td>
 
                       <td>
-                        <h5>OS</h5>
+                        <h5><%=question.subject  %> </h5>
                       </td>
                       </td>
                       <td>
@@ -522,62 +516,22 @@
                         </div>
 
                       </td>
-                      <td>
-                        <label class="badge badge-success">Approved</label>
-                      </td>
+                      <% if(question.isValid){ %> 
+                        <td>
+                          <label class="badge badge-success">Approved</label>
+                        </td>
+                        <% }else{ %>
+                          <td>
+                            <label class="badge badge-danger">Pending</label>
+                          </td>
+                          <% } %>  
+                      
 
                       <td>
                         <button type="button" class="btn  btn-sm btn-danger-new ">Delete</button>
                       </td>
                     </tr>
-                    <tr>
-                      <td>
-                        <h5>2</h5>
-                      </td>
-
-                      <td>
-                        <select class="form-control form-control-lg" id="exampleFormControlSelect1"
-                          style="width: 100%;">
-                          <option>
-                            <h5>Where is linear searching used?</h5>
-                          </option>
-                          <option>
-                            <h5> * When the list has only a few elements
-                              </h5>
-                          </option>
-                          <option>
-                            <h5> * When performing a single search in an unordered list
-                              </h5>
-                          </option>
-                          <option>
-                            <h5> * Used all the time
-                             </h5>
-                          </option>
-                          <option>
-                            <h5> * When the list has only a few elements and When performing a single search</h5>
-                          </option>
-                        </select>
-
-                      </td>
-
-                      <td>
-                        <h5>INFT</h5>
-                      </td>
-                      <td>
-                        <h5>DSA</h5>
-                      </td>
-
-                      <td>
-                        <button type="button" class="btn  btn-sm btn-primary-new ">Edit</button>
-                      </td>
-
-                      <td>
-                        <label class="badge badge-success">Approved</label>
-                      </td>
-                      <td>
-                        <button type="button" class="btn  btn-sm btn-danger-new ">Delete</button>
-                      </td>
-                    </tr>
+                   <% }) %> 
 
                   </tbody>
                 </table>
