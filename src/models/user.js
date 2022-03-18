@@ -42,7 +42,7 @@ UserSchema.statics.findByEmailAndPassword = async (password, email) => {
     const admin = await AdminModel.findOne({ email_id: email });
     console.log(admin)
     if (!admin) {
-        console.log("in user check1")
+       
         // check whether email exists
         const user = await UserModel.findOne({ email_id: email });
         if (!user) throw new Error("User does not exist!!!");
@@ -53,15 +53,15 @@ UserSchema.statics.findByEmailAndPassword = async (password, email) => {
         const doesPasswordMatch = await bcrypt.compare(password, user.password);
         if (!doesPasswordMatch) throw new Error("Invalid Password!!!");
 
-        console.log("in user check2")
+       
         return { user, "isuser": true, };
     } else {
-        console.log("in admin check1")
+        
         // Compare password
         const doesPasswordMatch = await bcrypt.compare(password, admin.password);
 
         if (!doesPasswordMatch) throw new Error("Invalid Password!!!");
-        console.log("in admin check2")
+       
         return { admin, "isuser": false };
     }
 

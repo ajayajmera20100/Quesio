@@ -69,7 +69,7 @@ Router.post('/', async (req, res) => {
       res.cookie('jwt', token)
       
     }
-    console.log("brake5")
+    
     res.redirect('/login/you')
    
 

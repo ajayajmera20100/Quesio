@@ -14,13 +14,8 @@ const Router = express.Router();
 // params: none
 // Access: Public
 // Method : GET
-Router.get('/',(req, res)=>{
-   try {
-    
-    res.render('moderatorDashboard',{usertype:"moderator"}); 
-   } catch (error) {
-     
-   }
+Router.get('/',async(req, res)=>{
+  res.render('moderatorDashboard',{usertype:"moderator"}); 
 
 })
 
