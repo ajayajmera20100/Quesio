@@ -163,7 +163,7 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                          <form action="questions.html" method="POST">
+                          <form >
                             <div class="row">
                               <div class="form-group col-md-4">
                                 <label for="subject-name">Name Of The Subject : <sup>*</sup></label>
@@ -224,11 +224,11 @@
                                 <label for="question">Option 1 : <sup>*</sup></label>
                               </div>
                               <div class="col-md-7">
-                                <input type="text" class="form-control" id="question" name="question"
+                                <input type="text" class="form-control" id="option1" name="question"
                                   placeholder="Option 1" required>
                               </div>
                               <div class="form-check">
-                                <input class="form-check-input" type="radio" name="option" id="option1" value="option1">
+                                <input class="form-check-input" type="radio" name="correctoption1" id="option" value="option1">
                                 <label class="form-check-label" for="option1">
                                   Correct Answer
                                 </label>
@@ -240,11 +240,11 @@
                                 <label for="question">Option 2 : <sup>*</sup></label>
                               </div>
                               <div class="col-md-7">
-                                <input type="text" class="form-control" id="question" name="question"
+                                <input type="text" class="form-control" id="option2" name="question"
                                   placeholder="Option 2" required>
                               </div>
                               <div class="form-check">
-                                <input class="form-check-input" type="radio" name="option" id="option2" value="option2">
+                                <input class="form-check-input" type="radio" name="correctoption2" id="option" value="option2">
                                 <label class="form-check-label" for="option2">
                                   Correct Answer
                                 </label>
@@ -256,11 +256,11 @@
                                 <label for="question">Option 3 : <sup>*</sup></label>
                               </div>
                               <div class="col-md-7">
-                                <input type="text" class="form-control" id="question" name="question"
+                                <input type="text" class="form-control" id="option3" name="question"
                                   placeholder="Option 3" required>
                               </div>
                               <div class="form-check">
-                                <input class="form-check-input" type="radio" name="option" id="option3" value="option3">
+                                <input class="form-check-input" type="radio"name="correctoption3" id="option" value="option3">
                                 <label class="form-check-label" for="option3">
                                   Correct Answer
                                 </label>
@@ -272,11 +272,11 @@
                                 <label for="question">Option 4 : <sup>*</sup></label>
                               </div>
                               <div class="col-md-7">
-                                <input type="text" class="form-control" id="question" name="question"
+                                <input type="text" class="form-control" id="option4" name="question"
                                   placeholder="Option 4" required>
                               </div>
                               <div class="form-check">
-                                <input class="form-check-input" type="radio" name="option" id="option4" value="option4">
+                                <input class="form-check-input" type="radio" name="correctoption4" id="option" value="option4">
                                 <label class="form-check-label" for="option4">
                                   Correct Answer
                                 </label>
@@ -290,7 +290,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary" data-dismiss="modal">Save Changes</button>
+                          <button type="button" class="btn btn-primary" onclick="fetchquestion()" data-dismiss="modal">Save Changes</button>
                         </div>
                       </div>
                     </div>
@@ -572,6 +572,38 @@
         counter = 0;
       }
     })
+    async function fetchquestion(){
+      const subject = document.getElementById('subject-name').value
+      const chapter = document.getElementById('chapter-name').value
+      const difficulty = document.getElementById('difficulty').value
+      const option1 = document.getElementById('option1').value
+      const option2 = document.getElementById('option2').value
+      const option3 = document.getElementById('option3').value
+      const option4 = document.getElementById('option4').value
+      const correctoption = document.getElementById('option4').value
+      
+
+
+
+      await fetch("http://localhost:4000/admin/collegedata",
+
+      {
+
+        method: 'POST',
+
+        headers: {
+
+          'Accept': 'application/json',
+
+          'Content-Type': 'application/json'
+
+        },
+
+        body: JSON.stringify({"university":`${university}`,"college":`${college}`})
+
+      })
+
+    }
   </script>
 
 </body>

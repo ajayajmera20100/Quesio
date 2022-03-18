@@ -172,7 +172,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="submit"  class="btn btn-primary" >Save Changes</button>
+                      <button type="submit"  class="btn btn-primary" data-dismiss="modal" onclick="fetchdata()">Save Changes</button>
                     </div>
                   </div>
                 </div>
@@ -304,6 +304,22 @@
         counter = 0;
       }
     })
+    async function fetchdata(){
+      const university = document.getElementById('university_name').value
+      const college = document.getElementById('college_name').value
+      await fetch("http://localhost:9000/admin/collegedata",
+
+      {
+
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({"university":`${university}`,"college":`${college}`})
+      })
+
+    }
   </script>
 
 </body>

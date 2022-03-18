@@ -73,8 +73,22 @@ Router.get('/college', isAuth,async (req, res) => {
     res.render('adminCollege',{collegedata})
 })
 
-Router.post('/college',(req,res)=>{
-    console.log("req.body")
+Router.post('/collegedata',async(req,res)=>{
+    try {
+        const { university, college } = req.body;
+        await CollegeModel.create({
+    
+          university: university,
+    
+          college_name: college,
+    
+        });
+    
+      } catch (error) {
+    
+        res.status(400).json({ error: error.message });
+    
+      }
 })
 
 
