@@ -3,11 +3,18 @@ import express from "express";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 import { QuestionModel } from "../models/question";
+import { CollegeModel } from "../models/college";
 
 const Router = express.Router();
 
-Router.get('/',(req, res)=>{
-  res.render('qbgenerate')
+Router.get('/',async(req, res)=>{
+  const total_branch = await CollegeModel.aggregate([{ $project: { branch: 1 } }])
+  const branches = total_branch.map(elem => {
+      return elem.branch
+  })
+  const totalbranch = [... new Set([].concat.apply([], branches))]
+  // console.log(totalbranch)
+  res.render('qbgenerate',{totalbranch})
   
 })
 
@@ -16,7 +23,7 @@ Router.post('/',async(req, res)=>{
     const {university,branch,subject,chapter,totalquestions,easyquestions,moderatequestions,hardquestions} = req.body;
     
     const data=await QuestionModel.aggregate([
-      {$match:{subject:subject}},
+     
      {$group:{
      "_id":"$difficulty",
      "questiondata": {

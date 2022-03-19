@@ -41,10 +41,6 @@ Router.get('/',isAuth, async (req, res) => {
     })
     const totalbranch = [... new Set([].concat.apply([], branches))].length
 
-
-
-
-
     res.render('admin', {
         total_ques: total_ques, approved_question: approved_question,
         total_college: total_college, total_faculty: total_faculty, total_moderator: total_moderator,

@@ -9,22 +9,22 @@
     />
     <title>SIH Admin</title>
     <!-- base:css -->
-    <link rel="stylesheet" href="./dashboard/vendors/typicons.font/font/typicons.css" />
-    <link rel="stylesheet" href="./dashboard/vendors/css/vendor.bundle.base.css" />
+    <link rel="stylesheet" href="/dashboard/vendors/typicons.font/font/typicons.css" />
+    <link rel="stylesheet" href="/dashboard/vendors/css/vendor.bundle.base.css" />
     <!-- endinject -->
     <!-- plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="./dashboard/css/vertical-layout-light/style.css" />
+    <link rel="stylesheet" href="/dashboard/css/vertical-layout-light/style.css" />
     <!-- endinject -->
-    <link rel="shortcut icon" href="./dashboard/images/favicon.png" />
+    <link rel="shortcut icon" href="/dashboard/images/favicon.png" />
 
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
 
-    <link rel="icon" type="image/x-icon" href="assets/images/Q.ico">
+    <link rel="icon" type="image/x-icon" href="/assets/images/Q.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -193,9 +193,9 @@
                                     <div class="dropdown">
                                         <select class="custom-select col-10 text-muted pl-4" style="height:3rem; border:none;" id="branch" name="branch" required>
                                             <option value="">Choose Branch</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <% totalbranch.forEach(branch=>{ %> 
+                                            <option value="<%=branch %>"><%=branch  %> </option>
+                                            <% }) %> 
                                           </select>
                                     </div>
                                 </div>
@@ -519,7 +519,8 @@
    return true;
   }
   }
-
+   
+  
 
       
     </script>
