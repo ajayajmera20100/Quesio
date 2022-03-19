@@ -33,7 +33,7 @@
             </div>
             <div class="mx-3 text-right mb-3">
               <button class="btn" id="back" style="background-color: white">
-                <a href="index.html" class="text-dark text-decoration-none">Back To Home</a>
+                <a href="/" class="text-dark text-decoration-none">Back To Home</a>
               </button>
             </div>
           </div>
@@ -46,30 +46,30 @@
                 <div class="d-flex mt-4">
                   <div class="col-md-6">
                     <div class="mb-2">
-                      <p class="">Date : </p>
+                      <p class="">Date : <%= new Date();%></p>
                     </div>
                     <div class="mb-2">
                       <p class="">Time : </p>
                     </div>
                     <div class="mb-2">
-                      <p class="">Max Marks : </p>
+                      <p class="">Max Marks :<%=totalquestions *2%>  </p>
                     </div>
                     <div class="mb-1">
-                      <p class="">QP Code : </p>
+                      <p class="">QP Code : QP1056</p>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="mb-2">
-                      <p class="">Subject Name : </p>
+                      <p class="">Subject Name : <%=subject %> </p>
                     </div>
                     <!-- <div class="mb-2">
                       <p class="">Course Name : </p>
                     </div> -->
                     <div class="mb-2">
-                      <p class="">Branch : </p>
+                      <p class="">Branch : <%=branch %> </p>
                     </div>
                     <div class="mb-2">
-                      <p class="">University : </p>
+                      <p class="">University : Mumbai University </p>
                     </div>
                   </div>
                 </div>

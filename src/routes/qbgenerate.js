@@ -65,7 +65,7 @@ Router.post('/',async(req, res)=>{
   let mymedium=shuffle(mydata.medium[0]).slice(0,moderatequestions)
   let myhard=shuffle(mydata.hard[0]).slice(0,hardquestions)
    
-  res.render('questionpaper',{subject,branch,myeasy,mymedium,myhard,count:1})
+  res.render('questionpaper',{subject,branch,myeasy,mymedium,myhard,count:1,totalquestions})
 
    
    });
