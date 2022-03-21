@@ -70,7 +70,7 @@ Router.post('/', async(req, res)=>{
      })
     //  console.log(questions)
      await questions.save();
-    //  console.log("question added")
+     console.log("question added")
     const getid = questions.getId()
     // console.log(getid)
     const userid= jwt_decode(req.cookies.jwt).user

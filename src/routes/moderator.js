@@ -19,10 +19,12 @@ Router.use(cookieParser())
 Router.get('/',async(req, res)=>{
   const userid= jwt_decode(req.cookies.jwt).user
   const moderatordetail = await UserModel.findById(userid).populate('question_submited')
-
+  const subjects = moderatordetail.subject.map(elem=>{
+    return elem.subject_name
+  })
 
   // res.send(moderatordetail.question_submited);
-  res.render('moderatorDashboard',{usertype:"moderator",moderatordetail}); 
+  res.render('moderatorDashboard',{usertype:"moderator",moderatordetail,subjects}); 
 
 })
 
