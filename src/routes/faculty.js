@@ -19,10 +19,14 @@ Router.use(cookieParser())
 Router.get('/',async(req, res)=>{
   const userid= jwt_decode(req.cookies.jwt).user
   const facultydetail = await UserModel.findById(userid).populate('question_submited')
+  const fromdatabase = await UserModel.findById(userid)
 
+  const subjects = fromdatabase.subject.map(elem=>{
+    return elem.subject_name
+  })
 
   // res.send(facultydetail.question_submited);
-  res.render('facultyDashboard',{usertype:"faculty",facultydetail}); 
+  res.render('facultyDashboard',{usertype:"faculty",facultydetail,subjects}); 
 
 })
 

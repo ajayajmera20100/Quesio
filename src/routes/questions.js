@@ -70,6 +70,7 @@ Router.post('/',isAuth, async(req, res)=>{
      })
     //  console.log(questions)
      await questions.save();
+     console.log("question added")
     const getid = questions.getId()
     // console.log(getid)
     const encrypteduserdata= req.cookies.jwt;

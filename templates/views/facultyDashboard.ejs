@@ -170,11 +170,13 @@
                               </div>
                               <div class="form-group col-md-8">
                                 <div class="input-group">
-                                  <select class="custom-select" id="subject-name" required>
+                                  <select onchange="fetchChapter()" class="custom-select" name="subject" id="subject-name" required>
                                     <option value="">Choose...</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <% subjects.forEach(function(data){%>
+                                      <option value="<%= data %>">
+                                        <%= data %>
+                                      </option>
+                                      <% }) %>
                                   </select>
                                 </div>
                               </div>
@@ -183,11 +185,8 @@
                               </div>
                               <div class="form-group col-md-8">
                                 <div class="input-group">
-                                  <select class="custom-select" id="chapter-name" required>
+                                  <select class="custom-select" id="chapter-name" name="chapter"  required>
                                     <option value="">Choose...</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
                                   </select>
                                 </div>
                               </div>
@@ -198,13 +197,13 @@
                               </div>
                               <div class="btn-group-sm btn-group-toggle col-md-8" data-toggle="buttons" id="difficulty">
                                 <label class="btn btn-secondary active">
-                                  <input type="radio" name="diff-options" id="diff-option1" required> Easy
+                                  <input type="radio" name="diff"  value="easy"  id="diff-option1" required> Easy
                                 </label>
                                 <label class="btn btn-secondary">
-                                  <input type="radio" name="diff-options" id="diff-option2" required> Medium
+                                  <input type="radio" name="diff" value="medium" id="diff-option2" required> Medium
                                 </label>
                                 <label class="btn btn-secondary">
-                                  <input type="radio" name="diff-options" id="diff-option3" required> Hard
+                                  <input type="radio" name="diff" value="hard" id="diff-option3" required> Hard
                                 </label>
                               </div>
                             </div>
@@ -224,12 +223,12 @@
                                 <label for="question">Option 1 : <sup>*</sup></label>
                               </div>
                               <div class="col-md-7">
-                                <input type="text" class="form-control" id="option1" name="question"
+                                <input type="text" class="form-control" id="option1" name="option1"
                                   placeholder="Option 1" required>
                               </div>
                               <div class="form-check">
-                                <input class="form-check-input" type="radio" name="correctoption1" id="option" value="option1">
-                                <label class="form-check-label" for="option1">
+                                <input class="form-check-input" type="radio" name="correct" id="correct1" >
+                                <label class="form-check-label" for="correct1">
                                   Correct Answer
                                 </label>
                               </div>
@@ -240,12 +239,12 @@
                                 <label for="question">Option 2 : <sup>*</sup></label>
                               </div>
                               <div class="col-md-7">
-                                <input type="text" class="form-control" id="option2" name="question"
+                                <input type="text" class="form-control" id="option2" name="option2"
                                   placeholder="Option 2" required>
                               </div>
                               <div class="form-check">
-                                <input class="form-check-input" type="radio" name="correctoption2" id="option" value="option2">
-                                <label class="form-check-label" for="option2">
+                                <input class="form-check-input" type="radio" name="correct" id="correct2" >
+                                <label class="form-check-label" for="correct2">
                                   Correct Answer
                                 </label>
                               </div>
@@ -256,12 +255,12 @@
                                 <label for="question">Option 3 : <sup>*</sup></label>
                               </div>
                               <div class="col-md-7">
-                                <input type="text" class="form-control" id="option3" name="question"
+                                <input type="text" class="form-control" id="option3" name="option3"
                                   placeholder="Option 3" required>
                               </div>
                               <div class="form-check">
-                                <input class="form-check-input" type="radio"name="correctoption3" id="option" value="option3">
-                                <label class="form-check-label" for="option3">
+                                <input class="form-check-input" type="radio"name="correct" id="option3" >
+                                <label class="form-check-label" for="correct3">
                                   Correct Answer
                                 </label>
                               </div>
@@ -272,12 +271,12 @@
                                 <label for="question">Option 4 : <sup>*</sup></label>
                               </div>
                               <div class="col-md-7">
-                                <input type="text" class="form-control" id="option4" name="question"
+                                <input type="text" class="form-control" id="option4" name="option4"
                                   placeholder="Option 4" required>
                               </div>
                               <div class="form-check">
-                                <input class="form-check-input" type="radio" name="correctoption4" id="option" value="option4">
-                                <label class="form-check-label" for="option4">
+                                <input class="form-check-input" type="radio" name="correct" id="correct4" >
+                                <label class="form-check-label" for="correct4">
                                   Correct Answer
                                 </label>
                               </div>
@@ -375,18 +374,20 @@
                                 </button>
                               </div>
                               <div class="modal-body">
-                                <form action="questions.html" method="POST">
+                                <form action="/questions" method="POST">
                                   <div class="row">
                                     <div class="form-group col-md-4">
                                       <label for="subject-name">Name Of The Subject : <sup>*</sup></label>
                                     </div>
                                     <div class="form-group col-md-8">
                                       <div class="input-group">
-                                        <select class="custom-select" id="subject-name" required>
+                                        <select onchange="fetchChapter()" class="custom-select" name="subject" id="subject-name" required>
                                           <option value="">Choose...</option>
-                                          <option value="1">One</option>
-                                          <option value="2">Two</option>
-                                          <option value="3">Three</option>
+                                          <% subjects.forEach(function(data){%>
+                                            <option value="<%= data %>">
+                                              <%= data %>
+                                            </option>
+                                            <% }) %>
                                         </select>
                                       </div>
                                     </div>
@@ -395,11 +396,8 @@
                                     </div>
                                     <div class="form-group col-md-8">
                                       <div class="input-group">
-                                        <select class="custom-select" id="chapter-name" required>
+                                        <select class="custom-select" name="chapter" id="chapter-name" required>
                                           <option value="">Choose...</option>
-                                          <option value="1">One</option>
-                                          <option value="2">Two</option>
-                                          <option value="3">Three</option>
                                         </select>
                                       </div>
                                     </div>
@@ -411,13 +409,13 @@
                                     <div class="btn-group-sm btn-group-toggle col-md-8" data-toggle="buttons"
                                       id="difficulty">
                                       <label class="btn btn-secondary active">
-                                        <input type="radio" name="diff-options" id="diff-option1" required> Easy
+                                        <input type="radio"  name="diff" value="easy" id="diff-option1" required> Easy
                                       </label>
                                       <label class="btn btn-secondary">
-                                        <input type="radio" name="diff-options" id="diff-option2" required> Medium
+                                        <input type="radio"  name="diff" value="medium" id="diff-option2" required> Medium
                                       </label>
                                       <label class="btn btn-secondary">
-                                        <input type="radio" name="diff-options" id="diff-option3" required> Hard
+                                        <input type="radio"  name="diff" value="hard" id="diff-option3" required> Hard
                                       </label>
                                     </div>
                                   </div>
@@ -437,13 +435,12 @@
                                       <label for="question">Option 1 : <sup>*</sup></label>
                                     </div>
                                     <div class="col-md-7">
-                                      <input type="text" class="form-control" id="question" name="question"
-                                        placeholder="Option 1" required>
+                                      <input type="text" class="form-control" id="option1" name="option1" placeholder="Option 1" required>
+
                                     </div>
                                     <div class="form-check">
-                                      <input class="form-check-input" type="radio" name="option" id="option1"
-                                        value="option1">
-                                      <label class="form-check-label" for="option1">
+                                      <input class="form-check-input" type="radio" name="correct" id="correct1">
+                                      <label class="form-check-label" for="correct1">
                                         Correct Answer
                                       </label>
                                     </div>
@@ -451,16 +448,14 @@
 
                                   <div class="row">
                                     <div class="form-group col-md-2">
-                                      <label for="question">Option 2 : <sup>*</sup></label>
-                                    </div>
+                                      <label for="option2">Option 2 : <sup>*</sup></label>
+                                      </div>
                                     <div class="col-md-7">
-                                      <input type="text" class="form-control" id="question" name="question"
-                                        placeholder="Option 2" required>
-                                    </div>
+                                      <input type="text" class="form-control" id="option2" name="option2" placeholder="Option 2" required>
+                                      </div>
                                     <div class="form-check">
-                                      <input class="form-check-input" type="radio" name="option" id="option2"
-                                        value="option2">
-                                      <label class="form-check-label" for="option2">
+                                      <input class="form-check-input" type="radio" name="correct" id="correct2">
+                                      <label class="form-check-label" for="correct2">
                                         Correct Answer
                                       </label>
                                     </div>
@@ -468,33 +463,29 @@
 
                                   <div class="row">
                                     <div class="form-group col-md-2">
-                                      <label for="question">Option 3 : <sup>*</sup></label>
+                                      <label for="option3">Option 3 : <sup>*</sup></label>
                                     </div>
                                     <div class="col-md-7">
-                                      <input type="text" class="form-control" id="question" name="question"
-                                        placeholder="Option 3" required>
-                                    </div>
+                                      <input type="text" class="form-control" id="option3" name="option3" placeholder="Option 3" required>
+                                      </div>
                                     <div class="form-check">
-                                      <input class="form-check-input" type="radio" name="option" id="option3"
-                                        value="option3">
-                                      <label class="form-check-label" for="option3">
-                                        Correct Answer
-                                      </label>
+                                      <input class="form-check-input" type="radio" name="correct" id="correct3">
+                                    <label class="form-check-label" for="correct3">
+                                      Correct Answer
+                                    </label>
                                     </div>
                                   </div>
 
                                   <div class="row">
                                     <div class="form-group col-md-2">
-                                      <label for="question">Option 4 : <sup>*</sup></label>
+                                      <label for="option4">Option 4 : <sup>*</sup></label>
                                     </div>
                                     <div class="col-md-7">
-                                      <input type="text" class="form-control" id="question" name="question"
-                                        placeholder="Option 4" required>
-                                    </div>
+                                      <input type="text" class="form-control" id="option4" name="option4" placeholder="Option 4" required>
+                                      </div>
                                     <div class="form-check">
-                                      <input class="form-check-input" type="radio" name="option" id="option4"
-                                        value="option4">
-                                      <label class="form-check-label" for="option4">
+                                      <input class="form-check-input" type="radio" name="correct" id="correct4">
+                                      <label class="form-check-label" for="correct4">
                                         Correct Answer
                                       </label>
                                     </div>
@@ -508,7 +499,7 @@
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">Save Changes</button>
+                                <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="fetchquestion()"  >Save Changes</button>
                               </div>
                             </div>
                           </div>
@@ -572,20 +563,36 @@
         counter = 0;
       }
     })
+    async function fetchChapter() {
+      const value = document.getElementById("subject-name").value;
+      console.log(value)
+      const chapterData =await fetch(`http://localhost:9000/questions/chapter${value}`).then(response => response.json()).then(data=> data[0].chapter)
+      const chapter = document.getElementById("chapter-name")
+      for(let i=0;i<chapterData.length;i++){
+          chapter.innerHTML+=`<option value=${chapterData[i]}>${chapterData[i]}</option>`
+      }
+    }
     async function fetchquestion(){
+      for (let i = 1; i <= 4; i++) {
+        if (document.getElementById(`correct${i}`).checked == true) {
+          document.getElementById(`correct${i}`).value = document.getElementById(`option${i}`).value
+          break;
+        }
+      }
       const subject = document.getElementById('subject-name').value
       const chapter = document.getElementById('chapter-name').value
-      const difficulty = document.getElementById('difficulty').value
+      const diff = document.querySelector('input[name="diff"]:checked').value;
+      const question = document.getElementById('question').value
       const option1 = document.getElementById('option1').value
       const option2 = document.getElementById('option2').value
       const option3 = document.getElementById('option3').value
       const option4 = document.getElementById('option4').value
-      const correctoption = document.getElementById('option4').value
+      const correct = document.querySelector('input[name="correct"]:checked').value;
       
 
 
 
-      await fetch("http://localhost:4000/admin/collegedata",
+      await fetch("http://127.0.0.1:9000/questions",
 
       {
 
@@ -594,12 +601,19 @@
         headers: {
 
           'Accept': 'application/json',
-
           'Content-Type': 'application/json'
-
         },
 
-        body: JSON.stringify({"university":`${university}`,"college":`${college}`})
+        body: JSON.stringify({
+        "subject":`${subject}`,
+        "chapter":`${chapter}`,
+        "diff":`${diff}`,
+        "question":`${question}`,
+        "option1":`${option1}`,
+        "option2":`${option2}`,
+        "option3":`${option3}`,
+        "option4":`${option4}`,
+        "correct":`${correct}`,})
 
       })
 
