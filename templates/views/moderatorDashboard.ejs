@@ -518,18 +518,19 @@
                       </td>
                       <% if(question.isValid){ %> 
                         <td>
-                          <label class="badge badge-success">Approved</label>
+                          <label class="badge badge-success"><a href="http://127.0.0.1:9000/questions/disapprove<%=question.id %> ">Approved</a></label>
                         </td>
                         <% }else{ %>
                           <td>
-                            <label class="badge badge-danger">Pending</label>
+                            <label class="badge badge-danger"><a href="http://127.0.0.1:9000/questions/approve<%=question.id %> ">Pending</a></label>
                           </td>
                           <% } %>  
                       
 
-                      <td>
-                        <button type="button" class="btn  btn-sm btn-danger-new ">Delete</button>
-                      </td>
+                          <td>
+                  
+                            <button type="submit" class="btn  btn-sm btn-danger-new"><a href="http://127.0.0.1:9000/questions/delete<%=question.id %> ">Delete</a> </button>
+                          </td>
                     </tr>
                    <% }) %> 
 

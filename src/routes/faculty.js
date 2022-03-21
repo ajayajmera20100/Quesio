@@ -16,12 +16,12 @@ Router.use(cookieParser())
 // Access: Public
 // Method : GET
 
+
 Router.get('/',async(req, res)=>{
   const userid= jwt_decode(req.cookies.jwt).user
   const facultydetail = await UserModel.findById(userid).populate('question_submited')
-  const fromdatabase = await UserModel.findById(userid)
-
-  const subjects = fromdatabase.subject.map(elem=>{
+  
+  const subjects = facultydetail.subject.map(elem=>{
     return elem.subject_name
   })
 
@@ -35,6 +35,29 @@ Router.get('/profile',async(req, res)=>{
     const userid= jwt_decode(req.cookies.jwt).user
   const profile = await UserModel.findById(userid)
   res.render('profile',{usertype:"faculty",profile});
+  } catch (error) {
+    
+  } 
+})
+
+Router.post('/profile',async(req, res)=>{
+  try {
+    const userid= jwt_decode(req.cookies.jwt).user
+  const profile = await UserModel.findByIdAndUpdate(userid,{
+   
+    name: req.body.name,
+    username: req.body.username,
+    password: req.body.password,
+    email_id: req.body.email,
+    university: req.body.university,
+    college:req.body.college,
+    phone: req.body.phone,
+    branch: req.body.branch
+  });
+  
+  console.log("profile")
+
+  res.redirect('/faculty/profile')
   } catch (error) {
     
   } 

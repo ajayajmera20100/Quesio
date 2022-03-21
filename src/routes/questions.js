@@ -54,7 +54,7 @@ Router.get('/update:qid',async(req, res)=>{
 
 
 
-Router.post('/',isAuth, async(req, res)=>{
+Router.post('/', async(req, res)=>{
   try {
      const {subject,chapter,diff,question,option1,option2,option3,option4,correct} = req.body;
      await QuestionModel.findQuestion(question);
@@ -70,14 +70,10 @@ Router.post('/',isAuth, async(req, res)=>{
      })
     //  console.log(questions)
      await questions.save();
-     console.log("question added")
+    //  console.log("question added")
     const getid = questions.getId()
     // console.log(getid)
-    const encrypteduserdata= req.cookies.jwt;
-    const userdata=jwt_decode(encrypteduserdata)
-    const userid = JSON.parse(JSON.stringify(userdata.user))
-
-
+    const userid= jwt_decode(req.cookies.jwt).user
 
     const updated = await UserModel.findByIdAndUpdate(userid,{
     $push:{
@@ -134,6 +130,31 @@ Router.get("/chapter:subject_name",async(req,res)=> {
   const {subject_name} = req.params;
   const subject_data = await SubjectModel.find({subject_name});
   res.json(subject_data)
+})
+
+Router.get("/delete:qid",async(req,res)=> {
+  const userid= jwt_decode(req.cookies.jwt).user
+  const {qid} = req.params;
+  console.log(qid)
+  await QuestionModel.deleteOne({_id: qid})
+  await UserModel.findByIdAndUpdate(userid,{$pull:{question_submited:qid,question_validated:qid}})
+  res.redirect('/moderator')
+})
+
+Router.get("/approve:qid",async(req,res)=> {
+  const userid= jwt_decode(req.cookies.jwt).user
+  const {qid} = req.params;
+  console.log(qid)
+  await QuestionModel.findByIdAndUpdate(qid,{isValid:true})
+  res.redirect('/moderator')
+})
+
+Router.get("/disapprove:qid",async(req,res)=> {
+  const userid= jwt_decode(req.cookies.jwt).user
+  const {qid} = req.params;
+  console.log(qid)
+  await QuestionModel.findByIdAndUpdate(qid,{isValid:false})
+  res.redirect('/moderator')
 })
 
 export default Router;
