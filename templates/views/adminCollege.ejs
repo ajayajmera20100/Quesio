@@ -142,14 +142,14 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      <form action="/admin/college" method="POST">
+                      <form action="/admin/collegedata" method="POST">
                         <div class="row" style="padding-top: 1rem;">
                           <div class="form-group col-md-2">
                             <label for="university">Enter University Name : <sup>*</sup></label>
                           </div>
                           <div class="col-md-10">
-                            <input type="text" class="form-control" id="university_name" name="university_name"
-                              placeholder="University Name" required>
+                            <input type="text" class="form-control" value="Mumbai University" id="university_name" name="university_name"
+                              placeholder="University Name" disabled required>
                           </div>
                         </div>
 
@@ -216,7 +216,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <% collegedata.forEach((data,index)=>{ %>
+                        <% collegelistdata.forEach((college,index)=>{ %>
                           <tr>
                             <td>
                               <h5>
@@ -225,24 +225,34 @@
                             </td>
                             <td>
                               <h5>
-                                <%=data._id %>
+                                <%=college.college_name %>
                               </h5>
                             </td>
 
                             <td>
                               <h5>
-                                <%= data.faculty %>
+                                <% collegedata.forEach(elem=>{  %> 
+                                  <% if(college.college_name == elem._id){%> 
+                                <%=elem.faculty %>
+                                <% } %> 
+                                <% }) %> 
                               </h5>
                             </td>
 
                             <td>
                               <h5>
-                                <%= data.expert %>
+                                <% collegedata.forEach(elem=>{  %> 
+                                  <% if(college.college_name==elem._id) {%> 
+                                <%=elem.expert %>
+                                <% } %> 
+                                <% }) %> 
                               </h5>
                             </td>
                             <td>
                               <h5>
-                                2
+                               
+                                  <%=college.branch.length %> 
+                                 
                               </h5>
                             </td>
                           </tr>

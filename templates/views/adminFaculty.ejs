@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>CelestialUI Admin</title>
+    <title>Quesio Admin</title>
     <!-- base:css -->
     <link
       rel="stylesheet"
@@ -205,21 +205,21 @@
                               <% if(data.isVarified){%> 
                                 <td>
                                   <button type="button" class="btn btn-primary btn-sm">
-                                    Approved
+                                    <a href="http://127.0.0.1:9000/admin/faculty/disapprove<%=data.id %> ">Approved </a>
                                   </button>
                                 </td>
                                 <% }else{ %> 
                                   <td>
                                     <button type="button" class="btn btn-primary btn-sm">
-                                      Pending
+                                      <a href="http://127.0.0.1:9000/admin/faculty/approve<%=data.id %> ">Pending </a>
                                     </button>
                                   </td>
                                   <% } %> 
                              
 
                               <td>
-                                <button type="button" onclick="location.href='/admin/deletefaculty'" class="btn btn-primary btn-sm btn-danger">
-                                  Delete
+                                <button type="button" class="btn btn-primary btn-sm btn-danger">
+                                  <a href="http://127.0.0.1:9000/admin/faculty/delete<%=data.id %> ">Delete</a>
                                 </button>
                               </td>
                             </tr>

@@ -50,7 +50,9 @@ Router.get('/',isAuth, async (req, res) => {
 
 
 Router.get('/college', isAuth,async (req, res) => {
+    const collegelistdata = await CollegeModel.find()
    
+    // console.log(collegelist)
     const collegedata = await UserModel.aggregate([
         {
             $match: { isVarified: { $eq: 1 } }
@@ -65,21 +67,23 @@ Router.get('/college', isAuth,async (req, res) => {
         }
 
     ])
+    
 
-    res.render('adminCollege',{collegedata})
+    res.render('adminCollege',{collegelistdata,collegedata})
 })
+
+
+
 
 Router.post('/collegedata',async(req,res)=>{
     try {
+        
         const { university, college } = req.body;
         await CollegeModel.create({
-    
           university: university,
-    
           college_name: college,
-    
         });
-    
+        res.redirect('/admin/college')
       } catch (error) {
     
         res.status(400).json({ error: error.message });
@@ -91,8 +95,26 @@ Router.post('/collegedata',async(req,res)=>{
 
 Router.get('/faculty', isAuth,async (req, res) => {
     const facultydata = await UserModel.find({ 'isFaculty': 1 })
-
+    // console.log(facultydata)
     res.render('adminFaculty', { facultydata })
+})
+
+Router.get('/faculty/approve:uid',async (req, res) => {
+    const data=await UserModel.findByIdAndUpdate(req.params.uid,{isVarified:true});
+    await data.save();
+    res.redirect('/admin/faculty');
+})
+
+Router.get('/faculty/disapprove:uid',async (req, res) => {
+    const data=await UserModel.findByIdAndUpdate(req.params.uid,{isVarified:false});
+    await data.save();
+    res.redirect('/admin/faculty');
+})
+
+Router.get('/faculty/delete:uid',async (req, res) => {
+    // await QuestionModel.deleteOne({_id: req.params.uid})
+    console.log("in delete")
+    res.redirect('/admin/faculty');
 })
 
 Router.get('/moderator',isAuth, async (req, res) => {

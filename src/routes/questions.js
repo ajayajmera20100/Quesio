@@ -135,7 +135,7 @@ Router.get("/chapter:subject_name",async(req,res)=> {
 Router.get("/delete:qid",async(req,res)=> {
   const userid= jwt_decode(req.cookies.jwt).user
   const {qid} = req.params;
-  console.log(qid)
+  // console.log(qid)
   await QuestionModel.deleteOne({_id: qid})
   await UserModel.findByIdAndUpdate(userid,{$pull:{question_submited:qid,question_validated:qid}})
   res.redirect('/moderator')
