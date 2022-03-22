@@ -92,7 +92,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group row">
+                            <div class="form-group row mb-0">
                                 <label class="col-md-3 col-form-label" for="branch">Branch : <sup>*</sup></label>
                                 <div class="col-md-9">
                                     <select class="custom-select text-muted" id="branch" name="branch"
@@ -108,8 +108,8 @@
 
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group row">
+                        <div class="col-md-6" >
+                            <div class="form-group row" style="margin-bottom:1rem;">
                                 <label class="col-md-3 col-form-label" for="password">Password : <sup>*</sup></label>
                                 <div class="col-md-9">
                                     <input type="password" class="form-control" id="password" name="password"
@@ -118,7 +118,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group row">
+                            <div class="form-group row" style="margin-bottom:1rem;">
                                 <label class="col-md-3 col-form-label" for="ugc">Upload UGC : <sup>*</sup></label>
                                 <div class="col-md-9">
                                     <input type="file" class="form-control" id="ugc" name="ugc" placeholder="UGC"
@@ -128,7 +128,24 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-3 form-group mt-3">
+                        <div class="col-md-12 d-flex mb-md-4 pb-5 pl-0">
+                            <label class="form-check-label col-md-3 ml-0">Designation : *</label>
+                              <div class="form-check col-md-3">
+                                <input class="form-check-input col-md-2 pt-3 mt-2" type="radio" name="designation" id="radio-faculty" required>
+                                <label class="form-check-label col-md-8" for="radio-faculty">
+                                  Faculty
+                                </label>
+                              </div>
+                              <div class="form-check col-md-3">
+                                <input class="form-check-input col-md-2 pt-3 mt-2" type="radio" name="designation" id="radio-moderator">
+                                <label class="form-check-label col-md-8" for="radio-moderator">
+                                  Moderator
+                                </label>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 form-group mt-0">
                             <label for="nochapter">Subjects & Experience : <sup>*</sup></label>
                         </div>
                         <div class="col-md-7">
