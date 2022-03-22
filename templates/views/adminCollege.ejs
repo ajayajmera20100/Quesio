@@ -211,12 +211,14 @@
                           <th style="font-weight: bold;">
                             No. of Branches
                           </th>
-
+                          <th style="font-weight: bold;">
+                            Delete
+                          </th>
 
                         </tr>
                       </thead>
                       <tbody>
-                        <% collegelistdata.forEach((college,index)=>{ %>
+                        <% collegelistdata.forEach((college,index)=>{ isfacultyexist=false,isexpertexist=false %>
                           <tr>
                             <td>
                               <h5>
@@ -231,21 +233,29 @@
 
                             <td>
                               <h5>
-                                <% collegedata.forEach(elem=>{  %> 
+                                <% collegedata.forEach(elem=>{ %> 
                                   <% if(college.college_name == elem._id){%> 
-                                <%=elem.faculty %>
+                                    <% isfacultyexist=true %> 
+                                <%=elem.faculty  %>
                                 <% } %> 
                                 <% }) %> 
+                                <% if(!isfacultyexist){ %> 
+                                   0
+                                  <%} %> 
                               </h5>
                             </td>
 
                             <td>
                               <h5>
-                                <% collegedata.forEach(elem=>{  %> 
-                                  <% if(college.college_name==elem._id) {%> 
-                                <%=elem.expert %>
+                                <% collegedata.forEach(elem=>{ %> 
+                                  <% if(college.college_name == elem._id){%> 
+                                    <% isexpertexist=true %> 
+                                <%=elem.expert  %>
                                 <% } %> 
                                 <% }) %> 
+                                <% if(!isexpertexist){ %> 
+                                  0
+                                  <%} %>  
                               </h5>
                             </td>
                             <td>
@@ -254,6 +264,9 @@
                                   <%=college.branch.length %> 
                                  
                               </h5>
+                            </td>
+                            <td>
+                              <button type="button" class="btn btn-primary btn-sm btn-danger "><a href="http://127.0.0.1:9000/admin/college/delete<%=college.id %> ">Delete</a> </button>
                             </td>
                           </tr>
                           <% }) %>

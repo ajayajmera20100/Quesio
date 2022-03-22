@@ -2,6 +2,7 @@
 import express from "express";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
+import jwt_decode from "jwt-decode" 
 
 // models
 import { AdminModel } from "../models/admin";
@@ -69,7 +70,7 @@ Router.get('/college', isAuth,async (req, res) => {
     ])
     
 
-    res.render('adminCollege',{collegelistdata,collegedata})
+    res.render('adminCollege',{collegelistdata,collegedata,isfacultyexist:false,isexpertexist:false})
 })
 
 
@@ -91,6 +92,10 @@ Router.post('/collegedata',async(req,res)=>{
       }
 })
 
+Router.get('/college/delete:cid',async (req, res) => {
+    await CollegeModel.deleteOne({_id: req.params.cid})
+    res.redirect('/admin/college');
+})
 
 
 Router.get('/faculty', isAuth,async (req, res) => {
@@ -112,7 +117,7 @@ Router.get('/faculty/disapprove:uid',async (req, res) => {
 })
 
 Router.get('/faculty/delete:uid',async (req, res) => {
-    // await QuestionModel.deleteOne({_id: req.params.uid})
+    // await UserModel.deleteOne({_id: req.params.uid})
     console.log("in delete")
     res.redirect('/admin/faculty');
 })
@@ -123,10 +128,36 @@ Router.get('/moderator',isAuth, async (req, res) => {
     res.render('adminModerator', { moderatordata })
 })
 
+Router.get('/moderator/approve:uid',async (req, res) => {
+    const data=await UserModel.findByIdAndUpdate(req.params.uid,{isVarified:true});
+    await data.save();
+    res.redirect('/admin/moderator');
+})
+
+Router.get('/moderator/disapprove:uid',async (req, res) => {
+    const data=await UserModel.findByIdAndUpdate(req.params.uid,{isVarified:false});
+    await data.save();
+    res.redirect('/admin/moderator');
+})
+Router.get('/moderator/delete:uid',async (req, res) => {
+    // await UserModel.deleteOne({_id: req.params.uid})
+    console.log("in moderator delete")
+    res.redirect('/admin/moderator');
+})
+
+
 Router.get('/questions',isAuth, async (req, res) => {
     const questiondata = await QuestionModel.find({isValid:true})
     res.render('adminQuestions', { questiondata: questiondata })
 })
+Router.get("/delete:qid",async(req,res)=> {
+    const userid= jwt_decode(req.cookies.jwt).user
+    const {qid} = req.params;
+    console.log(qid)
+    // await QuestionModel.deleteOne({_id: qid})
+    // await UserModel.findByIdAndUpdate(userid,{$pull:{question_submited:qid,question_validated:qid}})
+    res.redirect('/admin/questions')
+  })
 
 
 

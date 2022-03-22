@@ -149,6 +149,13 @@ Router.get("/approve:qid",async(req,res)=> {
   res.redirect('/moderator')
 })
 
+Router.get("/validate:qid",async(req,res)=> {
+  const userid= jwt_decode(req.cookies.jwt).user
+  const {qid} = req.params;
+  console.log(qid)
+  await QuestionModel.findByIdAndUpdate(qid,{isValid:true})
+  res.redirect('/moderator/moderatorquestions')
+})
 Router.get("/disapprove:qid",async(req,res)=> {
   const userid= jwt_decode(req.cookies.jwt).user
   const {qid} = req.params;

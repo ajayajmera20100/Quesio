@@ -209,21 +209,24 @@
                                   <button type="button"
                                       class="btn btn-primary btn-sm ">View</button>
                               </td>
-                              <% if(data.isVarified==true){ %> 
-                              <td>
-                                  <button type="button"
-                                      class="btn btn-primary btn-sm ">Approved</button>
-                              </td>
-                              <%}else{  %> 
+                              <% if(data.isVarified){%> 
                                 <td>
-                                  <button type="button"
-                                      class="btn btn-primary btn-sm ">Pending</button>
-                              </td>
-                                <% } %> 
-                              <td>
-                                  <button type="button"
-                                      class="btn btn-primary btn-sm btn-danger ">Delete</button>
-                              </td>
+                                  <button type="button" class="btn btn-primary btn-sm">
+                                    <a href="http://127.0.0.1:9000/admin/moderator/disapprove<%=data.id %> ">Approved </a>
+                                  </button>
+                                </td>
+                                <% }else{ %> 
+                                  <td>
+                                    <button type="button" class="btn btn-primary btn-sm">
+                                      <a href="http://127.0.0.1:9000/admin/moderator/approve<%=data.id %> ">Pending </a>
+                                    </button>
+                                  </td>
+                                  <% } %> 
+                                  <td>
+                                    <button type="button" class="btn btn-primary btn-sm btn-danger">
+                                      <a href="http://127.0.0.1:9000/admin/moderator/delete<%=data.id %> ">Delete</a>
+                                    </button>
+                                  </td>
                           </tr>
                           <% }) %>
 

@@ -42,7 +42,7 @@
             <div class="d-flex sidebar-profile" style="padding: 1rem 1.125rem;">
               <div class="sidebar-profile-name">
                 <p class="sidebar-designation">Welcome</p>
-                <p class="sidebar-name"><MODERATOR></p>
+                <p class="sidebar-name">MODERATOR</p>
               </div>
               <button class="navbar-toggler navbar-toggler align-self-center d-lg-flex transition-btn" type="button"
                 style="color: aliceblue;margin-top: 0.85rem;" data-toggle="minimize" id="hbtn"
@@ -154,11 +154,11 @@
                           </td>
                           </td>
                           <td>
-                            <button type="button" class="btn btn-primary btn-sm">Pending</button>
+                            <button type="button" class="btn btn-primary btn-sm"><a href="http://127.0.0.1:9000/questions/validate<%=question.id %> ">Pending</a></button>
                           </td>
 
                           <td>
-                            <button type="button" class="btn btn-primary btn-sm btn-danger ">Delete</button>
+                            <button type="button" class="btn btn-primary btn-sm btn-danger "><a href="http://127.0.0.1:9000/questions/delete<%=question.id %> ">Delete</a></button>
                           </td>
                         </tr>
                        
