@@ -165,7 +165,6 @@ Router.get('/branchs',isAuth, async (req, res) => {
     const branchdata = await UserModel.aggregate([
         {
             $match: { isVarified: { $eq: 1 } }
-
         },
         {
             "$group": {
@@ -178,20 +177,50 @@ Router.get('/branchs',isAuth, async (req, res) => {
         }
 
     ])
+
+    const all_college = await CollegeModel.aggregate([{ $project: { college_name: 1 } }])
+    const collegeslist=all_college.map(elem => {
+        return elem.college_name
+    })
+    const total_branch = await CollegeModel.aggregate([{ $project: { branch: 1 } }])
+    const branches = total_branch.map(elem => {
+        return elem.branch
+    })
+    const totalbranch = [... new Set([].concat.apply([], branches))] 
+    const colleges = [... new Set([].concat.apply([], collegeslist))] 
+    // console.log(branchdata)
     // res.send(branchdata)
 
-// console.log(branchdata);
+// console.log(colleges);
 
-    res.render('adminBranch',{branchdata})
+    res.render('adminBranch',{branchdata,totalbranch,colleges })
     
 })
 
-Router.post('/addbranch',(req,res)=>{
-    console.log(req.body)
+
+
+Router.post('/addbranch',async(req,res)=>{
+    const { university,college,branch}=req.body;
+    await CollegeModel.create({ university:university,
+        college_name: college,
+        branch: branch})
+    res.redirect('/admin/branchs')
+})
+
+Router.get('/branchdelete:bid',async(req,res)=>{
+   
+    await CollegeModel.updateMany({},{$pull:{branch:req.params.bid}});
+    res.redirect('/admin/branchs')
+
 })
 
 Router.get('/subjects',isAuth, async(req, res) => {
     const subjects=await SubjectModel.aggregate([{$project:{_id:0,subject_name:1}}])
+    const all_college = await CollegeModel.aggregate([{ $project: { college_name: 1 } }])
+    const collegeslist=all_college.map(elem => {
+        return elem.college_name
+    })
+    const colleges = [... new Set([].concat.apply([], collegeslist))] 
     const data = await UserModel.aggregate([
         {
             $match: { isVarified: { $eq: 1 } }
@@ -226,8 +255,27 @@ Router.get('/subjects',isAuth, async(req, res) => {
 //    res.send(subject_detail)
 
   
-    res.render('adminSubject',{subject_detail})
+    res.render('adminSubject',{subject_detail,colleges})
 })
 
+Router.get('/branchdata:collegename',async(req,res)=>{
+   
+    const branchesforcollege=await CollegeModel.findOne({college_name:req.params.collegename}) 
+    res.send(branchesforcollege.branch)
+})
+
+Router.post('/addsubject',async(req,res)=>{
+    const { university,college,branch,subject}=req.body;
+    await SubjectModel.create({subject_name:subject,branch:branch});
+    res.redirect('/admin/subjects')
+     
+})
+
+Router.get('/subjectdelete:sname',async(req,res)=>{
+   
+    await SubjectModel.deleteOne({subject_name:req.params.sname})
+    res.redirect('/admin/subjects')
+
+})
 
 export default Router;

@@ -36,9 +36,7 @@
             font-weight: bold;
             font-family: Merienda One, cursive;
             color: white;
-            padding-left: 1rem;"
-            
-            >
+            padding-left: 1rem;">
               Quesio
             </a>
           </li>
@@ -117,7 +115,7 @@
             <a class="nav-link" href="/">
               <i class="typcn typcn-lock-closed menu-icon"></i>
               <span class="menu-title">Logout</span>
-              
+
             </a>
           </li>
 
@@ -145,17 +143,15 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      <form action="/addbranch" method="POST">
-
-
+                      <form action="/admin/addbranch" method="POST">
 
                         <div class="row" style="padding-top: 1rem;">
                           <div class="form-group col-md-2">
                             <label for="question">Enter University Name : <sup>*</sup></label>
                           </div>
                           <div class="col-md-10">
-                            <input type="text" class="form-control" id="question" name="question"
-                              placeholder="University Name" required>
+                            <input type="text" class="form-control" value="Mumbai University" disabled id="university"
+                              name="university" placeholder="University Name" required>
                           </div>
                         </div>
 
@@ -163,9 +159,17 @@
                           <div class="form-group col-md-2">
                             <label for="question">Enter College Name : <sup>*</sup></label>
                           </div>
-                          <div class="col-md-10">
-                            <input type="text" class="form-control" id="question" name="question"
-                              placeholder="College Name" required>
+                          <div class="col-md-8">
+                            <div class="input-group">
+                              <select class="custom-select" id="college-name" required>
+                                <option value=" ">Choose . . .</option>
+                                <% colleges.forEach(college=>{ %>
+                                  <option value="<%=college %> ">
+                                    <%=college %>
+                                  </option>
+                                  <% }) %>
+                              </select>
+                            </div>
                           </div>
                         </div>
 
@@ -174,21 +178,20 @@
                             <label for="question">Enter Branch Name : <sup>*</sup></label>
                           </div>
                           <div class="col-md-10">
-                            <input type="text" class="form-control" id="question" name="question"
-                              placeholder="Branch Name" required>
+                            <input type="text" class="form-control" id="branch" name="branch" placeholder="Branch Name"
+                              required>
                           </div>
                         </div>
 
 
 
-                        <div class="text-center" style="padding-top: 1rem;">
-                          <p class="form-footer-text">* Your Submissions Will Be Supervised By The Experts.</p>
-                        </div>
+
                       </form>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary" data-dismiss="modal">Save Changes</button>
+                      <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="AddBranch()">Save
+                        Changes</button>
                     </div>
                   </div>
                 </div>
@@ -232,33 +235,72 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <% branchdata.forEach((data,index)=>{ %> 
+                        <% totalbranch.forEach((branch,index)=>{ var isnew=true %>
+
+
                           <tr>
                             <td>
-                              <h5><%=index+1 %> </h5>
+                              <h5>
+                                <%=index+1 %>
+                              </h5>
                             </td>
                             <td>
-                              <h5><%=data._id  %> </h5>
+                              <h5>
+                                <%=branch %>
+                              </h5>
                             </td>
                             <td>
-                              <h5><%=data.faculty  %></h5>
+                              <% branchdata.forEach( data=>{ %>
+                                <% if(branch==data._id){ %>
+                                  <% isnew=false %>
+                                    <h5>
+                                      <%=data.faculty %>
+                                    </h5>
+                                    <% } %>
+                                      <% }) %>
+                                        <% if(isnew){ %> 0
+                                          <% } %>
                             </td>
                             <td>
-                              <h5><%=data.expert  %></h5>
+                              <% if(isnew){ %>
+                                <h5>0</h5>
+                                <% }else{ %>
+                                  <% branchdata.forEach( data=>{ %>
+                                    <% if(branch==data._id){ %>
+                                      <% isnew=false %>
+                                        <h5>
+                                          <%=data.expert %>
+                                        </h5>
+                                        <% } %>
+                                          <% }) %>
+                                            <% } %>
                             </td>
-  
+
                             <td>
-                              <h5><%=data.data.length  %> </h5>
+                              <% if(isnew){ %>
+                                <h5>0</h5>
+                                <% }else{ %>
+                                  <% branchdata.forEach( data=>{ %>
+                                    <% if(branch==data._id){ %>
+                                      <% isnew=false %>
+                                        <h5>
+                                          <%=data.data[0].length %>
+                                        </h5>
+                                        <% } %>
+                                          <% }) %>
+                                            <% } %>
                             </td>
                             <td>
-                              <button type="button" class="btn btn-primary btn-sm btn-danger ">Delete</button>
+                              <button type="button" class="btn btn-primary btn-sm btn-danger "><a href="http://127.0.0.1:9000/admin/branchdelete<%=branch %> ">Delete</a></button>
                             </td>
-  
-  
+
+
                           </tr>
-                        <% }) %> 
-                        
-                       
+
+                          <% }) %>
+
+
+
 
                       </tbody>
                     </table>
@@ -294,27 +336,54 @@
   <script src="/dashboard/js/settings.js"></script>
   <script src="/dashboard/js/todolist.js"></script>
   <script>
-    let counter =0;
+    let counter = 0;
     let hamburgerbtn = document.getElementById("hbtn")
     let brandq = document.getElementById("brandq")
 
 
     window.onload = () => {
       hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.4rem)"
-      }
-    hamburgerbtn.addEventListener('click',() => {
-      
-      if(counter == 0){
+    }
+    hamburgerbtn.addEventListener('click', () => {
+
+      if (counter == 0) {
         hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.4rem)"
         brandq.style.transform = "translateX(-10rem)"
-        counter =1;
+        counter = 1;
       }
-      else{
+      else {
         hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.4rem)"
         brandq.style.transform = "translateX(0rem)"
-        counter =0;
+        counter = 0;
       }
     })
+    async function AddBranch() {
+
+      const university = document.getElementById('university').value
+      const college = document.getElementById('college-name').value
+      const branch = document.getElementById('branch').value;
+
+      await fetch("http://127.0.0.1:9000/admin/addbranch", {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+          "university": `${university}`,
+          "college": `${college}`,
+          "branch": `${branch}`,
+
+        })
+
+      })
+
+    }
+
+
+
+
   </script>
 
 </body>
