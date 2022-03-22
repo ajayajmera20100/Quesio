@@ -130,7 +130,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <% pendingquestions.forEach((question,index)=>{ %> 
+                        <% validatedquestions[0].question_validated.forEach((question,index)=>{ %> 
                         <tr>
                           <td>
                             <h5><%=index+1 %> </h5>
@@ -157,7 +157,7 @@
                           </td>
                           </td>
                           <td>
-                            <button type="button" class="btn btn-primary btn-sm"><a href="http://127.0.0.1:9000/questions/validate<%=question.id %> ">Pending</a></button>
+                            <button type="button" class="btn btn-primary btn-sm"><a href="http://127.0.0.1:9000/questions/disvalidate<%=question.id %> ">Approved</a></button>
                           </td>
 
                           <td>

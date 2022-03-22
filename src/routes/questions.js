@@ -146,6 +146,7 @@ Router.get("/approve:qid",async(req,res)=> {
   const {qid} = req.params;
   console.log(qid)
   await QuestionModel.findByIdAndUpdate(qid,{isValid:true})
+  await UserModel.findByIdAndUpdate(userid,{$push:{question_validated:qid}})
   res.redirect('/moderator')
 })
 
@@ -154,14 +155,26 @@ Router.get("/validate:qid",async(req,res)=> {
   const {qid} = req.params;
   console.log(qid)
   await QuestionModel.findByIdAndUpdate(qid,{isValid:true})
+  await UserModel.findByIdAndUpdate(userid,{$push:{question_validated:qid}})
   res.redirect('/moderator/moderatorquestions')
 })
+
 Router.get("/disapprove:qid",async(req,res)=> {
   const userid= jwt_decode(req.cookies.jwt).user
   const {qid} = req.params;
   console.log(qid)
   await QuestionModel.findByIdAndUpdate(qid,{isValid:false})
+  await UserModel.findByIdAndUpdate(userid,{$pull:{question_validated:qid}})
   res.redirect('/moderator')
+})
+
+Router.get("/disvalidate:qid",async(req,res)=> {
+  const userid= jwt_decode(req.cookies.jwt).user
+  const {qid} = req.params;
+  console.log(qid)
+  await QuestionModel.findByIdAndUpdate(qid,{isValid:false})
+  await UserModel.findByIdAndUpdate(userid,{$pull:{question_validated:qid}})
+  res.redirect('/moderator/moderatorquestionsvalidated')
 })
 
 export default Router;

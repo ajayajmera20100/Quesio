@@ -35,6 +35,13 @@ Router.get('/moderatorquestions',async(req, res)=>{
   res.render('moderate-questions',{usertype:"moderator",pendingquestions}); 
 })
 
+Router.get('/moderatorquestionsvalidated',async(req, res)=>{
+  const userid= jwt_decode(req.cookies.jwt).user
+  const validatedquestions = await UserModel.find({_id:userid}).populate('question_validated').select('question_validated');
+  // res.send(validatedquestions[0].question_validated)
+  res.render('moderate-questions-validated',{usertype:"moderator",validatedquestions}); 
+})
+
 
 Router.get('/profile',async(req, res)=>{
   const userid= jwt_decode(req.cookies.jwt).user
