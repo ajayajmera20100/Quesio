@@ -12,6 +12,10 @@
 
   <link rel="stylesheet" href="/dashboard/css/vertical-layout-light/style.css">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
+
   <link rel="icon" type="image/x-icon" href="assets/images/Q.ico">
 </head>
 
@@ -200,16 +204,22 @@
   <script>
     let counter = 0;
     let hamburgerbtn = document.getElementById("hbtn")
+    let brandq = document.getElementById("brandq")
+
+
     window.onload = () => {
-      hamburgerbtn.style.transform = "translateX(8.5rem)"
+      hamburgerbtn.style.transform = "translateX(5.5rem) translateY(-5.4rem)"
     }
     hamburgerbtn.addEventListener('click', () => {
+
       if (counter == 0) {
-        hamburgerbtn.style.transform = "translateX(-0.5rem)"
+        hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.4rem)"
+        brandq.style.transform = "translateX(-10rem)"
         counter = 1;
       }
       else {
-        hamburgerbtn.style.transform = "translateX(8.5rem)"
+        hamburgerbtn.style.transform = "translateX(5.5rem) translateY(-5.4rem)"
+        brandq.style.transform = "translateX(0rem)"
         counter = 0;
       }
     })
