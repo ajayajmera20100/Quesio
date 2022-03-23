@@ -23153,6 +23153,22 @@ dl li {
   border-top: 1px solid #e8eff9;
 }
 
+.totalquestioncount {
+padding-left: 1%;
+padding-top: 1%;
+text-align: right;
+padding-right: 32%;
+color: #6a008a;
+}
+
+.totalquestion {
+  padding-left: 1%;
+  padding-top: 1%;
+  text-align: right;
+  padding-right: 32%;
+  
+  }
+
 .nav-tabs .nav-link {
   background: #f6f8fa;
   color: #000000;
@@ -24678,7 +24694,8 @@ body.avgrund-active {
   display: flex;
   -webkit-flex-direction: column;
   flex-direction: column;
-  margin-left: 255px;
+  /* margin-left: 255px; */
+  max-width: 100%;
 }
 
 @media (max-width: 991px) {
@@ -24689,10 +24706,9 @@ body.avgrund-active {
 }
 
 .content-wrapper {
-  margin-left: 255;
+  width: 100%;
   background: #e8eff9;
   padding: 1.875rem 1.875rem 0 1.875rem;
-  /* width: 100%; */
   -webkit-flex-grow: 1;
   flex-grow: 1;
 }
@@ -24705,7 +24721,7 @@ body.avgrund-active {
 
 /* Sidebar */
 .sidebar {
-  min-height: calc(100vh - 64px);
+  /* min-height: calc(100vh - 64px);
   background: #1b1b29;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
@@ -24724,8 +24740,38 @@ body.avgrund-active {
   box-shadow: 6px 16px 31px -18px #b7bcd1;
   -webkit-box-shadow: 6px 16px 31px -18px #b7bcd1;
   -moz-box-shadow: 6px 16px 31px -18px #b7bcd1;
+  -ms-box-shadow: 6px 16px 31px -18px #b7bcd1; */
+
+  /* z-index: 11;
+  transition: width 0.25s ease, background 0.25s ease;
+  -webkit-transition: width 0.25s ease, background 0.25s ease;
+  -moz-transition: width 0.25s ease, background 0.25s ease;
+  -ms-transition: width 0.25s ease, background 0.25s ease;
+  box-shadow: 6px 16px 31px -18px #b7bcd1;
+  -webkit-box-shadow: 6px 16px 31px -18px #b7bcd1;
+  -moz-box-shadow: 6px 16px 31px -18px #b7bcd1;
+  -ms-box-shadow: 6px 16px 31px -18px #b7bcd1; */
+
+  min-height: calc(100vh - 64px);
+  background: #1b1b29;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  padding: 0;
+  
+  width: 255px;
+  z-index: 11;
+  transition: width 0.25s ease, background 0.25s ease;
+  -webkit-transition: width 0.25s ease, background 0.25s ease;
+  -moz-transition: width 0.25s ease, background 0.25s ease;
+  -ms-transition: width 0.25s ease, background 0.25s ease;
+  box-shadow: 6px 16px 31px -18px #b7bcd1;
+  -webkit-box-shadow: 6px 16px 31px -18px #b7bcd1;
+  -moz-box-shadow: 6px 16px 31px -18px #b7bcd1;
   -ms-box-shadow: 6px 16px 31px -18px #b7bcd1;
+
 }
+
+
 
 .sidebar .sidebar-profile {
   padding: 1.75rem 1.125rem;
