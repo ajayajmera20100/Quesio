@@ -46,16 +46,21 @@ try {
 Router.get('/update:qid',async(req, res)=>{
   const {qid} = req.params;
   const questionData=await QuestionModel.findById(qid)
-
-
   res.render('questionUpdate',{questionData:questionData,qid:qid}); 
 })
 
+Router.get('/show:qid',async(req,res)=>{
+  const {qid} = req.params;
+  const questionData=await QuestionModel.findById(qid)
+  res.json({question:questionData})
+
+})
 
 
 
 Router.post('/', async(req, res)=>{
   try {
+    console.log("in /question ")
      const {subject,chapter,diff,question,option1,option2,option3,option4,correct} = req.body;
      await QuestionModel.findQuestion(question);
      const questions = new QuestionModel({
@@ -113,7 +118,8 @@ Router.post('/update:qid',isAuth, async(req, res)=>{
      }})
     //  console.log(questions)
      await questions.save();
-     res.json({message:"Data added to the database"})
+    //  res.json({message:"Data added to the database"})
+    res.redirect('/faculty')
     }
     catch (error) {
      console.log(`you got a error ${error.message}`);
@@ -140,6 +146,7 @@ Router.get("/delete:qid",async(req,res)=> {
   await UserModel.findByIdAndUpdate(userid,{$pull:{question_submited:qid,question_validated:qid}})
   res.redirect('/moderator')
 })
+
 
 Router.get("/approve:qid",async(req,res)=> {
   const userid= jwt_decode(req.cookies.jwt).user

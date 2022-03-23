@@ -15,7 +15,6 @@ const UserSchema = new mongoose.Schema({
     question_submited: [{ type: mongoose.Types.ObjectId, ref: "questions" }],
     question_validated: [{ type: mongoose.Types.ObjectId, ref: "questions" }],
     subject: [{ subject_name: String, yearofexp: Number }],
-    expertsubject: [{ subject_name: String, yearofexp: Number }],
     document: { type: String },
     isExpert: { type: Number, default: 0 },
     isFaculty: { type: Number, default: 0 },

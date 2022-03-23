@@ -19,7 +19,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
 
 
-
   <link rel="stylesheet" type="text/css"
     href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css" />
 
@@ -45,8 +44,8 @@
             font-weight: bold;
             font-family: Merienda One, cursive;
             color: white;
-            padding-left: 1rem;">
-              Quesio
+            padding-left: 1rem;"></a>
+            Quesio
             </a>
           </li>
           <li class="nav-item">
@@ -61,6 +60,7 @@
                 <span class="typcn typcn-th-menu"></span>
               </button>
             </div>
+            <p class="sidebar-menu-title">Dash menu</p>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/">
@@ -292,7 +292,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary" onclick="fetchquestion()"
+                          <button type="submit" class="btn btn-primary" onclick="fetchquestion()"
                             data-dismiss="modal">Save Changes</button>
                         </div>
                       </div>
@@ -365,9 +365,10 @@
                         </td>
                         </td>
                         <td>
-                          <button type="button" class="btn  btn-sm btn-primary-new " data-toggle="modal"
-                            data-target=".bd-example-modal-lg">Edit</button>
-                          <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+
+                          <button type="submit" class="btn  btn-sm btn-primary-new " data-toggle="modal"
+                            data-target=".bd-example-modal-edit" onclick="editData('<%=question.id %>')">Edit</button>
+                          <div class="modal fade bd-example-modal-edit" tabindex="-1" role="dialog"
                             aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                               <div class="modal-content p-5">
@@ -385,11 +386,7 @@
                                       </div>
                                       <div class="form-group col-md-8">
                                         <div class="input-group">
-                                          <select class="custom-select" id="subject-name" required>
-                                            <option value="">Choose...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                          <select class="custom-select" id="edit-subject-name" required disabled>
                                           </select>
                                         </div>
                                       </div>
@@ -398,11 +395,7 @@
                                       </div>
                                       <div class="form-group col-md-8">
                                         <div class="input-group">
-                                          <select class="custom-select" id="chapter-name" required>
-                                            <option value="">Choose...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                          <select class="custom-select" id="edit-chapter-name" required disabled>
                                           </select>
                                         </div>
                                       </div>
@@ -413,14 +406,17 @@
                                       </div>
                                       <div class="btn-group-sm btn-group-toggle col-md-8" data-toggle="buttons"
                                         id="difficulty">
-                                        <label class="btn btn-secondary active">
-                                          <input type="radio" name="diff-options" id="diff-option1" required> Easy
+                                        <label class="btn btn-secondary">
+                                          <input type="radio" name="edit-diff-options" id="diff_1" value="easy" required>
+                                          Easy
                                         </label>
                                         <label class="btn btn-secondary">
-                                          <input type="radio" name="diff-options" id="diff-option2" required> Medium
+                                          <input type="radio" name="edit-diff-options" id="diff_2" value="medium" required>
+                                          Medium
                                         </label>
                                         <label class="btn btn-secondary">
-                                          <input type="radio" name="diff-options" id="diff-option3" required> Hard
+                                          <input type="radio" name="edit-diff-options" id="diff_3" value="hard" required>
+                                          Hard
                                         </label>
                                       </div>
                                     </div>
@@ -430,74 +426,74 @@
                                         <label for="question">Enter Question : <sup>*</sup></label>
                                       </div>
                                       <div class="col-md-10">
-                                        <input type="text" class="form-control" id="question" name="question"
+                                        <input type="text" class="form-control" id="edit-question" name="question"
                                           placeholder="Question" required>
                                       </div>
                                     </div>
 
                                     <div class="row">
-                                      <div class="form-group col-md-2">
-                                        <label for="question">Option 1 : <sup>*</sup></label>
+                                      <div class="form-group col-md-2 py-2">
+                                        <label for="option_1">Option 1 : <sup>*</sup></label>
                                       </div>
-                                      <div class="col-md-7">
-                                        <input type="text" class="form-control" id="question" name="question"
+                                      <div class="col-md-8">
+                                        <input type="text" class="form-control" id="option_1" name="option1"
                                           placeholder="Option 1" required>
                                       </div>
-                                      <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="option" id="option1"
-                                          value="option1">
-                                        <label class="form-check-label" for="option1">
+                                      <div class="form-check m-3">
+                                        <input class="form-check-input" style="margin-left:-4rem;" type="radio"
+                                          name="edit-correct" id="correct_1">
+                                        <label class="form-check-label" for="correct_1">
                                           Correct Answer
                                         </label>
                                       </div>
                                     </div>
 
                                     <div class="row">
-                                      <div class="form-group col-md-2">
-                                        <label for="question">Option 2 : <sup>*</sup></label>
+                                      <div class="form-group col-md-2 py-2">
+                                        <label for="option_2">Option 2 : <sup>*</sup></label>
                                       </div>
-                                      <div class="col-md-7">
-                                        <input type="text" class="form-control" id="question" name="question"
+                                      <div class="col-md-8">
+                                        <input type="text" class="form-control" id="option_2" name="option2"
                                           placeholder="Option 2" required>
                                       </div>
-                                      <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="option" id="option2"
-                                          value="option2">
-                                        <label class="form-check-label" for="option2">
+                                      <div class="form-check m-3">
+                                        <input class="form-check-input" style="margin-left:-4rem;" type="radio"
+                                          name="edit-correct" id="correct_2">
+                                        <label class="form-check-label" for="correct_2">
                                           Correct Answer
                                         </label>
                                       </div>
                                     </div>
 
                                     <div class="row">
-                                      <div class="form-group col-md-2">
-                                        <label for="question">Option 3 : <sup>*</sup></label>
+                                      <div class="form-group col-md-2 py-2">
+                                        <label for="option_3">Option 3 : <sup>*</sup></label>
                                       </div>
-                                      <div class="col-md-7">
-                                        <input type="text" class="form-control" id="question" name="question"
+                                      <div class="col-md-8">
+                                        <input type="text" class="form-control" id="option_3" name="option3"
                                           placeholder="Option 3" required>
                                       </div>
-                                      <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="option" id="option3"
-                                          value="option3">
-                                        <label class="form-check-label" for="option3">
+                                      <div class="form-check m-3">
+                                        <input class="form-check-input" style="margin-left:-4rem;" type="radio"
+                                          name="edit-correct" id="correct_3">
+                                        <label class="form-check-label" for="correct_3">
                                           Correct Answer
                                         </label>
                                       </div>
                                     </div>
 
                                     <div class="row">
-                                      <div class="form-group col-md-2">
-                                        <label for="question">Option 4 : <sup>*</sup></label>
+                                      <div class="form-group col-md-2 py-2">
+                                        <label for="option_4">Option 4 : <sup>*</sup></label>
                                       </div>
-                                      <div class="col-md-7">
-                                        <input type="text" class="form-control" id="question" name="question"
+                                      <div class="col-md-8">
+                                        <input type="text" class="form-control" id="option_4" name="option4"
                                           placeholder="Option 4" required>
                                       </div>
-                                      <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="option" id="option4"
-                                          value="option4">
-                                        <label class="form-check-label" for="option4">
+                                      <div class="form-check m-3">
+                                        <input class="form-check-input" style="margin-left:-4rem;" type="radio"
+                                          name="edit-correct" id="correct_4">
+                                        <label class="form-check-label" for="correct_4">
                                           Correct Answer
                                         </label>
                                       </div>
@@ -511,7 +507,8 @@
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                  <button type="button" class="btn btn-primary" data-dismiss="modal">Save
+                                  <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                    onclick="afterEdit('<%=question.id %>')">Save
                                     Changes</button>
                                 </div>
                               </div>
@@ -528,9 +525,6 @@
                               <label class="badge badge-danger">Pending</label>
                             </td>
                             <% } %>
-
-
-
                       </tr>
                       <% }) %>
 
@@ -567,7 +561,7 @@
     let hamburgerbtn = document.getElementById("hbtn")
     let brandq = document.getElementById("brandq")
     window.onload = () => {
-      hamburgerbtn.style.transform = "translateX(7.4rem) translateY(-5.4rem)"
+      hamburgerbtn.style.transform = "translateX(8rem) translateY(-5.7rem)"
     }
     hamburgerbtn.addEventListener('click', () => {
 
@@ -577,7 +571,7 @@
         counter = 1;
       }
       else {
-        hamburgerbtn.style.transform = "translateX(7.4rem) translateY(-5.4rem)"
+        hamburgerbtn.style.transform = "translateX(8rem)  translateY(-5.7rem)"
         brandq.style.transform = "translatex(0rem)"
         counter = 0;
       }
@@ -608,9 +602,6 @@
       const option4 = document.getElementById('option4').value
       const correct = document.querySelector('input[name="correct"]:checked').value;
 
-
-
-
       await fetch("http://127.0.0.1:9000/questions",
 
         {
@@ -639,6 +630,65 @@
 
     }
 
+    async function editData(question_id) {
+      const question = await fetch(`http://127.0.0.1:9000/questions/show${question_id}`).then(response => response.json()).then(data => data.question)
+      // console.log(question)
+      document.getElementById('edit-subject-name').innerHTML += `<option value="${question.subject}">${question.subject}</option>`
+      document.getElementById('edit-chapter-name').innerHTML += `<option value="${question.chapter}">${question.chapter}</option>`
+      for (let i = 1; i <= 3; i++) {
+        if (document.getElementById(`diff_${i}`).value === question.difficulty) {
+          console.log(i);
+          document.getElementById(`diff_${i}`).parentElement.classList.add('active')
+          break;
+        }
+      }
+      document.getElementById('edit-question').value = question.question
+
+      document.getElementById('option_1').value = question.options[0];
+      document.getElementById('option_2').value = question.options[1];
+      document.getElementById('option_3').value = question.options[2];
+      document.getElementById('option_4').value = question.options[3];
+
+      for (let i = 1; i <= 4; i++) {
+        if (document.getElementById(`option_${i}`).value === question.correct_options[0]) {
+          document.getElementById(`correct_${i}`).checked = true
+          break;
+        }
+      }
+    }
+    async function afterEdit(question_id) {
+      const subject = document.getElementById('edit-subject-name').value
+      const chapter = document.getElementById('edit-chapter-name').value
+      const diff = document.querySelector('input[name="edit-diff-options"]:checked').value;
+      // console.log(diff)
+      const question = document.getElementById('edit-question').value
+      const option1 = document.getElementById('option_1').value
+      const option2 = document.getElementById('option_2').value
+      const option3 = document.getElementById('option_3').value
+      const option4 = document.getElementById('option_4').value
+      let correct_ans;
+      for (let i = 1; i <= 4; i++) {
+        if (document.getElementById(`correct_${i}`).checked == true) {
+          correct_ans = document.getElementById(`option_${i}`).value
+          break;
+        }
+      }
+
+      // console.log(diff, question, option1, option2, option3, option4,correct_ans )
+      await fetch(`http://127.0.0.1:9000/questions/update${question_id}`,
+
+        {
+
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ "subject": `${subject}`, "chapter": `${chapter}`, "diff": `${diff}`, "question": `${question}`, "option1": `${option1}`, "option2": `${option2}`, "option3": `${option3}`, "option4": `${option4}`, "correct": `${correct_ans}` })
+        })
+
+        window.location.reload(true);
+    }
 
   </script>
 

@@ -176,25 +176,23 @@
                       placeholder="Enter Your Contact Number" Disabled>
                   </div>
                 </div>
+                <input type="text" id="totalsubandyoe" name="totalsubandyoe" value="<%=profile.subject.length   %> " style="display: none;">
+                
+                <% profile.subject.forEach((data,index)=>{ %> 
                 <div class="row">
+                 
                   <div class="form-group col-md-5 mb-3 p-1 mr-5">
-                    <label for="validationTooltip02" class="ml-2">Subject</label>
-                    <div class="dropdown ">
-                      <select class="custom-select col-md-10 text-muted p-2 pl-4" style="height:3rem;border:none;"
-                        id="subjects" name="subjects" value="Click Here To Get Your Subjects" required>
-                        <option  selected value="Click Here To Get Your Subjects">Click To See Your Subjects</option>
-                        <% profile.subject.forEach(data=>{ %> 
-                        <option value="<%=data.subject_name %> "><%=data.subject_name %></option>
-                        <% }) %> 
-                      </select>
-                    </div>
+                    <label for="phone" class="ml-2">Subject <%=index+1 %> </label>
+                    <input type="text" class="form-control bg-white" id="subject<%=index+1 %>" name="subject<%=index+1 %>"
+                      value="<%=data.subject_name  %>" disabled placeholder="View Years of Experience"  >
                   </div>
                   <div class="form-group col-md-6 mb-3 p-1 pl-2 ml-3">
                     <label for="phone" class="ml-2">Years of Experience</label>
-                    <input type="number" class="form-control bg-white" id="phone" name="phone"
-                      placeholder="View Years of Experience" Disabled>
+                    <input type="number" class="form-control bg-white" id="yoe<%=index+1 %>" name="yoe<%=index+1 %>"
+                    value="<%=data.yearofexp  %>" disabled placeholder="View Years of Experience"  >
                   </div>
                 </div>
+                <% }) %> 
               </div>
               <div>
                 <div class="dashboard-btn">
@@ -213,7 +211,7 @@
           </div>
         </div>
       </div>
-
+       
       <script src="/dashboard/vendors/js/vendor.bundle.base.js"></script>
       <script src="/dashboard/js/off-canvas.js"></script>
       <script src="/dashboard/js/hoverable-collapse.js"></script>
@@ -224,6 +222,16 @@
       <script src="/dashboard/vendors/chart.js/Chart.min.js"></script>
       <script src="/dashboard/js/dashboard.js"></script>
       <script>
+        function getsubandyoe(){
+           
+          const sublength=`<%=profile.subject.length %> `;
+
+          for(let i=0;i<sublength;i++){    
+           document.getElementById(`subject${i+1}`).disabled=false; 
+           document.getElementById(`yoe${i+1}`).disabled=false;   
+        }   
+        }
+         
         let editbutton = document.getElementById('editbutton');
         let savebutton = document.getElementById('savebutton');
         let email = document.getElementById('email');
@@ -236,12 +244,13 @@
         editbutton.addEventListener('click', () => {
           email.disabled = false;
           phone.disabled = false;
-          password.disabled = false;
+          password.disabled = true;
           fname.disabled = false;
           username.disabled = false;
           college.disabled = false;
           savebutton.style.display = 'block';
           editbutton.style.display = 'none';
+          getsubandyoe()
         });
 
         let counter = 0;
@@ -264,6 +273,9 @@
             counter = 0;
           }
         })
+        
+   
+       
       </script>
 
 </body>

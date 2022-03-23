@@ -1,12 +1,18 @@
 //Library
 import express from "express";
-import { CollegeModel } from "../models/college";
-import { SubjectModel } from "../models/subject";
+import jwt from "jsonwebtoken";
+import jwt_decode from 'jwt-decode';
+import cookieParser from "cookie-parser";
+
+
 
 // models
 import { UserModel } from "../models/user";
+import { CollegeModel } from "../models/college";
+import { SubjectModel } from "../models/subject";
 
 const Router = express.Router();
+Router.use(cookieParser);
 
 Router.get('/branchdata:collegename', async (req, res) => {
    // console.log("in register branchdata")
@@ -18,6 +24,8 @@ Router.get('/subjectdata:branchname', async (req, res) => {
    const data = await SubjectModel.find({branch:req.params.branchname}).select('subject_name')
    res.send(data )
 })
+
+
 
 
 // Route: /register
@@ -84,8 +92,9 @@ Router.post('/', async (req, res) => {
          }
          // console.log(data)
          newUser.expertsubject = data
+        
       }
-
+      await newUser.save()
       console.log(newUser);
       res.redirect('/login')
 

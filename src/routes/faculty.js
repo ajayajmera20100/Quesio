@@ -40,27 +40,40 @@ Router.get('/profile',async(req, res)=>{
   } 
 })
 
-Router.post('/profile',async(req, res)=>{
-  try {
-    const userid= jwt_decode(req.cookies.jwt).user
-  const profile = await UserModel.findByIdAndUpdate(userid,{
-   
-    name: req.body.name,
-    username: req.body.username,
-    password: req.body.password,
-    email_id: req.body.email,
-    university: req.body.university,
-    college:req.body.college,
-    phone: req.body.phone,
-    branch: req.body.branch
-  });
-  
-  console.log("profile")
 
-  res.redirect('/faculty/profile')
+Router.post('/profile', async (req, res) => {
+  try {
+    const userid = jwt_decode(req.cookies.jwt).user
+    const totalsubandyoe=req.body.totalsubandyoe;
+    const data = []
+    for (let i = 0; i < totalsubandyoe; i++) {
+      var num = `${i + 1}`
+      const sub = req.body['subject' + num];
+      var yoe = req.body['yoe' + num];
+      data.push( {
+         "subject_name": sub,
+         "yearofexp": yoe
+      } )
+   }
+    const profile = await UserModel.findByIdAndUpdate(userid, {
+
+      name: req.body.name,
+      username: req.body.username,
+      password: req.body.password,
+      email_id: req.body.email,
+      university: req.body.university,
+      college: req.body.college,
+      phone: req.body.phone,
+      branch: req.body.branch,
+      $set:{subject:data}
+    });
+
+    console.log("profile")
+
+    res.redirect('/faculty/profile')
   } catch (error) {
-    
-  } 
+
+  }
 })
 
 
