@@ -1,10 +1,6 @@
 //Library
 import express from "express";
-import jwt from "jsonwebtoken";
-import jwt_decode from 'jwt-decode';
-import cookieParser from "cookie-parser";
-
-
+ 
 
 // models
 import { UserModel } from "../models/user";
@@ -12,7 +8,7 @@ import { CollegeModel } from "../models/college";
 import { SubjectModel } from "../models/subject";
 
 const Router = express.Router();
-Router.use(cookieParser);
+ 
 
 Router.get('/branchdata:collegename', async (req, res) => {
    // console.log("in register branchdata")
