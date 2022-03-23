@@ -23116,6 +23116,7 @@ body.avgrund-active {
   display: flex;
   -webkit-flex-direction: column;
   flex-direction: column;
+  margin-left: 255px;
 }
 
 @media (max-width: 991px) {
@@ -23126,9 +23127,10 @@ body.avgrund-active {
 }
 
 .content-wrapper {
+  margin-left: 255;
   background: #e8eff9;
   padding: 1.875rem 1.875rem 0 1.875rem;
-  width: 100%;
+  /* width: 100%; */
   -webkit-flex-grow: 1;
   flex-grow: 1;
 }
@@ -23145,7 +23147,12 @@ body.avgrund-active {
   background: #1b1b29;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
-  padding: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding-left: 0px;
   width: 255px;
   z-index: 11;
   transition: width 0.25s ease, background 0.25s ease;
@@ -23157,6 +23164,7 @@ body.avgrund-active {
   -moz-box-shadow: 6px 16px 31px -18px #b7bcd1;
   -ms-box-shadow: 6px 16px 31px -18px #b7bcd1;
 }
+
 
 .sidebar .sidebar-profile {
   padding: 1.75rem 1.125rem;

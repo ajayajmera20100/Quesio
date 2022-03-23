@@ -194,24 +194,29 @@
                     <input type="text" class="form-control bg-white" id="college" value="<%=profile.college  %>" name="college"
                       placeholder="Enter Your College Name" Disabled>
                   </div>
-                  <div class="col-md-5 mb-3 p-1">
+                  <div class="form-group col-md-6 mb-3 p-1">
+                    <label for="phone" class="ml-2">Phone Number</label>
+                    <input type="number" class="form-control bg-white" id="phone" value="<%=profile.phone  %>" name="phone"
+                      placeholder="Enter Your Contact Number" Disabled>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-5 mb-3 p-1 mr-5">
                     <label for="validationTooltip02" class="ml-2">Subject</label>
-                    <div class="dropdown">
-                      <select class="custom-select col-10 text-muted p-2 pl-4" style="height:3rem;border:none;"
+                    <div class="dropdown ">
+                      <select class="custom-select col-md-10 text-muted p-2 pl-4" style="height:3rem;border:none;"
                         id="subjects" name="subjects" value="Click Here To Get Your Subjects" required>
-                        <option  selected value="Click Here To Get Your Subjects">Click Here To See Your Subjects</option>
+                        <option  selected value="Click Here To Get Your Subjects">Click To See Your Subjects</option>
                         <% profile.subject.forEach(data=>{ %> 
                         <option value="<%=data.subject_name %> "><%=data.subject_name %></option>
                         <% }) %> 
                       </select>
                     </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="form-group col-md-6 mb-3 p-1">
-                    <label for="phone" class="ml-2">Phone Number</label>
-                    <input type="number" class="form-control bg-white" id="phone" value="<%=profile.phone  %>" name="phone"
-                      placeholder="Enter Your Contact Number" Disabled>
+                  <div class="form-group col-md-6 mb-3 p-1 pl-2 ml-3">
+                    <label for="phone" class="ml-2">Years of Experience</label>
+                    <input type="number" class="form-control bg-white" id="phone" name="phone"
+                      placeholder="View Years of Experience" Disabled>
                   </div>
                 </div>
               </div>
