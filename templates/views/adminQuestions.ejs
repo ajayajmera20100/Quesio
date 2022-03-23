@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="assets/images/Q.ico">
+  <link rel="icon" type="image/x-icon" href="/assets/images/Q.ico">
 </head>
 
 <body>
@@ -35,9 +35,7 @@
             font-weight: bold;
             font-family: Merienda One, cursive;
             color: white;
-            padding-left: 1rem;"
-            
-            >
+            padding-left: 1rem;">
               Quesio
             </a>
           </li>
@@ -54,7 +52,6 @@
               </button>
             </div>
 
-            <p class="sidebar-menu-title">Dash menu</p>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/">
@@ -113,10 +110,16 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="/qbgenerate">
+              <i class="typcn typcn-arrow-down-thick menu-icon"></i>
+              <span class="menu-title">Paper Generation</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="/">
               <i class="typcn typcn-lock-closed menu-icon"></i>
               <span class="menu-title">Logout</span>
-              
+
             </a>
           </li>
 
@@ -163,7 +166,9 @@
                         <% questiondata.forEach(function(data,index){ %>
                           <tr>
                             <td>
-                              <h5><%=index+1 %> </h5>
+                              <h5>
+                                <%=index+1 %>
+                              </h5>
                             </td>
                             <td>
                               <select class="form-control form-control-lg" id="exampleFormControlSelect1">
@@ -196,7 +201,8 @@
 
 
                             <td>
-                              <button type="button" class="btn btn-primary btn-sm btn-danger "><a href="http://127.0.0.1:9000/admin/delete<%=data.id %> ">Delete</a> </button>
+                              <button type="button" class="btn btn-primary btn-sm btn-danger "><a
+                                  href="http://127.0.0.1:9000/admin/delete<%=data.id %> ">Delete</a> </button>
                             </td>
                           </tr>
                           <% }) %>
@@ -232,25 +238,25 @@
   <script src="/dashboard/js/settings.js"></script>
   <script src="/dashboard/js/todolist.js"></script>
   <script>
-    let counter =0;
+    let counter = 0;
     let hamburgerbtn = document.getElementById("hbtn")
     let brandq = document.getElementById("brandq")
 
 
     window.onload = () => {
       hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.4rem)"
-      }
-    hamburgerbtn.addEventListener('click',() => {
-      
-      if(counter == 0){
+    }
+    hamburgerbtn.addEventListener('click', () => {
+
+      if (counter == 0) {
         hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.4rem)"
         brandq.style.transform = "translateX(-10rem)"
-        counter =1;
+        counter = 1;
       }
-      else{
+      else {
         hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.4rem)"
         brandq.style.transform = "translateX(0rem)"
-        counter =0;
+        counter = 0;
       }
     })
   </script>

@@ -1,38 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <title>Quesio Admin</title>
-    <!-- base:css -->
-    <link
-      rel="stylesheet"
-      href="/dashboard/vendors/typicons.font/font/typicons.css"
-    />
-    <link rel="stylesheet" href="/dashboard/vendors/css/vendor.bundle.base.css" />
-    <!-- endinject -->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="/dashboard/css/vertical-layout-light/style.css" />
-    <!-- endinject -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+<head>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Quesio | Faculties</title>
+
+  <link rel="stylesheet" href="/dashboard/vendors/typicons.font/font/typicons.css" />
+  <link rel="stylesheet" href="/dashboard/vendors/css/vendor.bundle.base.css" />
+
+  <link rel="stylesheet" href="/dashboard/css/vertical-layout-light/style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="assets/images/Q.ico">
-  </head>
+  <link rel="icon" type="image/x-icon" href="/assets/images/Q.ico">
+</head>
 
-  <body>
-    <div class="container-scroller">
-     
-      <div class="container-fluid page-body-wrapper" style="padding-top:0; min-height: 100vh;">
-        
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-          <ul class="nav">
-            <li class="nav-item" id="brandq">
-              <a class="navbar-brand" href="/" style="display: inline-block;
+<body>
+  <div class="container-scroller">
+
+    <div class="container-fluid page-body-wrapper" style="padding-top:0; min-height: 100vh;">
+
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item" id="brandq">
+            <a class="navbar-brand" href="/" style="display: inline-block;
               padding-top: 0.3rem;
               margin-right: 1rem;
               font-size: 2.5rem;
@@ -41,798 +35,244 @@
               font-weight: bold;
               font-family: Merienda One, cursive;
               color: white;
-              padding-left: 1rem;"
-              
-              >
-                Quesio
-              </a>
-            </li>
-            <li class="nav-item">
-              <div class="d-flex sidebar-profile" style="padding: 1rem 1.125rem;">
-                <div class="sidebar-profile-name">
-                  <p class="sidebar-designation">Welcome</p>
-                  <p class="sidebar-name">ADMIN</p>
-                </div>
-                <button
-            class="navbar-toggler navbar-toggler align-self-center d-lg-flex transition-btn"
-            type="button"
-            style="color: aliceblue;margin-top: 0.85rem;"
-            data-toggle="minimize"
-            id="hbtn"
-            style="transform: translateX(8.5rem);"
-          >
-            <span class="typcn typcn-th-menu"></span>
-          </button>
+              padding-left: 1rem;">
+              Quesio
+            </a>
+          </li>
+          <li class="nav-item">
+            <div class="d-flex sidebar-profile" style="padding: 1rem 1.125rem;">
+              <div class="sidebar-profile-name">
+                <p class="sidebar-designation">Welcome</p>
+                <p class="sidebar-name">ADMIN</p>
               </div>
-
-              <p class="sidebar-menu-title">Dash menu</p>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="typcn typcn-home menu-icon"></i>
-                <span class="menu-title">Home</span>
-                
-              </a> 
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin">
-                <i class="typcn typcn-device-desktop menu-icon"></i>
-                <span class="menu-title"
-                  >Dashboard
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/college">
-                <i class="typcn typcn-briefcase menu-icon"></i>
-                <span class="menu-title">College Details</span>
-                
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/faculty">
-                <i class="typcn typcn-user-outline menu-icon"></i>
-                <span class="menu-title">Faculty Details</span>
-                
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/moderator">
-                <i class="typcn typcn-user menu-icon"></i>
-                <span class="menu-title">Moderators Details</span>
-                
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/questions">
-                <i class="typcn typcn-database menu-icon"></i>
-                <span class="menu-title">Validated Questions</span>
-                
-              </a>
-            </li>
-            
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/branchs">
-                <i class="typcn typcn-document-delete menu-icon"></i>
-                <span class="menu-title">Branches</span>
-                
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/subjects">
-                <i class="typcn typcn-document menu-icon"></i>
-                <span class="menu-title">Subjects</span>
-                
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="typcn typcn-lock-closed menu-icon"></i>
-                <span class="menu-title">Logout</span>
-                
-              </a>
-            </li>
-            
-          </ul>
-        </nav>
-       
-        <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="row">
-              <div class="col-sm-12" style="display: flex;justify-content: space-between;padding-bottom: 1rem;">
-                <h1 class="mb-0 font-weight-bold" style="padding-top:0.75rem;display: flex;">Faculty Details</h1>
-                
-              </div>
-              
+              <button class="navbar-toggler navbar-toggler align-self-center d-lg-flex transition-btn" type="button"
+                style="color: aliceblue;margin-top: 0.85rem;" data-toggle="minimize" id="hbtn"
+                style="transform: translateX(8.5rem);">
+                <span class="typcn typcn-th-menu"></span>
+              </button>
             </div>
-            <div class="row">
-              
-              <div class="col-lg-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    
-                    <div class="table-responsive">
-                      <table class="table table-striped">
-                        <thead>
-                          <tr>
-                            <th  style="font-weight: bold;">Sr No.</th>
-                            <th style="font-weight: bold;">Name</th>
 
-                            <th style="font-weight: bold;">College</th>
-                            <th style="font-weight: bold;">Branch</th>
-                            <th style="font-weight: bold;">Subjects</th>
-                            <th style="font-weight: bold;">View UGC</th>
-                            <th style="font-weight: bold;">Status</th>
-                            <th style="font-weight: bold;">Delete</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <% facultydata.forEach(function(data,index){ %>
-  
-                            <tr>
-                              <td>
-                                <h5><%=index+1 %></h5>
-                              </td>
-                              <td>
-                                <h5>
-                                  <%=data.name %>
-                                </h5>
-                              </td>
-  
-                              <td>
-                                <h5>
-                                  <%=data.college %>
-                                </h5>
-                              </td>
-                              <td>
-                                <h5>
-                                  <%=data.branch %>
-                                </h5>
-                              </td>
-                              <td>
-                                <select class="form-control form-control-lg" id="exampleFormControlSelect1">
-                                  <% data.subject.forEach(function(sub){ %>
-                                    <option>
-                                      <%=sub.subject_name %>
-                                    </option>
-                                    <% }) %>
-                                </select>
-                              </td>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="typcn typcn-home menu-icon"></i>
+              <span class="menu-title">Home</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin">
+              <i class="typcn typcn-device-desktop menu-icon"></i>
+              <span class="menu-title">Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/college">
+              <i class="typcn typcn-briefcase menu-icon"></i>
+              <span class="menu-title">College Details</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/faculty">
+              <i class="typcn typcn-user-outline menu-icon"></i>
+              <span class="menu-title">Faculty Details</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/moderator">
+              <i class="typcn typcn-user menu-icon"></i>
+              <span class="menu-title">Moderators Details</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/questions">
+              <i class="typcn typcn-database menu-icon"></i>
+              <span class="menu-title">Validated Questions</span>
+
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/branchs">
+              <i class="typcn typcn-document-delete menu-icon"></i>
+              <span class="menu-title">Branches</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/subjects">
+              <i class="typcn typcn-document menu-icon"></i>
+              <span class="menu-title">Subjects</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/qbgenerate">
+              <i class="typcn typcn-arrow-down-thick menu-icon"></i>
+              <span class="menu-title">Paper Generation</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="typcn typcn-lock-closed menu-icon"></i>
+              <span class="menu-title">Logout</span>
+
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-sm-12" style="display: flex;justify-content: space-between;padding-bottom: 1rem;">
+              <h1 class="mb-0 font-weight-bold" style="padding-top:0.75rem;display: flex;">Faculty Details</h1>
+
+            </div>
+
+          </div>
+          <div class="row">
+
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th style="font-weight: bold;">Sr No.</th>
+                          <th style="font-weight: bold;">Name</th>
+
+                          <th style="font-weight: bold;">College</th>
+                          <th style="font-weight: bold;">Branch</th>
+                          <th style="font-weight: bold;">Subjects</th>
+                          <th style="font-weight: bold;">View UGC</th>
+                          <th style="font-weight: bold;">Status</th>
+                          <th style="font-weight: bold;">Delete</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% facultydata.forEach(function(data,index){ %>
+
+                          <tr>
+                            <td>
+                              <h5>
+                                <%=index+1 %>
+                              </h5>
+                            </td>
+                            <td>
+                              <h5>
+                                <%=data.name %>
+                              </h5>
+                            </td>
+
+                            <td>
+                              <h5>
+                                <%=data.college %>
+                              </h5>
+                            </td>
+                            <td>
+                              <h5>
+                                <%=data.branch %>
+                              </h5>
+                            </td>
+                            <td>
+                              <select class="form-control form-control-lg" id="exampleFormControlSelect1">
+                                <% data.subject.forEach(function(sub){ %>
+                                  <option>
+                                    <%=sub.subject_name %>
+                                  </option>
+                                  <% }) %>
+                              </select>
+                            </td>
+                            <td>
+                              <button type="button" class="btn btn-primary btn-sm">
+                                View
+                              </button>
+                            </td>
+                            <% if(data.isVarified){%>
                               <td>
                                 <button type="button" class="btn btn-primary btn-sm">
-                                  View
+                                  <a href="http://127.0.0.1:9000/admin/faculty/disapprove<%=data.id %> ">Approved </a>
                                 </button>
                               </td>
-                              <% if(data.isVarified){%> 
+                              <% }else{ %>
                                 <td>
                                   <button type="button" class="btn btn-primary btn-sm">
-                                    <a href="http://127.0.0.1:9000/admin/faculty/disapprove<%=data.id %> ">Approved </a>
+                                    <a href="http://127.0.0.1:9000/admin/faculty/approve<%=data.id %> ">Pending </a>
                                   </button>
                                 </td>
-                                <% }else{ %> 
+                                <% } %>
+
+
                                   <td>
-                                    <button type="button" class="btn btn-primary btn-sm">
-                                      <a href="http://127.0.0.1:9000/admin/faculty/approve<%=data.id %> ">Pending </a>
+                                    <button type="button" class="btn btn-primary btn-sm btn-danger">
+                                      <a href="http://127.0.0.1:9000/admin/faculty/delete<%=data.id %> ">Delete</a>
                                     </button>
                                   </td>
-                                  <% } %> 
-                             
-
-                              <td>
-                                <button type="button" class="btn btn-primary btn-sm btn-danger">
-                                  <a href="http://127.0.0.1:9000/admin/faculty/delete<%=data.id %> ">Delete</a>
-                                </button>
-                              </td>
-                            </tr>
-                            <% }) %>
-
-                           
-                            <!-- <tr>
-                            <td class="py-1">
-                              <img src="../../images/faces/face2.jpg" alt="image"/>
-                            </td>
-                            <td>
-                              Messsy Adam
-                            </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                            <td>
-                              $245.30
-                            </td>
-                            <td>
-                              July 1, 2015
-                            </td>
-                          </tr> -->
-                            <!-- <tr>
-                            <td class="py-1">
-                              <img src="../../images/faces/face3.jpg" alt="image"/>
-                            </td>
-                            <td>
-                              John Richards
-                            </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                            <td>
-                              $138.00
-                            </td>
-                            <td>
-                              Apr 12, 2015
-                            </td>
-                          </tr> -->
-                            <!-- <tr>
-                            <td class="py-1">
-                              <img src="../../images/faces/face4.jpg" alt="image"/>
-                            </td>
-                            <td>
-                              Peter Meggik
-                            </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                            <td>
-                              $ 77.99
-                            </td>
-                            <td>
-                              May 15, 2015
-                            </td>
                           </tr>
-                          <tr>
-                            <td class="py-1">
-                              <img src="../../images/faces/face5.jpg" alt="image"/>
-                            </td>
-                            <td>
-                              Edward
-                            </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                            <td>
-                              $ 160.25
-                            </td>
-                            <td>
-                              May 03, 2015
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="py-1">
-                              <img src="../../images/faces/face6.jpg" alt="image"/>
-                            </td>
-                            <td>
-                              John Doe
-                            </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                            <td>
-                              $ 123.21
-                            </td>
-                            <td>
-                              April 05, 2015
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="py-1">
-                              <img src="../../images/faces/face7.jpg" alt="image"/>
-                            </td>
-                            <td>
-                              Henry Tom
-                            </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                            <td>
-                              $ 150.00
-                            </td>
-                            <td>
-                              June 16, 2015
-                            </td>
-                          </tr> -->
-                          </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-12 grid-margin stretch-card">
-                <!-- <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Bordered table</h4>
-                  <p class="card-description">
-                    Add class <code>.table-bordered</code>
-                  </p>
-                  <div class="table-responsive pt-3">
-                    <table class="table table-bordered">
-                      <thead>
-                        <tr>
-                          <th>
-                            #
-                          </th>
-                          <th>
-                            First name
-                          </th>
-                          <th>
-                            Progress
-                          </th>
-                          <th>
-                            Amount
-                          </th>
-                          <th>
-                            Deadline
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            1
-                          </td>
-                          <td>
-                            Herman Beck
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-success" role="progressbar" style="width: 25%"
-                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $ 77.99
-                          </td>
-                          <td>
-                            May 15, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            2
-                          </td>
-                          <td>
-                            Messsy Adam
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-danger" role="progressbar" style="width: 75%"
-                                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $245.30
-                          </td>
-                          <td>
-                            July 1, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            3
-                          </td>
-                          <td>
-                            John Richards
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-warning" role="progressbar" style="width: 90%"
-                                aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $138.00
-                          </td>
-                          <td>
-                            Apr 12, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            4
-                          </td>
-                          <td>
-                            Peter Meggik
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-primary" role="progressbar" style="width: 50%"
-                                aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $ 77.99
-                          </td>
-                          <td>
-                            May 15, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            5
-                          </td>
-                          <td>
-                            Edward
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-danger" role="progressbar" style="width: 35%"
-                                aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $ 160.25
-                          </td>
-                          <td>
-                            May 03, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            6
-                          </td>
-                          <td>
-                            John Doe
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="65"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $ 123.21
-                          </td>
-                          <td>
-                            April 05, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            7
-                          </td>
-                          <td>
-                            Henry Tom
-                          </td>
-                          <td>
-                            <div class="progress">
-                              <div class="progress-bar bg-warning" role="progressbar" style="width: 20%"
-                                aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                          </td>
-                          <td>
-                            $ 150.00
-                          </td>
-                          <td>
-                            June 16, 2015
-                          </td>
-                        </tr>
+                          <% }) %>
                       </tbody>
                     </table>
                   </div>
                 </div>
-              </div> -->
-              </div>
-              <div class="col-lg-12 grid-margin stretch-card">
-                <!-- <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Inverse table</h4>
-                  <p class="card-description">
-                    Add class <code>.table-dark</code>
-                  </p>
-                  <div class="table-responsive pt-3">
-                    <table class="table table-dark">
-                      <thead>
-                        <tr>
-                          <th>
-                            #
-                          </th>
-                          <th>
-                            First name
-                          </th>
-                          <th>
-                            Amount
-                          </th>
-                          <th>
-                            Deadline
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            1
-                          </td>
-                          <td>
-                            Herman Beck
-                          </td>
-                          <td>
-                            $ 77.99
-                          </td>
-                          <td>
-                            May 15, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            2
-                          </td>
-                          <td>
-                            Messsy Adam
-                          </td>
-                          <td>
-                            $245.30
-                          </td>
-                          <td>
-                            July 1, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            3
-                          </td>
-                          <td>
-                            John Richards
-                          </td>
-                          <td>
-                            $138.00
-                          </td>
-                          <td>
-                            Apr 12, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            4
-                          </td>
-                          <td>
-                            Peter Meggik
-                          </td>
-                          <td>
-                            $ 77.99
-                          </td>
-                          <td>
-                            May 15, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            5
-                          </td>
-                          <td>
-                            Edward
-                          </td>
-                          <td>
-                            $ 160.25
-                          </td>
-                          <td>
-                            May 03, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            6
-                          </td>
-                          <td>
-                            John Doe
-                          </td>
-                          <td>
-                            $ 123.21
-                          </td>
-                          <td>
-                            April 05, 2015
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            7
-                          </td>
-                          <td>
-                            Henry Tom
-                          </td>
-                          <td>
-                            $ 150.00
-                          </td>
-                          <td>
-                            June 16, 2015
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div> -->
-              </div>
-              <div class="col-lg-12 stretch-card">
-                <!-- <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Table with contextual classes</h4>
-                  <p class="card-description">
-                    Add class <code>.table-{color}</code>
-                  </p>
-                  <div class="table-responsive pt-3">
-                    <table class="table table-bordered">
-                      <thead>
-                        <tr>
-                          <th>
-                            #
-                          </th>
-                          <th>
-                            First name
-                          </th>
-                          <th>
-                            Product
-                          </th>
-                          <th>
-                            Amount
-                          </th>
-                          <th>
-                            Deadline
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr class="table-info">
-                          <td>
-                            1
-                          </td>
-                          <td>
-                            Herman Beck
-                          </td>
-                          <td>
-                            Photoshop
-                          </td>
-                          <td>
-                            $ 77.99
-                          </td>
-                          <td>
-                            May 15, 2015
-                          </td>
-                        </tr>
-                        <tr class="table-warning">
-                          <td>
-                            2
-                          </td>
-                          <td>
-                            Messsy Adam
-                          </td>
-                          <td>
-                            Flash
-                          </td>
-                          <td>
-                            $245.30
-                          </td>
-                          <td>
-                            July 1, 2015
-                          </td>
-                        </tr>
-                        <tr class="table-danger">
-                          <td>
-                            3
-                          </td>
-                          <td>
-                            John Richards
-                          </td>
-                          <td>
-                            Premeire
-                          </td>
-                          <td>
-                            $138.00
-                          </td>
-                          <td>
-                            Apr 12, 2015
-                          </td>
-                        </tr>
-                        <tr class="table-success">
-                          <td>
-                            4
-                          </td>
-                          <td>
-                            Peter Meggik
-                          </td>
-                          <td>
-                            After effects
-                          </td>
-                          <td>
-                            $ 77.99
-                          </td>
-                          <td>
-                            May 15, 2015
-                          </td>
-                        </tr>
-                        <tr class="table-primary">
-                          <td>
-                            5
-                          </td>
-                          <td>
-                            Edward
-                          </td>
-                          <td>
-                            Illustrator
-                          </td>
-                          <td>
-                            $ 160.25
-                          </td>
-                          <td>
-                            May 03, 2015
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div> -->
               </div>
             </div>
+            <div class="col-lg-12 grid-margin stretch-card">
+
+            </div>
+            <div class="col-lg-12 grid-margin stretch-card">
+
+            </div>
+            <div class="col-lg-12 stretch-card">
+
+            </div>
           </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:../../partials/_footer.html -->
-          <!-- <footer class="footer">
-          <!-- <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-center text-sm-left d-block d-sm-inline-block">Copyright © <a
-                href="https://www.bootstrapdash.com/" target="_blank">bootstrapdash.com</a> 2020</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Free <a
-                href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard </a>templates from
-              Bootstrapdash.com</span>
-          </div> -->
-          <!-- </footer> -->
-          
-          <!-- partial -->
         </div>
-        <!-- main-panel ends -->
+
       </div>
-      <!-- page-body-wrapper ends -->
+
     </div>
-    <!-- container-scroller -->
-    <!-- base:js -->
-    <script src="/dashboard/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page-->
-    <!-- End plugin js for this page-->
-    <!-- inject:js -->
-    <script src="/dashboard/js/off-canvas.js"></script>
-    <script src="/dashboard/js/hoverable-collapse.js"></script>
-    <script src="/dashboard/js/template.js"></script>
-    <script src="/dashboard/js/settings.js"></script>
-    <script src="/dashboard/js/todolist.js"></script>
-    <script>
-      let counter =0;
-      let hamburgerbtn = document.getElementById("hbtn")
-      let brandq = document.getElementById("brandq")
-  
-  
-      window.onload = () => {
+
+  </div>
+
+  <script src="/dashboard/vendors/js/vendor.bundle.base.js"></script>
+
+  <script src="/dashboard/js/off-canvas.js"></script>
+  <script src="/dashboard/js/hoverable-collapse.js"></script>
+  <script src="/dashboard/js/template.js"></script>
+  <script src="/dashboard/js/settings.js"></script>
+  <script src="/dashboard/js/todolist.js"></script>
+  <script>
+    let counter = 0;
+    let hamburgerbtn = document.getElementById("hbtn")
+    let brandq = document.getElementById("brandq")
+
+
+    window.onload = () => {
+      hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.4rem)"
+    }
+    hamburgerbtn.addEventListener('click', () => {
+
+      if (counter == 0) {
+        hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.4rem)"
+        brandq.style.transform = "translateX(-10rem)"
+        counter = 1;
+      }
+      else {
         hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.4rem)"
-        }
-      hamburgerbtn.addEventListener('click',() => {
-        
-        if(counter == 0){
-          hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.4rem)"
-          brandq.style.transform = "translateX(-10rem)"
-          counter =1;
-        }
-        else{
-          hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.4rem)"
-          brandq.style.transform = "translateX(0rem)"
-          counter =0;
-        }
-      })
+        brandq.style.transform = "translateX(0rem)"
+        counter = 0;
+      }
+    })
 
+  </script>
 
-  
-    </script>
-    <!-- endinject -->
-    <!-- plugin js for this page -->
-    <!-- End plugin js for this page -->
-    <!-- Custom js for this page-->
-    <!-- End custom js for this page-->
-  </body>
+</body>
+
 </html>

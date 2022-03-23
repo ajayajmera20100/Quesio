@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="assets/images/Q.ico">
+  <link rel="icon" type="image/x-icon" href="/assets/images/Q.ico">
 </head>
 
 <body>
@@ -52,7 +52,6 @@
               </button>
             </div>
 
-            <p class="sidebar-menu-title">Dash menu</p>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/">
@@ -108,6 +107,12 @@
               <i class="typcn typcn-document menu-icon"></i>
               <span class="menu-title">Subjects</span>
 
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/qbgenerate">
+              <i class="typcn typcn-arrow-down-thick menu-icon"></i>
+              <span class="menu-title">Paper Generation</span>
             </a>
           </li>
           <li class="nav-item">
@@ -183,7 +188,7 @@
                             <div class="input-group">
                               <select class="custom-select" id="branch-name" required>
                                 <option value=" ">Choose . . .</option>
-                                 
+
                               </select>
                             </div>
                           </div>
@@ -198,12 +203,13 @@
                               placeholder="Subject Name" required>
                           </div>
                         </div>
- 
+
                       </form>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="AddSubject()" >Save Changes</button>
+                      <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="AddSubject()">Save
+                        Changes</button>
                     </div>
                   </div>
                 </div>
@@ -276,7 +282,9 @@
                               </h5>
                             </td>
                             <td>
-                              <button type="button" class="btn btn-primary btn-sm btn-danger "><a href="http://127.0.0.1:9000/admin/subjectdelete<%=data.subject %> ">Delete</a> </button>
+                              <button type="button" class="btn btn-primary btn-sm btn-danger "><a
+                                  href="http://127.0.0.1:9000/admin/subjectdelete<%=data.subject %> ">Delete</a>
+                              </button>
                             </td>
 
 
@@ -338,16 +346,16 @@
         counter = 0;
       }
     })
- 
+
     async function getbranch() {
       const collegename = document.getElementById("college-name").value;
-      const branchData =await fetch(`http://localhost:9000/admin/branchdata${collegename}`).then(response => response.json()).then(data=> data )
+      const branchData = await fetch(`http://localhost:9000/admin/branchdata${collegename}`).then(response => response.json()).then(data => data)
       const branch = document.getElementById("branch-name")
-      branch.innerHTML=''
-      for(let i=0;i<branchData.length;i++){
-        branch.innerHTML+=`<option value=${branchData[i]}>${branchData[i]}</option>`
+      branch.innerHTML = ''
+      for (let i = 0; i < branchData.length; i++) {
+        branch.innerHTML += `<option value=${branchData[i]}>${branchData[i]}</option>`
       }
-       
+
     }
 
     async function AddSubject() {
@@ -356,7 +364,7 @@
       const college = document.getElementById('college-name').value
       const branch = document.getElementById('branch-name').value;
       const subject = document.getElementById('subject-name').value;
-     
+
       await fetch("http://127.0.0.1:9000/admin/addsubject", {
         method: 'POST',
         headers: {
