@@ -90,26 +90,26 @@
           <% if(usertype=='moderator' ){ %>
             <li class="nav-item">
               <a class="nav-link" href="/moderator/moderatorquestions ">
-                <i class="typcn typcn-device-desktop menu-icon"></i>
+                <i class="typcn typcn-code-outline menu-icon"></i>
                 <span class="menu-title">Questions to Validate
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/moderator/moderatorquestionsvalidated">
-                <i class="typcn typcn-device-desktop menu-icon"></i>
+                <i class="typcn typcn-code menu-icon"></i>
                 <span class="menu-title">All Validated Questions
               </a>
             </li>
             <% } %>
               <li class="nav-item">
-                <a class="nav-link" href="/<%=usertype %>/profile">
+                <a class="nav-link" href="/<%=usertype %>/profile" style="background-color: #414147;">
                   <i class="typcn typcn-user-outline menu-icon"></i>
                   <span class="menu-title">Profile
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/logout">
-                  <i class="typcn typcn-device-desktop menu-icon"></i>
+                  <i class="typcn typcn-power menu-icon"></i>
                   <span class="menu-title">Logout
                 </a>
               </li>
@@ -257,18 +257,18 @@
         let hamburgerbtn = document.getElementById("hbtn");
         let subjects = document.getElementById('subjects');
         window.onload = () => {
-          hamburgerbtn.style.transform = "translateX(7.4rem) translateY(-6.2rem)"
+          hamburgerbtn.style.transform = "translateX(7.4rem) translateY(-5.5rem)"
         }
         hamburgerbtn.addEventListener('click', () => {
 
           if (counter == 0) {
-            hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.4rem)";
+            hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.5rem)";
             brandq.style.transform = "translateX(-10rem)"
 
             counter = 1;
           }
           else {
-            hamburgerbtn.style.transform = "translateX(7.4rem) translateY(-6.2rem)"
+            hamburgerbtn.style.transform = "translateX(7.4rem) translateY(-5.5rem)"
             brandq.style.transform = "translateX(0rem)"
             counter = 0;
           }

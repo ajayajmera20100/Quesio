@@ -85,7 +85,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/admin/college" onmouseenter="colorwhite(this.children[1])"
               onmouseleave="removewhite(this.children[1])">
-              <i class="typcn typcn-user-outline menu-icon"></i>
+              <i class="typcn typcn-briefcase menu-icon text-muted"></i>
               <span class="menu-title" style="color:#7e7e7e;">College Details</span>
 
             </a>
@@ -94,7 +94,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/admin/faculty" onmouseenter="colorwhite(this.children[1])"
               onmouseleave="removewhite(this.children[1])">
-              <i class="typcn typcn-user-outline menu-icon"></i>
+              <i class="typcn typcn-user-outline menu-icon text-muted"></i>
               <span class="menu-title" style="color:#7e7e7e;">Faculty Details</span>
 
             </a>
@@ -102,7 +102,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/admin/moderator" onmouseenter="colorwhite(this.children[1])"
               onmouseleave="removewhite(this.children[1])">
-              <i class="typcn typcn-user menu-icon"></i>
+              <i class="typcn typcn-user menu-icon text-muted"></i>
               <span class="menu-title" style="color:#7e7e7e;">Moderators Details</span>
 
             </a>
@@ -110,7 +110,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/admin/questions" onmouseenter="colorwhite(this.children[1])"
               onmouseleave="removewhite(this.children[1])">
-              <i class="typcn typcn-database menu-icon"></i>
+              <i class="typcn typcn-database menu-icon text-muted"></i>
               <span class="menu-title" style="color:#7e7e7e;">Validated Questions</span>
 
             </a>
@@ -119,7 +119,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/admin/branchs" onmouseenter="colorwhite(this.children[1])"
               onmouseleave="removewhite(this.children[1])">
-              <i class="typcn typcn-document-delete menu-icon"></i>
+              <i class="typcn typcn-document-delete menu-icon text-muted"></i>
               <span class="menu-title" style="color:#7e7e7e;">Branches</span>
 
             </a>
@@ -127,7 +127,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/admin/subjects" onmouseenter="colorwhite(this.children[1])"
               onmouseleave="removewhite(this.children[1])">
-              <i class="typcn typcn-document menu-icon"></i>
+              <i class="typcn typcn-document menu-icon text-muted"></i>
               <span class="menu-title" style="color:#7e7e7e;">Subjects</span>
 
             </a>
@@ -372,6 +372,13 @@
 
 
 
+    function colorwhite(obj){
+      obj.style.color = "white";
+    }
+
+    function removewhite(obj){
+      obj.style.color = "#7e7e7e";
+    }
 
 
 

@@ -129,7 +129,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/qbgenerate">
+            <a class="nav-link" href="/qbgenerate" style="background-color: #414147;">
               <i class="typcn typcn-arrow-down-thick menu-icon"></i>
               <span class="menu-title">Paper Generation</span>
             </a>
@@ -257,17 +257,17 @@
 
 
     window.onload = () => {
-      hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-6.2rem)"
+      hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.5rem)"
     }
     hamburgerbtn.addEventListener('click', () => {
 
       if (counter == 0) {
-        hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.4rem)"
+        hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.5rem)"
         brandq.style.transform = "translateX(-10rem)"
         counter = 1;
       }
       else {
-        hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-6.2rem)"
+        hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.5rem)"
         brandq.style.transform = "translateX(0rem)"
         counter = 0;
       }
