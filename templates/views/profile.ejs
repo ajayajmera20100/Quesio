@@ -90,26 +90,26 @@
           <% if(usertype=='moderator' ){ %>
             <li class="nav-item">
               <a class="nav-link" href="/moderator/moderatorquestions ">
-                <i class="typcn typcn-code-outline menu-icon"></i>
+                <i class="typcn typcn-device-desktop menu-icon"></i>
                 <span class="menu-title">Questions to Validate
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/moderator/moderatorquestionsvalidated">
-                <i class="typcn typcn-code menu-icon"></i>
+                <i class="typcn typcn-device-desktop menu-icon"></i>
                 <span class="menu-title">All Validated Questions
               </a>
             </li>
             <% } %>
               <li class="nav-item">
-                <a class="nav-link" href="/<%=usertype %>/profile" style="background-color: #414147;">
+                <a class="nav-link" href="/<%=usertype %>/profile">
                   <i class="typcn typcn-user-outline menu-icon"></i>
                   <span class="menu-title">Profile
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/logout">
-                  <i class="typcn typcn-power menu-icon"></i>
+                  <i class="typcn typcn-device-desktop menu-icon"></i>
                   <span class="menu-title">Logout
                 </a>
               </li>
@@ -180,17 +180,11 @@
                 
                 <% profile.subject.forEach((data,index)=>{ %> 
                 <div class="row">
-                  <div class="form-group col-md-5 mb-3 p-1" style="margin-right: 4.5rem">
-                    <label for="validationTooltip02" class="ml-2">Subject</label>
-                    <div class="dropdown ">
-                      <select class="custom-select col-md-10 text-muted p-2 pl-4" style="height:3rem;border:none;"
-                        id="subjects" name="subjects" value="Click Here To Get Your Subjects" required>
-                        <option  selected value="Click Here To Get Your Subjects">Click To See Your Subjects</option>
-                        <% profile.subject.forEach(data=>{ %> 
-                        <option value="<%=data.subject_name %> "><%=data.subject_name %></option>
-                        <% }) %> 
-                      </select>
-                    </div>
+                 
+                  <div class="form-group col-md-5 mb-3 p-1 mr-5">
+                    <label for="phone" class="ml-2">Subject <%=index+1 %> </label>
+                    <input type="text" class="form-control bg-white" id="subject<%=index+1 %>" name="subject<%=index+1 %>"
+                      value="<%=data.subject_name  %>" disabled placeholder="View Years of Experience"  >
                   </div>
                   <div class="form-group col-md-6 mb-3 p-1 pl-2 ml-3">
                     <label for="phone" class="ml-2">Years of Experience</label>
@@ -263,18 +257,18 @@
         let hamburgerbtn = document.getElementById("hbtn");
         let subjects = document.getElementById('subjects');
         window.onload = () => {
-          hamburgerbtn.style.transform = "translateX(7.4rem) translateY(-5.5rem)"
+          hamburgerbtn.style.transform = "translateX(7.4rem) translateY(-6.2rem)"
         }
         hamburgerbtn.addEventListener('click', () => {
 
           if (counter == 0) {
-            hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.5rem)";
+            hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.4rem)";
             brandq.style.transform = "translateX(-10rem)"
 
             counter = 1;
           }
           else {
-            hamburgerbtn.style.transform = "translateX(7.4rem) translateY(-5.5rem)"
+            hamburgerbtn.style.transform = "translateX(7.4rem) translateY(-6.2rem)"
             brandq.style.transform = "translateX(0rem)"
             counter = 0;
           }
