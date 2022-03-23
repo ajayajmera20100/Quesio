@@ -63,10 +63,11 @@
                 <p class="sidebar-designation">Welcome</p>
                 <p class="sidebar-name">ADMIN</p>
               </div>
-              <button class="navbar-toggler navbar-toggler align-self-center d-lg-flex transition-btn" type="button"
+              <button class="navbar-toggler navbar-toggler align-self-center d-lg-flex transition-btn "  type="button"
                 style="color: aliceblue;margin-top: 0.85rem;" data-toggle="minimize" id="hbtn"
                 style="transform: translateX(8.5rem);">
                 <span class="typcn typcn-th-menu"></span>
+                
               </button>
             </div>
 
@@ -146,7 +147,7 @@
 
       <!-- partial main page -->
       <div class="main-panel">
-        <div class="content-wrapper flex">
+        <div class="content-wrapper">
           <div class="row mb-4 ml-2">
             <div class="col-md-11 p-2">
               <h3 class="m-3 font-weight-bolder"
@@ -206,19 +207,29 @@
                     <label for="validationTooltip01">Number of Easy Questions</label>
                     <input type="number" id="easy" class="form-control bg-white" id="easyquestions" name="easyquestions"
                       value="" placeholder="Number of Easy Questions" onchange="easyQuest()" required>
+                      <div>
+                        <h5 for="noofeasyquestions" class="totalquestioncount">10</h5>
+                      </div>
                   </div>
+                  
                 </div>
                 <div class="row" id="q2">
-                  <div class="col-md-6 mt-5 p-1">
+                  <div class="col-md-6 mt-4 p-1">
                     <label for="validationTooltip01">Number of Moderate Questions</label>
                     <input type="number" id="moderate" class="form-control bg-white" id="moderatequestions"
                       name="moderatequestions" value="" placeholder="Number of Moderate Questions"
                       onchange="easyQuest()" required>
+                      <div>
+                        <h5 for="noofeasyquestions" class="totalquestioncount">10</h5>
+                      </div>
                   </div>
-                  <div class="col-md-6 mt-5 p-1">
+                  <div class="col-md-6 mt-4 p-1">
                     <label for="validationTooltip01">Number of Hard Questions</label>
                     <input type="number" id="hard" class="form-control bg-white" id="hardquestions" name="hardquestions"
                       value="" placeholder="Number of Hard Questions" onchange="easyQuest()" required>
+                      <div>
+                        <h5 for="noofeasyquestions" class="totalquestioncount">10</h5>
+                      </div>
                   </div>
                 </div>
               </div>
@@ -235,6 +246,7 @@
           </form>
         </div>
       </div>
+      <section></section>
     </div>
   </div>
   <script src="/dashboard/vendors/js/vendor.bundle.base.js"></script>
