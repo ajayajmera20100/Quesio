@@ -1,18 +1,37 @@
 //Library
 import express from "express";
+import { CollegeModel } from "../models/college";
+import { SubjectModel } from "../models/subject";
 
 // models
 import { UserModel } from "../models/user";
 
 const Router = express.Router();
 
+Router.get('/branchdata:collegename', async (req, res) => {
+   // console.log("in register branchdata")
+   const branchesforcollege = await CollegeModel.findOne({ college_name: req.params.collegename })
+   res.send(branchesforcollege.branch)
+})
+
+Router.get('/subjectdata:branchname', async (req, res) => {
+   const data = await SubjectModel.find({branch:req.params.branchname}).select('subject_name')
+   res.send(data )
+})
+
+
 // Route: /register
 // Description : Rendering register page
 // params: none
 // Access: Public
 // Method : GET
-Router.get('/',(req, res)=>{
-  res.render('register'); 
+Router.get('/', async (req, res) => {
+   const all_college = await CollegeModel.aggregate([{ $project: { college_name: 1 } }])
+   const collegeslist = all_college.map(elem => {
+      return elem.college_name
+   })
+   const colleges = [... new Set([].concat.apply([], collegeslist))]
+   res.render('register', { colleges });
 })
 
 // Route: /register
@@ -20,30 +39,60 @@ Router.get('/',(req, res)=>{
 // params: none
 // Access: Public
 // Method : POST
-Router.post('/',async(req, res)=>{
+Router.post('/', async (req, res) => {
    try {
-      const confirm_password =req.body.confirmpassword;
-      const password =req.body.password;
-      if (confirm_password===password){
-          await UserModel.findByEmail(req.body.email);
+      const { name, email, phoneno, university, college, branch, password, ugc, designation, nosubject } = req.body
 
-          //save to db
-          const newUser = await UserModel.create({
-            name:req.body.name,
-            password:req.body.password,
-            email_id:req.body.email,
-          });
-         //  generate jwt token
-         
-         res.redirect('/login')
-      
-      }else{
-          console.log("check your password");
+      // await UserModel.findByEmail(req.body.email);
+
+      //save to db
+      const newUser = new UserModel({
+         name: name,
+         password: password,
+         email_id: email,
+         university: university,
+         college: college,
+         phone: phoneno,
+         branch: branch
+      });
+
+      if (designation == 'faculty') {
+         newUser.isFaculty = true;
+         const data = []
+         for (let i = 0; i < nosubject; i++) {
+            var num = `${i + 1}`
+            const sub = req.body['subject' + num];
+            var yoe = req.body['yoe' + num];
+            data.push({
+               "subject_name": sub,
+               "yearofexp": yoe
+            })
+         }
+         // console.log(data)
+         newUser.subject = data
+      } else {
+         newUser.isExpert = true;
+         const data = []
+         for (let i = 0; i < nosubject; i++) {
+            var num = `${i + 1}`
+            const sub = req.body['subject' + num];
+            var yoe = req.body['yoe' + num];
+            data.push({
+               "subject_name": sub,
+               "yearofexp": yoe
+            })
+         }
+         // console.log(data)
+         newUser.expertsubject = data
       }
-       
+
+      console.log(newUser);
+      res.redirect('/login')
+
+
    } catch (error) {
       console.log(`you got a error ${error.message}`);
-      res.json({"error":error.message});
+      res.json({ "error": error.message });
    }
 })
 
