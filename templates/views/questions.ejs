@@ -8,6 +8,7 @@
   <title>Quesio | Submit Questions</title>
   <link rel="stylesheet" href="/assets/vendors/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="icon" type="image/x-icon" href="assets/images/Q.ico">
 </head>
 
 <body style="background-image: linear-gradient(45deg, #c395e5,  #6206a8);">
@@ -53,13 +54,13 @@
               </div>
               <div class="btn-group-sm btn-group-toggle col-md-3 mb-3" data-toggle="buttons" id="difficulty">
                 <label class="btn btn-secondary active">
-                  <input type="radio"  name="diff" value="easy" id="diff-option1" required> Easy
+                  <input type="radio" name="diff" value="easy" id="diff-option1" required> Easy
                 </label>
                 <label class="btn btn-secondary">
-                  <input type="radio"  name="diff" value="medium" id="diff-option2" required> Medium
+                  <input type="radio" name="diff" value="medium" id="diff-option2" required> Medium
                 </label>
                 <label class="btn btn-secondary">
-                  <input type="radio"  name="diff" value="hard" id="diff-option3" required> Hard
+                  <input type="radio" name="diff" value="hard" id="diff-option3" required> Hard
                 </label>
               </div>
             </div>
@@ -160,10 +161,10 @@
     async function fetchChapter() {
       const value = document.getElementById("subject-name").value;
       console.log(value)
-      const chapterData =await fetch(`http://localhost:9000/questions/chapter${value}`).then(response => response.json()).then(data=> data[0].chapter)
+      const chapterData = await fetch(`http://localhost:9000/questions/chapter${value}`).then(response => response.json()).then(data => data[0].chapter)
       const chapter = document.getElementById("chapter-name")
-      for(let i=0;i<chapterData.length;i++){
-          chapter.innerHTML+=`<option value=${chapterData[i]}>${chapterData[i]}</option>`
+      for (let i = 0; i < chapterData.length; i++) {
+        chapter.innerHTML += `<option value=${chapterData[i]}>${chapterData[i]}</option>`
       }
     }
 
