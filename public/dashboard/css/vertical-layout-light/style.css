@@ -23158,7 +23158,16 @@ padding-left: 1%;
 padding-top: 1%;
 text-align: right;
 padding-right: 32%;
+color: #6a008a;
 }
+
+.totalquestion {
+  padding-left: 1%;
+  padding-top: 1%;
+  text-align: right;
+  padding-right: 32%;
+  
+  }
 
 .nav-tabs .nav-link {
   background: #f6f8fa;
