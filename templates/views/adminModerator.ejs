@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
@@ -29,7 +29,7 @@
 
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
-          
+
           <li class="nav-item" id="brandq">
             <a class="navbar-brand" href="/" style="display: inline-block;
             padding-top: 0.3rem;
@@ -40,9 +40,7 @@
             font-weight: bold;
             font-family: Merienda One, cursive;
             color: white;
-            padding-left: 1rem;"
-            
-            >
+            padding-left: 1rem;">
               Quesio
             </a>
           </li>
@@ -121,12 +119,12 @@
               <i class="typcn typcn-arrow-down-thick menu-icon"></i>
               <span class="menu-title">Paper Generation</span>
             </a>
-        </li>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="/">
               <i class="typcn typcn-lock-closed menu-icon"></i>
               <span class="menu-title">Logout</span>
-              
+
             </a>
           </li>
 
@@ -186,47 +184,58 @@
                       <tbody>
                         <% moderatordata.forEach(function(data,index){ %>
                           <tr>
+                            <td>
+                              <h5>
+                                <%=index+1 %>
+                              </h5>
+                            </td>
+                            <td>
+                              <h5>
+                                <%=data.name %>
+                              </h5>
+                            </td>
+
+                            <td>
+                              <h5>
+                                <%=data.college %>
+                              </h5>
+                            </td>
+                            <td>
+                              <h5>
+                                <%=data.branch %>
+                              </h5>
+                            </td>
+                            <td>
+                              <h5>
+                                <%=data.question_validated.length %>
+                              </h5>
+                            </td>
+                            <td>
+                              <select class="form-control form-control-lg" id="exampleFormControlSelect1">
+                                <% data.subject.forEach(function(sub){ %>
+                                  <option>
+                                    <%=sub.subject_name %>
+                                  </option>
+                                  <% }) %>
+
+                              </select>
+                            </td>
+                            <td>
+                              <button type="button" class="btn btn-primary btn-sm ">View</button>
+                            </td>
+                            <% if(data.isVarified){%>
                               <td>
-                                <h5><%=index+1 %></h5>
+                                <button type="button" class="btn btn-primary btn-sm">
+                                  <a href="http://127.0.0.1:9000/admin/moderator/disapprove<%=data.id %> ">Approved </a>
+                                </button>
                               </td>
-                              <td>
-                                <h5><%=data.name %></h5>
-                              </td>
-                              
-                              <td>
-                                <h5><%=data.college %></h5>
-                              </td>
-                              <td>
-                                <h5><%=data.branch %></h5>
-                              </td>
-                              <td>
-                                <h5><%=data.question_validated.length %></h5>
-                              </td>
-                              <td>
-                                  <select class="form-control form-control-lg" id="exampleFormControlSelect1">
-                                    <% data.subject.forEach(function(sub){ %>
-                                      <option><%=sub.subject_name %></option>
-                                      <% }) %>
-                                      
-                                    </select>
-                              </td>
-                              <td>
-                                  <button type="button"
-                                      class="btn btn-primary btn-sm ">View</button>
-                              </td>
-                              <% if(data.isVarified){%> 
+                              <% }else{ %>
                                 <td>
                                   <button type="button" class="btn btn-primary btn-sm">
-                                    <a href="http://127.0.0.1:9000/admin/moderator/disapprove<%=data.id %> ">Approved </a>
+                                    <a href="http://127.0.0.1:9000/admin/moderator/approve<%=data.id %> ">Pending </a>
                                   </button>
                                 </td>
-                                <% }else{ %> 
-                                  <td>
-                                    <button type="button" class="btn btn-primary btn-sm">
-                                      <a href="http://127.0.0.1:9000/admin/moderator/approve<%=data.id %> ">Pending </a>
-                                    </button>
-                                  </td>
-                                  <% } %> 
+                                <% } %>
                                   <td>
                                     <button type="button" class="btn btn-primary btn-sm btn-danger">
                                       <a href="http://127.0.0.1:9000/admin/moderator/delete<%=data.id %> ">Delete</a>
@@ -238,19 +247,19 @@
                       </tbody>
                     </table>
                   </div>
-                    <div class="row">
+                  <div class="row">
 
-                     
-                        <div class="col-lg-12 grid-margin stretch-card">
 
-                        </div>
-                        <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="col-lg-12 grid-margin stretch-card">
 
-                        </div>
-                        <div class="col-lg-12 stretch-card">
-
-                        </div>
                     </div>
+                    <div class="col-lg-12 grid-margin stretch-card">
+
+                    </div>
+                    <div class="col-lg-12 stretch-card">
+
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -280,25 +289,25 @@
   <script src="/dashboard/js/settings.js"></script>
   <script src="/dashboard/js/todolist.js"></script>
   <script>
-    let counter =0;
+    let counter = 0;
     let hamburgerbtn = document.getElementById("hbtn")
     let brandq = document.getElementById("brandq")
 
 
     window.onload = () => {
       hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.4rem)"
-      }
-    hamburgerbtn.addEventListener('click',() => {
-      
-      if(counter == 0){
+    }
+    hamburgerbtn.addEventListener('click', () => {
+
+      if (counter == 0) {
         hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.4rem)"
         brandq.style.transform = "translateX(-10rem)"
-        counter =1;
+        counter = 1;
       }
-      else{
+      else {
         hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.4rem)"
         brandq.style.transform = "translateX(0rem)"
-        counter =0;
+        counter = 0;
       }
     })
   </script>

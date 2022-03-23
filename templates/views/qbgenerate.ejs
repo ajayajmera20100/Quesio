@@ -1,92 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <title>Quesio Admin</title>
-    <!-- base:css -->
-    <link rel="stylesheet" href="/dashboard/vendors/typicons.font/font/typicons.css" />
-    <link rel="stylesheet" href="/dashboard/vendors/css/vendor.bundle.base.css" />
-    <!-- endinject -->
-    <!-- plugin css for this page -->
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="/dashboard/css/vertical-layout-light/style.css" />
-    <!-- endinject -->
-    <link rel="shortcut icon" href="/dashboard/images/favicon.png" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
+<head>
 
-    <link rel="icon" type="image/x-icon" href="/assets/images/Q.ico">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Quesio | Question Paper Generator</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/dashboard/vendors/typicons.font/font/typicons.css" />
+  <link rel="stylesheet" href="/dashboard/vendors/css/vendor.bundle.base.css" />
 
-    <!-- Test -->
+  <link rel="stylesheet" href="/dashboard/css/vertical-layout-light/style.css" />
 
-    <!-- <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css"
-    />
-    
-    
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
-      rel="stylesheet"
-    /> -->
+  <link rel="shortcut icon" href="/dashboard/images/favicon.png" />
 
-    <!-- end -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css"
-    />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css"
-    />
+  <link rel="icon" type="image/x-icon" href="/assets/images/Q.ico">
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
-  <body>
-    <div class="container-scroller">
-      
-      <div class="container-fluid page-body-wrapper" style="padding-top:0; min-height: 100vh;">
-        
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-          <ul class="nav">
-            <li class="nav-item" id="brandq">
-              <a class="navbar-brand" href="/" style="display: inline-block;
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css"
+    href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css" />
+
+  <link rel="stylesheet" type="text/css"
+    href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <div class="container-scroller">
+
+    <div class="container-fluid page-body-wrapper" style="padding-top:0; min-height: 100vh;">
+
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item" id="brandq">
+            <a class="navbar-brand" href="/" style="display: inline-block;
               padding-top: 0.3rem;
               margin-right: 1rem;
               font-size: 2.5rem;
@@ -96,466 +54,264 @@
               font-family: Merienda One, cursive;
               color: white;
               padding-left: 1rem;">
-                Quesio
-              </a>
-            </li>
-            <li class="nav-item">
-              <div class="d-flex sidebar-profile" style="padding: 1rem 1.125rem;">
-                <div class="sidebar-profile-name">
-                  <p class="sidebar-designation">Welcome</p>
-                  <p class="sidebar-name">ADMIN</p>
-                </div>
-                <button
-            class="navbar-toggler navbar-toggler align-self-center d-lg-flex transition-btn"
-            type="button"
-            style="color: aliceblue;margin-top: 0.85rem;"
-            data-toggle="minimize"
-            id="hbtn"
-            style="transform: translateX(8.5rem);"
-          >
-            <span class="typcn typcn-th-menu"></span>
-          </button>
+              Quesio
+            </a>
+          </li>
+          <li class="nav-item">
+            <div class="d-flex sidebar-profile" style="padding: 1rem 1.125rem;">
+              <div class="sidebar-profile-name">
+                <p class="sidebar-designation">Welcome</p>
+                <p class="sidebar-name">ADMIN</p>
               </div>
+              <button class="navbar-toggler navbar-toggler align-self-center d-lg-flex transition-btn" type="button"
+                style="color: aliceblue;margin-top: 0.85rem;" data-toggle="minimize" id="hbtn"
+                style="transform: translateX(8.5rem);">
+                <span class="typcn typcn-th-menu"></span>
+              </button>
+            </div>
 
-              
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="typcn typcn-home menu-icon"></i>
-                <span class="menu-title">Home</span>
-                
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin">
-                <i class="typcn typcn-device-desktop menu-icon"></i>
-                <span class="menu-title"
-                  >Dashboard
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/college">
-                <i class="typcn typcn-briefcase menu-icon"></i>
-                <span class="menu-title">College Details</span>
-                
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/faculty">
-                <i class="typcn typcn-user-outline menu-icon"></i>
-                <span class="menu-title">Faculty Details</span>
-                
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/moderator">
-                <i class="typcn typcn-user menu-icon"></i>
-                <span class="menu-title">Moderators Details</span>
-                
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/questions">
-                <i class="typcn typcn-database menu-icon"></i>
-                <span class="menu-title">Validated Questions</span>
-                
-              </a>
-            </li>
-            
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/branchs">
-                <i class="typcn typcn-document-delete menu-icon"></i>
-                <span class="menu-title">Branches</span>
-                
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/subjects">
-                <i class="typcn typcn-document menu-icon"></i>
-                <span class="menu-title">Subjects</span>
-                
-              </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/qbgenerate">
-                  <i class="typcn typcn-arrow-down-thick menu-icon"></i>
-                  <span class="menu-title">Paper Generation</span>
-                </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="typcn typcn-lock-closed menu-icon"></i>
-                <span class="menu-title">Logout</span>
-                
-              </a>
-            </li>
-          </ul>
-        </nav>
 
-        <!-- partial main page -->
-        <div class="main-panel">
-            <div class="content-wrapper flex">
-                <div class="row mb-4 ml-2">
-                    <div class="col-md-11 p-2">
-                        <h3 class="m-3 font-weight-bolder" style="font-size:2rem; border-bottom: 2px solid #6206a8;padding-bottom:1rem;">Question Paper Generation</h3>
-                    </div>
-                </div>
-                <div class="mt-0 m-3">
-                    <form action="/qbgenerate" onsubmit="checkForm()" method="POST">
-                        <div class="pl-5 ml-5">
-                            <div class="row">
-                                <div class="col-md-6 mb-3 p-1">
-                                    <label for="inputlg">University/Board</label>
-                                    <input  type="text" class="form-control bg-white col-md-12 input-group-lg" name="university" id="inputlg" value="Mumbai University"
-                                        placeholder="University/Board Name" required disabled>
-                                </div>
-                                <div class="col-md-5 mb-3 p-1">
-                                    <label for="validationTooltip02">Branch</label>
-                                    <div class="dropdown">
-                                        <select class="custom-select col-10 text-muted pl-4" style="height:3rem; border:none;" id="branch" name="branch" required>
-                                            <option value="">Choose Branch</option>
-                                            <% totalbranch.forEach(branch=>{ %> 
-                                            <option value="<%=branch %>"><%=branch  %> </option>
-                                            <% }) %> 
-                                          </select>
-                                    </div>
-                                </div>
-                                
-                                
-                            </div>
-                            <div class="row">
-                                <div class="col-md-5 mb-3 mt-4 p-1">
-                                    <label for="validationTooltip02">Subject</label>
-                                    <div class="dropdown"> 
-                                        <select class="custom-select col-10 text-muted p-2 pl-4" style="height:3rem; border:none;" id="subject" name="subject" required>
-                                            <option value="">Choose Subject</option>
-                                            <option value="DBMS">DBMS</option>
-                                            <option value="DSA">DSA</option>
-                                            <option value="OS">OS</option>
-                                          </select>
-                                    </div>
-                                </div>
-                                
-                                
-                            </div>
-                            <div class="row" id="q1">
-                                    <div class="col-md-6 mt-4 p-1">
-                                        <label for="validationTooltip01">Total Number of Questions</label>
-                                        <input type="number" id="total" class="form-control bg-white"
-                                            id="totalquestions" name="totalquestions" value="" placeholder="Total Number of Questions"
-                                            required>
-                                    </div>
-                                    <div class="col-md-6 mt-4 p-1">
-                                        <label for="validationTooltip01">Number of Easy Questions</label>
-                                        <input type="number" id="easy" class="form-control bg-white"
-                                            id="easyquestions" name="easyquestions" value="" placeholder="Number of Easy Questions" onchange="easyQuest()" required>
-                                    </div>
-                            </div>
-                            <div class="row" id="q2">
-                                <div class="col-md-6 mt-5 p-1">
-                                    <label for="validationTooltip01">Number of Moderate Questions</label>
-                                    <input type="number" id="moderate" class="form-control bg-white"
-                                        id="moderatequestions" name="moderatequestions" value="" placeholder="Number of Moderate Questions" onchange="easyQuest()"
-                                        required>
-                                </div>
-                                <div class="col-md-6 mt-5 p-1">
-                                    <label for="validationTooltip01">Number of Hard Questions</label>
-                                    <input type="number" id="hard" class="form-control bg-white"
-                                        id="hardquestions" name="hardquestions" value="" placeholder="Number of Hard Questions" onchange="easyQuest()" required>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-                <div>
-                    <div class="dashboard-btn">
-                        <label for="errormsg" id="errmsg" style="visibility:hidden;color:red;display:block;">*Total Number of Questions Exceeded!!</label>
-                        <button type="submit" class="btn" id="submitbtn" style="background-color: #6206a8; color: white">
-                            Generate Question Paper
-                        </button>
-                    </div>
-                </div>
-            </form>
-            </div>
-        </div>
-        <!-- <div class="main-panel">
-          <div class="content-wrapper flex" style="padding-top: 3rem;">
-            <div class="row">
-              <div class="col-sm-12">
-                <h2 class="mb-0 font-weight-bold" style="padding-bottom: 1rem;border-bottom: 2px solid #6206a8;">ADMIN DASHBOARD</h2>
-                
-              </div>
-            </div>
-            <div class="row margin-card-top1" style="padding-top: 0.5rem;">
-              <div class="col-xl-4 col-sm-6 col-12">
-                <div class="card shadow-lg ">
-                  <div class="card-content">
-                    <div class="card-body">
-                      <div class="media d-flex">
-                        <div class="align-self-center">
-                          <i class="fa fa-question font-large-2 float-left"></i>
-                        </div>
-                        <div class="media-body text-right">
-                          <h3>37576</h3>
-                          <span>Approved Questions</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-4 col-sm-6 col-12">
-                <div class="card shadow-lg ">
-                  <div class="card-content">
-                    <div class="card-body">
-                      <div class="media d-flex">
-                        <div class="align-self-center">
-                          <i
-                            class="fa fa-question-circle font-large-2 float-left"
-                          ></i>
-                        </div>
-                        <div class="media-body text-right">
-                          <h3>30571</h3>
-                          <span>Pending Questions</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-4 col-sm-6 col-12">
-                <div class="card shadow-lg ">
-                  <div class="card-content">
-                    <div class="card-body">
-                      <div class="media d-flex">
-                        <div class="align-self-center">
-                          <i
-                            class="fa fa-graduation-cap font-large-2 float-left"
-                          ></i>
-                        </div>
-                        <div class="media-body text-right">
-                          <h3>576</h3>
-                          <span>Total Questions</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row margin-card-top">
-              <div class="col-xl-4 col-sm-6 col-12">
-                <div class="card shadow-lg ">
-                  <div class="card-content">
-                    <div class="card-body">
-                      <div class="media d-flex">
-                        <div class="align-self-center">
-                          <i class="fa fa-user font-large-2 float-left"></i>
-                        </div>
-                        <div class="media-body text-right">
-                          <h3>756</h3>
-                          <span>Our Faculties</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-4 col-sm-6 col-12">
-                <div class="card shadow-lg ">
-                  <div class="card-content">
-                    <div class="card-body">
-                      <div class="media d-flex">
-                        <div class="align-self-center">
-                          <i class="fa fa-id-badge font-large-2 float-left"></i>
-                        </div>
-                        <div class="media-body text-right">
-                          <h3>356</h3>
-                          <span>Our Moderators</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-4 col-sm-6 col-12">
-                <div class="card shadow-lg ">
-                  <div class="card-content">
-                    <div class="card-body">
-                      <div class="media d-flex">
-                        <div class="align-self-center">
-                          <i class="fa fa-book font-large-2 float-left"></i>
-                        </div>
-                        <div class="media-body text-right">
-                          <h3>32</h3>
-                          <span>No. of Branches</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row margin-card-top">
-              <div class="col-xl-4 col-sm-6 col-12">
-                <div class="card shadow-lg ">
-                  <div class="card-content">
-                    <div class="card-body">
-                      <div class="media d-flex">
-                        <div class="align-self-center">
-                          <i class="fa fa-code font-large-2 float-left"></i>
-                        </div>
-                        <div class="media-body text-right">
-                          <h3>137</h3>
-                          <span>No. of Courses</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-4 col-sm-6 col-12">
-                <div class="card shadow-lg ">
-                  <div class="card-content">
-                    <div class="card-body">
-                      <div class="media d-flex">
-                        <div class="align-self-center">
-                          <i
-                            class="fa fa-graduation-cap font-large-2 float-left"
-                          ></i>
-                        </div>
-                        <div class="media-body text-right">
-                          <h3>30571</h3>
-                          <span>No. of Colleges</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="col-xl-4 col-sm-6 col-12">
-                <div class="card shadow-lg ">
-                  <div class="card-content">
-                    <div class="card-body">
-                      <div class="media d-flex">
-                        <div class="align-self-center">
-                          <i class="fa fa-database font-large-2 float-left"></i>
-                        </div>
-                        <div class="media-body text-right">
-                          <h3>1089</h3>
-                          <span>No. of Chapters</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div class="dashboard-btn">
-                <button
-                  type="button"
-                  class="btn"
-                  style="background-color: #6206a8; color: white"
-                >
-                  Generate Question Paper
-                </button>
-              </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="typcn typcn-home menu-icon"></i>
+              <span class="menu-title">Home</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin">
+              <i class="typcn typcn-device-desktop menu-icon"></i>
+              <span class="menu-title">Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/college">
+              <i class="typcn typcn-briefcase menu-icon"></i>
+              <span class="menu-title">College Details</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/faculty">
+              <i class="typcn typcn-user-outline menu-icon"></i>
+              <span class="menu-title">Faculty Details</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/moderator">
+              <i class="typcn typcn-user menu-icon"></i>
+              <span class="menu-title">Moderators Details</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/questions">
+              <i class="typcn typcn-database menu-icon"></i>
+              <span class="menu-title">Validated Questions</span>
+
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/branchs">
+              <i class="typcn typcn-document-delete menu-icon"></i>
+              <span class="menu-title">Branches</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/subjects">
+              <i class="typcn typcn-document menu-icon"></i>
+              <span class="menu-title">Subjects</span>
+
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/qbgenerate">
+              <i class="typcn typcn-arrow-down-thick menu-icon"></i>
+              <span class="menu-title">Paper Generation</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="typcn typcn-lock-closed menu-icon"></i>
+              <span class="menu-title">Logout</span>
+
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- partial main page -->
+      <div class="main-panel">
+        <div class="content-wrapper flex">
+          <div class="row mb-4 ml-2">
+            <div class="col-md-11 p-2">
+              <h3 class="m-3 font-weight-bolder"
+                style="font-size:2rem; border-bottom: 2px solid #6206a8;padding-bottom:1rem;">Question Paper Generation
+              </h3>
             </div>
           </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
+          <div class="mt-0 m-3">
+            <form action="/qbgenerate" onsubmit="checkForm()" method="POST">
+              <div class="pl-5 ml-5">
+                <div class="row">
+                  <div class="col-md-6 mb-3 p-1">
+                    <label for="inputlg">University/Board</label>
+                    <input type="text" class="form-control bg-white col-md-12 input-group-lg" name="university"
+                      id="inputlg" value="Mumbai University" placeholder="University/Board Name" required disabled>
+                  </div>
+                  <div class="col-md-5 mb-3 p-1">
+                    <label for="validationTooltip02">Branch</label>
+                    <div class="dropdown">
+                      <select class="custom-select col-10 text-muted pl-4" style="height:3rem; border:none;" id="branch"
+                        name="branch" required>
+                        <option value="">Choose Branch</option>
+                        <% totalbranch.forEach(branch=>{ %>
+                          <option value="<%=branch %>">
+                            <%=branch %>
+                          </option>
+                          <% }) %>
+                      </select>
+                    </div>
+                  </div>
 
-          <!-- partial -->
-        <!-- </div> -->
-        <!-- main-panel ends -->
+
+                </div>
+                <div class="row">
+                  <div class="col-md-5 mb-3 mt-4 p-1">
+                    <label for="validationTooltip02">Subject</label>
+                    <div class="dropdown">
+                      <select class="custom-select col-10 text-muted p-2 pl-4" style="height:3rem; border:none;"
+                        id="subject" name="subject" required>
+                        <option value="">Choose Subject</option>
+                        <option value="DBMS">DBMS</option>
+                        <option value="DSA">DSA</option>
+                        <option value="OS">OS</option>
+                      </select>
+                    </div>
+                  </div>
+
+
+                </div>
+                <div class="row" id="q1">
+                  <div class="col-md-6 mt-4 p-1">
+                    <label for="validationTooltip01">Total Number of Questions</label>
+                    <input type="number" id="total" class="form-control bg-white" id="totalquestions"
+                      name="totalquestions" value="" placeholder="Total Number of Questions" required>
+                  </div>
+                  <div class="col-md-6 mt-4 p-1">
+                    <label for="validationTooltip01">Number of Easy Questions</label>
+                    <input type="number" id="easy" class="form-control bg-white" id="easyquestions" name="easyquestions"
+                      value="" placeholder="Number of Easy Questions" onchange="easyQuest()" required>
+                  </div>
+                </div>
+                <div class="row" id="q2">
+                  <div class="col-md-6 mt-5 p-1">
+                    <label for="validationTooltip01">Number of Moderate Questions</label>
+                    <input type="number" id="moderate" class="form-control bg-white" id="moderatequestions"
+                      name="moderatequestions" value="" placeholder="Number of Moderate Questions"
+                      onchange="easyQuest()" required>
+                  </div>
+                  <div class="col-md-6 mt-5 p-1">
+                    <label for="validationTooltip01">Number of Hard Questions</label>
+                    <input type="number" id="hard" class="form-control bg-white" id="hardquestions" name="hardquestions"
+                      value="" placeholder="Number of Hard Questions" onchange="easyQuest()" required>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div>
+            <div class="dashboard-btn">
+              <label for="errormsg" id="errmsg" style="visibility:hidden;color:red;display:block;">*Total Number of
+                Questions Exceeded!!</label>
+              <button type="submit" class="btn" id="submitbtn" style="background-color: #6206a8; color: white">
+                Generate Question Paper
+              </button>
+            </div>
+          </div>
+          </form>
+        </div>
       </div>
-      <!-- page-body-wrapper ends -->
     </div>
-    <!-- container-scroller -->
-    <!-- base:js -->
-    <script src="/dashboard/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page-->
-    <!-- End plugin js for this page-->
-    <!-- inject:js -->
-    <script src="/dashboard/js/off-canvas.js"></script>
-    <script src="/dashboard/js/hoverable-collapse.js"></script>
-    <script src="/dashboard/js/template.js"></script>
-    <script src="/dashboard/js/settings.js"></script>
-    <script src="/dashboard/js/todolist.js"></script>
-    <!-- endinject -->
-    <!-- plugin js for this page -->
-    <script src="/dashboard/vendors/progressbar.js/progressbar.min.js"></script>
-    <script src="/dashboard/vendors/chart.js/Chart.min.js"></script>
-    <!-- End plugin js for this page -->
-    <!-- Custom js for this page-->
-    <script src="/dashboard/js/dashboard.js"></script>
-    <script>
-      let counter =0;
+  </div>
+  <script src="/dashboard/vendors/js/vendor.bundle.base.js"></script>
+  <script src="/dashboard/js/off-canvas.js"></script>
+  <script src="/dashboard/js/hoverable-collapse.js"></script>
+  <script src="/dashboard/js/template.js"></script>
+  <script src="/dashboard/js/settings.js"></script>
+  <script src="/dashboard/js/todolist.js"></script>
+  <script src="/dashboard/vendors/progressbar.js/progressbar.min.js"></script>
+  <script src="/dashboard/vendors/chart.js/Chart.min.js"></script>
+  <script src="/dashboard/js/dashboard.js"></script>
+  <script>
+    let counter = 0;
     let hamburgerbtn = document.getElementById("hbtn")
     let brandq = document.getElementById("brandq")
 
 
-    
+
 
 
 
     window.onload = () => {
       hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-6.2rem)"
-      }
-    hamburgerbtn.addEventListener('click',() => {
-      
-      if(counter == 0){
+    }
+    hamburgerbtn.addEventListener('click', () => {
+
+      if (counter == 0) {
         hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.4rem)"
         brandq.style.transform = "translateX(-10rem)"
-        counter =1;
+        counter = 1;
       }
-      else{
+      else {
         hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-6.2rem)"
         brandq.style.transform = "translateX(0rem)"
-        counter =0;
+        counter = 0;
       }
     })
 
-      let q1 = document.getElementById("q1");
-      let q2 = document.getElementById("q2");
-      let total = document.getElementById('total');
-      let easy = document.getElementById('easy');
-      let hard = document.getElementById('hard');
-      let moderate = document.getElementById('moderate');
-      let errmsg = document.getElementById('errmsg');
-      let submitbtn = document.getElementById('submitbtn');
-      
-      function easyQuest(){
-  if((easy.value + hard.value + moderate.value)>total.value){
-   total.style.border = "1px solid red";
-   errmsg.style.visibility = "visible";
-   submitbtn.disabled = true;
-  }else{
-   total.style.border = "none";
-   errmsg.style.visibility = "hidden";
-   submitbtn.disabled = false;
-  }
-  }
-  function checkForm(){
-  if((easy.value + hard.value + moderate.value)>total.value){
-   total.style.border = "1px solid red";
-   errmsg.style.visibility = "visible";
-   submitbtn.disabled = true;
-   return false;
-  }else{
-   total.style.border = "none";
-   errmsg.style.visibility = "hidden";
-   submitbtn.disabled = false;
-   return true;
-  }
-  }
-   
-  
+    let q1 = document.getElementById("q1");
+    let q2 = document.getElementById("q2");
+    let total = document.getElementById('total');
+    let easy = document.getElementById('easy');
+    let hard = document.getElementById('hard');
+    let moderate = document.getElementById('moderate');
+    let errmsg = document.getElementById('errmsg');
+    let submitbtn = document.getElementById('submitbtn');
 
-      
-    </script>
-    <!-- End custom js for this page-->
-  </body>
+    function easyQuest() {
+      if ((easy.value + hard.value + moderate.value) > total.value) {
+        total.style.border = "1px solid red";
+        errmsg.style.visibility = "visible";
+        submitbtn.disabled = true;
+      } else {
+        total.style.border = "none";
+        errmsg.style.visibility = "hidden";
+        submitbtn.disabled = false;
+      }
+    }
+    function checkForm() {
+      if ((easy.value + hard.value + moderate.value) > total.value) {
+        total.style.border = "1px solid red";
+        errmsg.style.visibility = "visible";
+        submitbtn.disabled = true;
+        return false;
+      } else {
+        total.style.border = "none";
+        errmsg.style.visibility = "hidden";
+        submitbtn.disabled = false;
+        return true;
+      }
+    }
+
+
+
+
+  </script>
+
+</body>
+
 </html>

@@ -113,7 +113,7 @@
               <i class="typcn typcn-arrow-down-thick menu-icon"></i>
               <span class="menu-title">Paper Generation</span>
             </a>
-        </li>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="/">
               <i class="typcn typcn-lock-closed menu-icon"></i>
@@ -153,8 +153,8 @@
                             <label for="university">Enter University Name : <sup>*</sup></label>
                           </div>
                           <div class="col-md-10">
-                            <input type="text" class="form-control" value="Mumbai University" id="university_name" name="university_name"
-                              placeholder="University Name" disabled required>
+                            <input type="text" class="form-control" value="Mumbai University" id="university_name"
+                              name="university_name" placeholder="University Name" disabled required>
                           </div>
                         </div>
 
@@ -177,7 +177,8 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="submit"  class="btn btn-primary" data-dismiss="modal" onclick="fetchdata()">Save Changes</button>
+                      <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="fetchdata()">Save
+                        Changes</button>
                     </div>
                   </div>
                 </div>
@@ -238,40 +239,42 @@
 
                             <td>
                               <h5>
-                                <% collegedata.forEach(elem=>{ %> 
-                                  <% if(college.college_name == elem._id){%> 
-                                    <% isfacultyexist=true %> 
-                                <%=elem.faculty  %>
-                                <% } %> 
-                                <% }) %> 
-                                <% if(!isfacultyexist){ %> 
-                                   0
-                                  <%} %> 
+                                <% collegedata.forEach(elem=>{ %>
+                                  <% if(college.college_name==elem._id){%>
+                                    <% isfacultyexist=true %>
+                                      <%=elem.faculty %>
+                                        <% } %>
+                                          <% }) %>
+                                            <% if(!isfacultyexist){ %>
+                                              0
+                                              <%} %>
                               </h5>
                             </td>
 
                             <td>
                               <h5>
-                                <% collegedata.forEach(elem=>{ %> 
-                                  <% if(college.college_name == elem._id){%> 
-                                    <% isexpertexist=true %> 
-                                <%=elem.expert  %>
-                                <% } %> 
-                                <% }) %> 
-                                <% if(!isexpertexist){ %> 
-                                  0
-                                  <%} %>  
+                                <% collegedata.forEach(elem=>{ %>
+                                  <% if(college.college_name==elem._id){%>
+                                    <% isexpertexist=true %>
+                                      <%=elem.expert %>
+                                        <% } %>
+                                          <% }) %>
+                                            <% if(!isexpertexist){ %>
+                                              0
+                                              <%} %>
                               </h5>
                             </td>
                             <td>
                               <h5>
-                               
-                                  <%=college.branch.length %> 
-                                 
+
+                                <%=college.branch.length %>
+
                               </h5>
                             </td>
                             <td>
-                              <button type="button" class="btn btn-primary btn-sm btn-danger "><a href="http://127.0.0.1:9000/admin/college/delete<%=college.id %> ">Delete</a> </button>
+                              <button type="button" class="btn btn-primary btn-sm btn-danger "><a
+                                  href="http://127.0.0.1:9000/admin/college/delete<%=college.id %> ">Delete</a>
+                              </button>
                             </td>
                           </tr>
                           <% }) %>
@@ -332,20 +335,20 @@
         counter = 0;
       }
     })
-    async function fetchdata(){
+    async function fetchdata() {
       const university = document.getElementById('university_name').value
       const college = document.getElementById('college_name').value
       await fetch("http://localhost:9000/admin/collegedata",
 
-      {
+        {
 
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({"university":`${university}`,"college":`${college}`})
-      })
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ "university": `${university}`, "college": `${college}` })
+        })
 
     }
   </script>

@@ -46,13 +46,12 @@
                 <div class="d-flex mt-4">
                   <div class="col-md-6">
                     <div class="mb-2">
-                      <p class="">Date : <%= new Date();%></p>
+                      <p class="">Date : <%= new Date();%>
+                      </p>
                     </div>
                     <div class="mb-2">
-                      <p class="">Time : </p>
-                    </div>
-                    <div class="mb-2">
-                      <p class="">Max Marks :<%=totalquestions *2%>  </p>
+                      <p class="">Max Marks :<%=totalquestions *2%>
+                      </p>
                     </div>
                     <div class="mb-1">
                       <p class="">QP Code : QP1056</p>
@@ -60,13 +59,12 @@
                   </div>
                   <div class="col-md-6">
                     <div class="mb-2">
-                      <p class="">Subject Name : <%=subject %> </p>
+                      <p class="">Subject Name : <%=subject %>
+                      </p>
                     </div>
-                    <!-- <div class="mb-2">
-                      <p class="">Course Name : </p>
-                    </div> -->
                     <div class="mb-2">
-                      <p class="">Branch : <%=branch %> </p>
+                      <p class="">Branch : <%=branch %>
+                      </p>
                     </div>
                     <div class="mb-2">
                       <p class="">University : Mumbai University </p>
@@ -74,54 +72,69 @@
                   </div>
                 </div>
               </div>
-              <div class="card-body pt-0"  >
+              <div class="card-body pt-0">
                 <% myeasy.forEach(function(data){ %>
                   <hr>
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="mb-2 pull-left">
-                        <p class=""><span class="font-weight-bold"><%=count %></span>) <%= data.question %> </p>
+                        <p class=""><span class="font-weight-bold">
+                            <%=count %>
+                          </span>) <%= data.question %>
+                        </p>
                         <ul class="list list-unstyled mb-0 text-left">
-                          <% data.options.forEach(function(option,index){ %> 
-                            <li><%= index+1 %>) <%= option %> </li>
+                          <% data.options.forEach(function(option,index){ %>
+                            <li>
+                              <%= index+1 %>) <%= option %>
+                            </li>
                             <% }) %>
                         </ul>
                       </div>
                     </div>
                   </div>
-                  
-                <% count++; }) %>
-                <% mymedium.forEach(function(data,index){ %> 
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="mb-2 pull-left">
-                        <p class=""><span class="font-weight-bold"><%=count %></span>) <%= data.question %> </p>
-                        <ul class="list list-unstyled mb-0 text-left">
-                          <% data.options.forEach(function(option,index){ %> 
-                            <li><%= index+1 %>) <%= option %></li>
-                            <% }) %>
-                        </ul>
+
+                  <% count++; }) %>
+                    <% mymedium.forEach(function(data,index){ %>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="mb-2 pull-left">
+                            <p class=""><span class="font-weight-bold">
+                                <%=count %>
+                              </span>) <%= data.question %>
+                            </p>
+                            <ul class="list list-unstyled mb-0 text-left">
+                              <% data.options.forEach(function(option,index){ %>
+                                <li>
+                                  <%= index+1 %>) <%= option %>
+                                </li>
+                                <% }) %>
+                            </ul>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                <% count++; }) %>
-                <% myhard.forEach(function(data,index){ %> 
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="mb-2 pull-left">
-                        <p class=""><span class="font-weight-bold"><%=count %></span>) <%= data.question %> </p>
-                        <ul class="list list-unstyled mb-0 text-left">
-                          <% data.options.forEach(function(option,index){ %> 
-                            <li><%= index+1 %>) <%= option %> </li>
-                            <% }) %>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                <% count++; }) %>
-                
+                      <% count++; }) %>
+                        <% myhard.forEach(function(data,index){ %>
+                          <hr>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div class="mb-2 pull-left">
+                                <p class=""><span class="font-weight-bold">
+                                    <%=count %>
+                                  </span>) <%= data.question %>
+                                </p>
+                                <ul class="list list-unstyled mb-0 text-left">
+                                  <% data.options.forEach(function(option,index){ %>
+                                    <li>
+                                      <%= index+1 %>) <%= option %>
+                                    </li>
+                                    <% }) %>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                          <% count++; }) %>
+
               </div>
             </div>
             <div class="card p-2 my-2">

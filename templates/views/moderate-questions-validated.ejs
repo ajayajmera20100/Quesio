@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Quesio | Moderator Questions</title>
+  <title>Quesio | Moderator Validated Questions</title>
 
   <link rel="stylesheet" href="/dashboard/vendors/typicons.font/font/typicons.css">
   <link rel="stylesheet" href="/dashboard/vendors/css/vendor.bundle.base.css">
@@ -134,42 +134,54 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <% validatedquestions[0].question_validated.forEach((question,index)=>{ %> 
-                        <tr>
-                          <td>
-                            <h5><%=index+1 %> </h5>
-                          </td>
-                          <td>
-                            <select class="form-control form-control-lg" id="exampleFormControlSelect1"
-                              style="width: 100%">
-                              <option>
-                                <h5><%=question.question %> </h5>
-                              </option>
-                              <% question.options.forEach((option,opt)=>{ %> 
-                              <option>
-                                <h5><%=opt+1%>) <%=option %>  </h5>
-                              </option>
-                              <% }) %> 
-                            </select>
-                          </td>
-                          <td>
-                            <h5><%=question.branch %> </h5>
-                          </td>
+                        <% validatedquestions[0].question_validated.forEach((question,index)=>{ %>
+                          <tr>
+                            <td>
+                              <h5>
+                                <%=index+1 %>
+                              </h5>
+                            </td>
+                            <td>
+                              <select class="form-control form-control-lg" id="exampleFormControlSelect1"
+                                style="width: 100%">
+                                <option>
+                                  <h5>
+                                    <%=question.question %>
+                                  </h5>
+                                </option>
+                                <% question.options.forEach((option,opt)=>{ %>
+                                  <option>
+                                    <h5>
+                                      <%=opt+1%>) <%=option %>
+                                    </h5>
+                                  </option>
+                                  <% }) %>
+                              </select>
+                            </td>
+                            <td>
+                              <h5>
+                                <%=question.branch %>
+                              </h5>
+                            </td>
 
-                          <td>
-                            <h5><%=question.subject %> </h5>
-                          </td>
-                          </td>
-                          <td>
-                            <button type="button" class="btn btn-primary btn-sm"><a href="http://127.0.0.1:9000/questions/disvalidate<%=question.id %> ">Approved</a></button>
-                          </td>
+                            <td>
+                              <h5>
+                                <%=question.subject %>
+                              </h5>
+                            </td>
+                            </td>
+                            <td>
+                              <button type="button" class="btn btn-primary btn-sm"><a
+                                  href="http://127.0.0.1:9000/questions/disvalidate<%=question.id %> ">Approved</a></button>
+                            </td>
 
-                          <td>
-                            <button type="button" class="btn btn-primary btn-sm btn-danger "><a href="http://127.0.0.1:9000/questions/delete<%=question.id %> ">Delete</a></button>
-                          </td>
-                        </tr>
-                       
-                        <% }) %> 
+                            <td>
+                              <button type="button" class="btn btn-primary btn-sm btn-danger "><a
+                                  href="http://127.0.0.1:9000/questions/delete<%=question.id %> ">Delete</a></button>
+                            </td>
+                          </tr>
+
+                          <% }) %>
                       </tbody>
                     </table>
                   </div>

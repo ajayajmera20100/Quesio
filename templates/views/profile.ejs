@@ -2,19 +2,16 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>Quesio Admin</title>
-  <!-- base:css -->
+  <title>Quesio | Profile</title>
+
   <link rel="stylesheet" href="/dashboard/vendors/typicons.font/font/typicons.css" />
   <link rel="stylesheet" href="/dashboard/vendors/css/vendor.bundle.base.css" />
-  <!-- endinject -->
-  <!-- plugin css for this page -->
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
+
   <link rel="stylesheet" href="/dashboard/css/vertical-layout-light/style.css" />
-  <!-- endinject -->
+
   <link rel="shortcut icon" href="/dashboard/images/favicon.png" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -28,31 +25,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
 
-  <!-- Test -->
-
-  <!-- <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css"
-    />
-    
-    
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
-      rel="stylesheet"
-    /> -->
-
-  <!-- end -->
   <link rel="stylesheet" type="text/css"
     href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css" />
 
@@ -81,18 +53,18 @@
             font-weight: bold;
             font-family: Merienda One, cursive;
             color: white;
-            padding-left: 1rem;"
-            
-            >
+            padding-left: 1rem;">
               Quesio
             </a>
           </li>
-          
+
           <li class="nav-item">
             <div class="d-flex sidebar-profile">
               <div class="sidebar-profile-name">
                 <p class="sidebar-designation">Welcome</p>
-                <p class="sidebar-name"><%=profile.name  %> </p>
+                <p class="sidebar-name">
+                  <%=profile.name %>
+                </p>
               </div>
               <button class="navbar-toggler navbar-toggler align-self-center d-lg-flex transition-btn" type="button"
                 style="color: aliceblue;margin-top: 0.85rem;" data-toggle="minimize" id="hbtn"
@@ -101,7 +73,7 @@
               </button>
             </div>
 
-           
+
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/">
@@ -115,37 +87,36 @@
               <span class="menu-title">Dashboard
             </a>
           </li>
-          <% if(usertype=='moderator'){ %> 
-          <li class="nav-item">
-            <a class="nav-link" href="/moderator/moderatorquestions ">
-              <i class="typcn typcn-device-desktop menu-icon"></i>
-              <span class="menu-title">Questions to Validate
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/moderator/moderatorquestionsvalidated">
-              <i class="typcn typcn-device-desktop menu-icon"></i>
-              <span class="menu-title">All Validated Questions
-            </a>
-          </li>
-          <% } %> 
-          <li class="nav-item">
-            <a class="nav-link" href="/<%=usertype %>/profile">
-              <i class="typcn typcn-user-outline menu-icon"></i>
-              <span class="menu-title">Profile
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout">
-              <i class="typcn typcn-device-desktop menu-icon"></i>
-              <span class="menu-title">Logout
-            </a>
-          </li>
+          <% if(usertype=='moderator' ){ %>
+            <li class="nav-item">
+              <a class="nav-link" href="/moderator/moderatorquestions ">
+                <i class="typcn typcn-device-desktop menu-icon"></i>
+                <span class="menu-title">Questions to Validate
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/moderator/moderatorquestionsvalidated">
+                <i class="typcn typcn-device-desktop menu-icon"></i>
+                <span class="menu-title">All Validated Questions
+              </a>
+            </li>
+            <% } %>
+              <li class="nav-item">
+                <a class="nav-link" href="/<%=usertype %>/profile">
+                  <i class="typcn typcn-user-outline menu-icon"></i>
+                  <span class="menu-title">Profile
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">
+                  <i class="typcn typcn-device-desktop menu-icon"></i>
+                  <span class="menu-title">Logout
+                </a>
+              </li>
 
         </ul>
       </nav>
 
-      <!-- partial main page -->
       <div class="main-panel">
         <div class="content-wrapper flex">
           <div class="row mb-4 ml-2">
@@ -160,54 +131,57 @@
                 <div class="row">
                   <div class="col-md-6 mb-3 p-1">
                     <label for="inputlg">Name</label>
-                    <input type="text" class="form-control bg-white ml-2" value="<%=profile.name  %> " id="name" name="name"
-                      placeholder="Enter Your Full Name *" Disabled>
+                    <input type="text" class="form-control bg-white ml-2" value="<%=profile.name  %> " id="name"
+                      name="name" placeholder="Enter Your Full Name *" Disabled>
                   </div>
                   <div class="col-md-6 mb-3 p-1">
                     <label for="email" class="ml-2">Email-ID</label>
-                    <input type="email" class="form-control bg-white" value="<%=profile.email_id  %> " id="email" name="email"
-                      placeholder="Enter Your Email Address" Disabled>
+                    <input type="email" class="form-control bg-white" value="<%=profile.email_id  %> " id="email"
+                      name="email" placeholder="Enter Your Email Address" Disabled>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-6 mb-3 p-1">
                     <label for="username" class="ml-2">Username</label>
-                    <input type="text" class="form-control bg-white" value="<%=profile.username  %>" id="username" name="username"
-                      placeholder="Enter Your Username" Disabled>
+                    <input type="text" class="form-control bg-white" value="<%=profile.username  %>" id="username"
+                      name="username" placeholder="Enter Your Username" Disabled>
                   </div>
                   <div class="form-group col-md-6 mb-3 p-1">
                     <label for="password" class="ml-2">Password</label>
-                    <input type="text" class="form-control bg-white" id="password" value="<%=profile.password  %>" name="password"
-                      placeholder="Enter Your Password" Disabled>
+                    <input type="text" class="form-control bg-white" id="password" value="<%=profile.password  %>"
+                      name="password" placeholder="Enter Your Password" Disabled>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-6 mb-3 p-1">
                     <label for="university" class="ml-2">University/Board Name</label>
-                    <input type="text" class="form-control bg-white" value="<%=profile.university  %>" id="university" name="university"
-                      placeholder="Enter Your University Or Board Name" Disabled>
+                    <input type="text" class="form-control bg-white" value="<%=profile.university  %>" id="university"
+                      name="university" placeholder="Enter Your University Or Board Name" Disabled>
                   </div>
                   <div class="form-group col-md-6 mb-3 p-1">
                     <label for="branch" class="ml-2">Branch</label>
-                    <input type="text" class="form-control bg-white" value="<%=profile.branch  %>" id="branch" name="branch"
-                      placeholder="Enter Your Branch" Disabled>
+                    <input type="text" class="form-control bg-white" value="<%=profile.branch  %>" id="branch"
+                      name="branch" placeholder="Enter Your Branch" Disabled>
                   </div>
                 </div>
                 <div class="row">
                   <div class="form-group col-md-6 mb-3 p-1">
                     <label for="college" class="ml-2">College Name</label>
-                    <input type="text" class="form-control bg-white" id="college" value="<%=profile.college  %>" name="college"
-                      placeholder="Enter Your College Name" Disabled>
+                    <input type="text" class="form-control bg-white" id="college" value="<%=profile.college  %>"
+                      name="college" placeholder="Enter Your College Name" Disabled>
                   </div>
                   <div class="col-md-5 mb-3 p-1">
                     <label for="validationTooltip02" class="ml-2">Subject</label>
                     <div class="dropdown">
                       <select class="custom-select col-10 text-muted p-2 pl-4" style="height:3rem;border:none;"
                         id="subjects" name="subjects" value="Click Here To Get Your Subjects" required>
-                        <option  selected value="Click Here To Get Your Subjects">Click Here To See Your Subjects</option>
-                        <% profile.subject.forEach(data=>{ %> 
-                        <option value="<%=data.subject_name %> "><%=data.subject_name %></option>
-                        <% }) %> 
+                        <option selected value="Click Here To Get Your Subjects">Click Here To See Your Subjects
+                        </option>
+                        <% profile.subject.forEach(data=>{ %>
+                          <option value="<%=data.subject_name %> ">
+                            <%=data.subject_name %>
+                          </option>
+                          <% }) %>
                       </select>
                     </div>
                   </div>
@@ -215,8 +189,8 @@
                 <div class="row">
                   <div class="form-group col-md-6 mb-3 p-1">
                     <label for="phone" class="ml-2">Phone Number</label>
-                    <input type="number" class="form-control bg-white" id="phone" value="<%=profile.phone  %>" name="phone"
-                      placeholder="Enter Your Contact Number" Disabled>
+                    <input type="number" class="form-control bg-white" id="phone" value="<%=profile.phone  %>"
+                      name="phone" placeholder="Enter Your Contact Number" Disabled>
                   </div>
                 </div>
               </div>
@@ -237,26 +211,16 @@
           </div>
         </div>
       </div>
-      <!-- container-scroller -->
-      <!-- base:js -->
+
       <script src="/dashboard/vendors/js/vendor.bundle.base.js"></script>
-      <!-- endinject -->
-      <!-- Plugin js for this page-->
-      <!-- End plugin js for this page-->
-      <!-- inject:js -->
       <script src="/dashboard/js/off-canvas.js"></script>
       <script src="/dashboard/js/hoverable-collapse.js"></script>
       <script src="/dashboard/js/template.js"></script>
       <script src="/dashboard/js/settings.js"></script>
       <script src="/dashboard/js/todolist.js"></script>
-      <!-- endinject -->
-      <!-- plugin js for this page -->
       <script src="/dashboard/vendors/progressbar.js/progressbar.min.js"></script>
       <script src="/dashboard/vendors/chart.js/Chart.min.js"></script>
-      <!-- End plugin js for this page -->
-      <!-- Custom js for this page-->
       <script src="/dashboard/js/dashboard.js"></script>
-      <!-- <script src="assets/vendors/fontawesome-free/js/profile.js"></script> -->
       <script>
         let editbutton = document.getElementById('editbutton');
         let savebutton = document.getElementById('savebutton');
@@ -289,7 +253,7 @@
           if (counter == 0) {
             hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.4rem)";
             brandq.style.transform = "translateX(-10rem)"
-            // subjects.style
+
             counter = 1;
           }
           else {
@@ -299,7 +263,7 @@
           }
         })
       </script>
-      <!-- End custom js for this page-->
+
 </body>
 
 </html>
