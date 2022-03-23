@@ -35,21 +35,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(static_path));
 app.set('view engine', 'ejs');
 app.set('views', templates_path);
-
-async function dbcall() {
-  try {
-    const data = await QuestionModel.find()
-    // console.log(data);
-    res.send(data);
-  } catch (error) {
-
-  }
-}
-
-
-
-
-
+ 
 
 // Home Page
 app.get('/', async (req, res) => {
@@ -58,9 +44,7 @@ app.get('/', async (req, res) => {
 });
 
 
-
-
-
+ 
 
 // Microservices
 app.use('/login', Login);
