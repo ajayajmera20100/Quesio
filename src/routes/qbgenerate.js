@@ -23,7 +23,7 @@ Router.post('/',async(req, res)=>{
     const {university,branch,subject,chapter,totalquestions,easyquestions,moderatequestions,hardquestions} = req.body;
     
     const data=await QuestionModel.aggregate([
-     
+     {$match:{subject}},
      {$group:{
      "_id":"$difficulty",
      "questiondata": {
