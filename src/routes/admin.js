@@ -3,11 +3,11 @@ import express from "express";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 import jwt_decode from "jwt-decode" 
+require('dotenv').config();
 
 //for sendgrid
-const API_KEY ='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';
 const sgMail = require('@sendgrid/mail')
-sgMail.setApiKey(API_KEY)
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 // models
 import { AdminModel } from "../models/admin";
