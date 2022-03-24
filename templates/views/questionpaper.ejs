@@ -76,16 +76,16 @@
                 <% myeasy.forEach(function(data){ %>
                   <hr>
                   <div class="row">
-                    <div class="col-sm-6">
-                      <div class="mb-2 pull-left">
+                    <div class="col-md-12">
+                      <div class="mb-2">
                         <p class=""><span class="font-weight-bold">
                             <%=count %>
                           </span>) <%= data.question %>
                         </p>
                         <ul class="list list-unstyled mb-0 text-left">
                           <% data.options.forEach(function(option,index){ %>
-                            <li>
-                              <%= index+1 %>) <%= option %>
+                            <li>Option 
+                              <%= index+1 %> ) <%= option %>
                             </li>
                             <% }) %>
                         </ul>
@@ -97,16 +97,16 @@
                     <% mymedium.forEach(function(data,index){ %>
                       <hr>
                       <div class="row">
-                        <div class="col-sm-6">
-                          <div class="mb-2 pull-left">
+                        <div class="col-md-12">
+                          <div class="mb-2">
                             <p class=""><span class="font-weight-bold">
                                 <%=count %>
                               </span>) <%= data.question %>
                             </p>
                             <ul class="list list-unstyled mb-0 text-left">
                               <% data.options.forEach(function(option,index){ %>
-                                <li>
-                                  <%= index+1 %>) <%= option %>
+                                <li>Option 
+                                  <%= index+1 %> ) <%= option %>
                                 </li>
                                 <% }) %>
                             </ul>
@@ -117,16 +117,16 @@
                         <% myhard.forEach(function(data,index){ %>
                           <hr>
                           <div class="row">
-                            <div class="col-sm-6">
-                              <div class="mb-2 pull-left">
+                            <div class="col-md-12">
+                              <div class="mb-2">
                                 <p class=""><span class="font-weight-bold">
                                     <%=count %>
                                   </span>) <%= data.question %>
                                 </p>
                                 <ul class="list list-unstyled mb-0 text-left">
                                   <% data.options.forEach(function(option,index){ %>
-                                    <li>
-                                      <%= index+1 %>) <%= option %>
+                                    <li>Option 
+                                      <%= index+1 %> ) <%= option %>
                                     </li>
                                     <% }) %>
                                 </ul>
