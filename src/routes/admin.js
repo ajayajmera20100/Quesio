@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser";
 import jwt_decode from "jwt-decode" 
 
 //for sendgrid
-const API_KEY ='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';
+const API_KEY ='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';
 const sgMail = require('@sendgrid/mail')
 sgMail.setApiKey(API_KEY)
 
@@ -112,29 +112,48 @@ Router.get('/faculty', isAuth,async (req, res) => {
 Router.get('/faculty/approve:uid',async (req, res) => {
     const data=await UserModel.findByIdAndUpdate(req.params.uid,{isVarified:true});
     await data.save();
-    // const msg = {
-    //     from: 'vitminiproj@gmail.com',
-    //     to: newUser.emailid,
-    //     subject: 'Localiyo - Verify Your Account',
-    //     text:`
-    //     Hello, Thanks For Registering On Our Website.
-    //     Kindly Verify Your Email ID By Clicking On This Link :
-    //     http://${req.headers.host}/verify-account?token=${newUser.emailToken}
-    //     `,
-    //     html : `
-    //     <h1>Localiyo</h1>
-    //     <p>Hello, Thanks For Registering On Our Website.</p>
-    //     <p>Kindly Verify Your Email ID By Clicking On This Link : </p>
-    //     <a href = "http://${req.headers.host}/verify-account?token=${newUser.emailToken}">Verify Your Account</a>
-    //     `
-    // }
+    // console.log(data.email_id)
+    const msg = {
+        from: 'hg7527500@gmail.com',
+        to: data.email_id,
+        subject: 'Quesio - Account Verified',
 
-    // try{
-    //     await sgMail.send(msg);
+
+
+        text:`
+    
+    
+    
+        Hello, Thanks For Registering On Our Website.
+    
+    
+    
+        Your Account Is Now Verified. You Can Now Sign In To Your Account.
+    
+    
+    
+        `,
+    
+    
+    
+        html : `
+    
+        <h1>Quesio</h1>
+    
+        <p>Hello, Thanks For Registering On Our Website.</p>
+    
+        <p>Your Account Is Now Verified. You Can Now Sign In To Your Account.</p>
+    
+        `
+    
+    }
+
+    try{
+        await sgMail.send(msg);
          
-    // }catch(error){
-    //     console.log(error);   
-    // }
+    }catch(error){
+        console.log(error);   
+    }
 
     res.redirect('/admin/faculty');
 })
