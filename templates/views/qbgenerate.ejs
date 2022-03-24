@@ -219,17 +219,17 @@
                   <div class="col-md-6 mt-2 p-1">
                     <label for="validationTooltip01">Total Number of Questions</label>
                     <input type="number" id="total" class="form-control bg-white" id="totalquestions"
-                      name="totalquestions" value="" placeholder="Total Number of Questions" required>
+                      name="totalquestions" value="" placeholder="Total Number of Questions" onchange="checkForm()" required>
                       <div>
-                        <h5 for="noofeasyquestions" class="totalquestioncount"><span style="color: rgb(104, 104, 104);">Total Questions Available:</span> 10</h5>
+                        <h5 for="noofeasyquestions" class="totalquestioncount"><span style="color: rgb(104, 104, 104);">Total Questions Available:</span> <span id="maxtotal">10</span></h5>
                       </div>
                   </div>
                   <div class="col-md-6 p-1" style="margin-top: 0.7rem;">
                     <label for="validationTooltip01">Number of Easy Questions</label>
-                    <input type="number" id="easy" class="form-control bg-white" id="easyquestions" name="easyquestions"
-                      value="" placeholder="Number of Easy Questions" onchange="easyQuest()" required>
+                    <input type="number" id="easy" class="form-control bg-white" id="easyquestions" name="easyquestions" onchange="checkForm()"
+                      value="" placeholder="Number of Easy Questions" required>
                       <div>
-                        <h5 for="noofeasyquestions" class="totalquestioncount"><span style="color: rgb(104, 104, 104);">Total Questions Available:</span> 10</h5>
+                        <h5 for="noofeasyquestions" class="totalquestioncount"><span style="color: rgb(104, 104, 104);">Total Questions Available:</span> <span id="maxeasy">10</span></h5>
                       </div>
                   </div>
                   
@@ -238,18 +238,18 @@
                   <div class="col-md-6 mt-2 p-1">
                     <label for="validationTooltip01">Number of Moderate Questions</label>
                     <input type="number" id="moderate" class="form-control bg-white" id="moderatequestions"
-                      name="moderatequestions" value="" placeholder="Number of Moderate Questions"
-                      onchange="easyQuest()" required>
+                      name="moderatequestions" value="" placeholder="Number of Moderate Questions" onchange="checkForm()"
+                       required>
                       <div>
-                        <h5 for="noofeasyquestions" class="totalquestioncount"><span style="color: rgb(104, 104, 104);">Total Questions Available:</span> 10</h5>
+                        <h5 for="noofeasyquestions" class="totalquestioncount"><span style="color: rgb(104, 104, 104);">Total Questions Available:</span> <span id="maxmoderate">10</span></h5>
                       </div>
                   </div>
                   <div class="col-md-6 p-1" style="margin-top: 0.7rem;">
                     <label for="validationTooltip01">Number of Hard Questions</label>
                     <input type="number" id="hard" class="form-control bg-white" id="hardquestions" name="hardquestions"
-                      value="" placeholder="Number of Hard Questions" onchange="easyQuest()" required>
+                      value="" placeholder="Number of Hard Questions" required>
                       <div>
-                        <h5 for="noofeasyquestions" class="totalquestioncount"><span style="color: rgb(104, 104, 104);">Total Questions Available:</span> 10</h5>
+                        <h5 for="noofeasyquestions" class="totalquestioncount"><span style="color: rgb(104, 104, 104);">Total Questions Available:</span> <span id="maxhard">10</span></h5>
                       </div>
                   </div>
                 </div>
@@ -285,6 +285,11 @@
     let brandq = document.getElementById("brandq")
     let maindiv=document.getElementById('maindiv');
     maindiv.style.margin = "0px 0px 0px 255px";
+    let maxtotal = document.getElementById("maxtotal");
+    let maxeasy = document.getElementById("maxeasy");
+    let maxmoderate = document.getElementById("maxmoderate");
+    let maxhard = document.getElementById("maxhard");
+
 
     window.onload = () => {
       hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.5rem)"
@@ -313,29 +318,88 @@
     let moderate = document.getElementById('moderate');
     let errmsg = document.getElementById('errmsg');
     let submitbtn = document.getElementById('submitbtn');
+    let maxt = 10;
+    let maxe = 10;
+    let maxm = 10;
+    let maxh = 10;
+    maxtotal.innerHTML =maxt;
+    maxeasy.innerHTML =maxe;
+    maxmoderate.innerHTML =maxm;
+    maxhard.innerHTML =maxh;
 
-    function easyQuest() {
-      if ((easy.value + hard.value + moderate.value) > total.value) {
-        total.style.border = "1px solid red";
-        errmsg.style.visibility = "visible";
-        submitbtn.disabled = true;
-      } else {
-        total.style.border = "none";
-        errmsg.style.visibility = "hidden";
-        submitbtn.disabled = false;
-      }
-    }
-    function checkForm() {
-      if ((easy.value + hard.value + moderate.value) > total.value) {
-        total.style.border = "1px solid red";
-        errmsg.style.visibility = "visible";
-        submitbtn.disabled = true;
+    total.addEventListener('keypress', function (e) {
+      if (e.keyCode === 13 || e.which === 13) {
+        checkForm();
+        e.preventDefault();
         return false;
+      }
+    });
+
+
+    easy.addEventListener('keypress', function (e) {
+      if (e.keyCode === 13 || e.which === 13) {
+        checkForm();
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    moderate.addEventListener('keypress', function (e) {
+      if (e.keyCode === 13 || e.which === 13) {
+        checkForm();
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    hard.addEventListener('keypress', function (e) {
+      if (e.keyCode === 13 || e.which === 13) {
+        checkForm();
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    
+
+    function checkForm() {
+      if(total.value>maxt){
+        total.style.border = "1px solid red";
+        errmsg.style.visibility = "visible";
+        submitbtn.disabled = true;
+        errmsg.innerHTML = "Maximum Number of Questions Exceeded!!";
+      }
+      if(parseInt(maxtotal.innerHTML)==10){
+        console.log("true");
+      }
+      if(easy.value>maxe){
+        easy.style.border = "1px solid red";
+        errmsg.style.visibility = "visible";
+        submitbtn.disabled = true;
+        errmsg.innerHTML = "Maximum Number of Questions Exceeded!!";
+      }
+      if(moderate.value>maxm){
+        moderate.style.border = "1px solid red";
+        errmsg.style.visibility = "visible";
+        submitbtn.disabled = true;
+        errmsg.innerHTML = "Maximum Number of Questions Exceeded!!";
+      }
+      if(hard.value>maxh){
+        hard.style.border = "1px solid red";
+        errmsg.style.visibility = "visible";
+        submitbtn.disabled = true;
+        errmsg.innerHTML = "Maximum Number of Questions Exceeded!!";
+      }
+
+      if ((easy.value+moderate.value+hard.value) > total.value) {
+        total.style.border = "1px solid red";
+        errmsg.style.visibility = "visible";
+        submitbtn.disabled = true;
+        errmsg.innerHTML = "Total Number of Questions Exceeded!!";
       } else {
         total.style.border = "none";
         errmsg.style.visibility = "hidden";
         submitbtn.disabled = false;
-        return true;
       }
     }
     
