@@ -9,11 +9,7 @@ import { SubjectModel } from "../models/subject";
 
 const Router = express.Router();
 Router.use(cookieParser())
-
-
-
-
-
+ 
 
 // Route: /questions
 // Description : Rendering questions page
@@ -103,6 +99,7 @@ Router.post('/', async(req, res)=>{
 
 Router.post('/update:qid',isAuth, async(req, res)=>{
   try {
+    console.log('in update question')
      const qid = req.params.qid;
      const {subject,chapter,diff,question,option1,option2,option3,option4,correct} = req.body;
      const questions = await QuestionModel.findByIdAndUpdate(qid,{

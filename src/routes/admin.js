@@ -215,7 +215,7 @@ Router.get('/branchdelete:bid',async(req,res)=>{
 })
 
 Router.get('/subjects',isAuth, async(req, res) => {
-    const subjects=await SubjectModel.aggregate([{$project:{_id:0,subject_name:1}}])
+    const subjects=await SubjectModel.aggregate([{$project:{_id:0,subject_name:1,branch:1}}])
     const all_college = await CollegeModel.aggregate([{ $project: { college_name: 1 } }])
     const collegeslist=all_college.map(elem => {
         return elem.college_name
@@ -249,7 +249,7 @@ Router.get('/subjects',isAuth, async(req, res) => {
                 questioncount=questioncount+data.questions[0].length
             }
         })
-    subject_detail.push({'subject':subject.subject_name,"faculty":facultycount,"expert":expertcount,'questioncount':questioncount})
+    subject_detail.push({'subject':subject.subject_name,'branch':subject.branch,"faculty":facultycount,"expert":expertcount,'questioncount':questioncount})
     })
 
 //    res.send(subject_detail)
@@ -276,6 +276,12 @@ Router.get('/subjectdelete:sname',async(req,res)=>{
     await SubjectModel.deleteOne({subject_name:req.params.sname})
     res.redirect('/admin/subjects')
 
+})
+Router.get('/getsubjectlist:branchname',async(req,res)=>{
+   
+    const branchesforcollege=await SubjectModel.aggregate([{$match:{branch:req.params.branchname}},{$project:{subject_name:1}}])
+    // const branchesforcollege=await SubjectModel.find() 
+    res.send(branchesforcollege)
 })
 
 export default Router;

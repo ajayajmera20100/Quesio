@@ -153,7 +153,7 @@
           <div class="row mb-4 ml-2">
             <div class="col-md-11 p-2">
               <h3 class="m-3 font-weight-bolder"
-                style="font-size:2rem; border-bottom: 2px solid #6206a8;padding-bottom:1rem;">Question Paper Generation
+                style="font-size:2rem; border-bottom: 2px solid #6206a8;padding-bottom:1rem;">Question Paper Generator
               </h3>
             </div>
           </div>
@@ -169,7 +169,7 @@
                   <div class="col-md-5 mb-3 p-1">
                     <label for="validationTooltip02">Branch</label>
                     <div class="dropdown">
-                      <select class="custom-select col-10 text-muted pl-4" style="height:3rem; border:none;" id="branch"
+                      <select onchange="fetchsubjects()" class="custom-select col-10 text-muted pl-4" style="height:3rem; border:none;" id="branch"
                         name="branch" required>
                         <option value="">Choose Branch</option>
                         <% totalbranch.forEach(branch=>{ %>
@@ -183,57 +183,73 @@
 
 
                 </div>
-                <div class="row">
-                  <div class="col-md-5 mb-3 mt-4 p-1">
+                <div class="row" style="display:flex; justify-content:space-between; padding-right: 10.5rem;">
+                  <div class="col-md-6 mb-3  p-1">
                     <label for="validationTooltip02">Subject</label>
-                    <div class="dropdown">
-                      <select class="custom-select col-10 text-muted p-2 pl-4" style="height:3rem; border:none;"
+                    <div class="dropdown" style="padding-right: 0.5rem;">
+                      <select onclick="fetchquestioncount()" class="custom-select col-10 text-muted p-2 pl-4" style="height:3rem; border:none; "
                         id="subject" name="subject" required>
                         <option value="">Choose Subject</option>
-                        <option value="DBMS">DBMS</option>
-                        <option value="DSA">DSA</option>
-                        <option value="OS">OS</option>
-                      </select>
+                        
+                      </select>   
                     </div>
+                  </div>
+
+                  <div class="col-md-5 mb-3 p-1" style="max-width: 41%;">
+                    <label for="validationTooltip01">Time Duration</label>
+                    <input style="width: 100%;" type="number" id="duration" class="form-control bg-white" name="timeduration" value="" placeholder="Duration of exam" required>
+                  </div>
+
+
+                </div>
+                <div class="row" style="display:flex; justify-content:space-between; padding-right: 10.5rem;">
+                  <div class="col-md-5 mb-3 p-1">
+                    <label for="validationTooltip01">Marks per question</label>
+                    <input style="width: 100%;" type="number" id="marks" class="form-control bg-white" name="marks" value="" placeholder="Enter Marks" required>
+                  </div>
+
+                  <div class="col-md-5 mb-3 p-1" style="max-width: 41%;">
+                    <label for="validationTooltip01">Date</label>
+                    <input style="width: 100%;" type="date" id="duration" class="form-control bg-white" name="date" value="" placeholder="Enter Date" required>
                   </div>
 
 
                 </div>
                 <div class="row" id="q1">
-                  <div class="col-md-6 mt-4 p-1">
+                  <div class="col-md-6 mt-2 p-1">
                     <label for="validationTooltip01">Total Number of Questions</label>
                     <input type="number" id="total" class="form-control bg-white" id="totalquestions"
                       name="totalquestions" value="" placeholder="Total Number of Questions" required>
                       <div>
-                        <h5 for="noofeasyquestions" class="totalquestioncount"><span style="color: rgb(104, 104, 104);">Total:</span> 10</h5>
+                        <h5 for="noofeasyquestions" class="totalquestioncount"><span style="color: rgb(104, 104, 104);">Total Questions Available:</span> 10</h5>
                       </div>
                   </div>
-                  <div class="col-md-6 mt-4 p-1">
+                  <div class="col-md-6 p-1" style="margin-top: 0.7rem;">
                     <label for="validationTooltip01">Number of Easy Questions</label>
                     <input type="number" id="easy" class="form-control bg-white" id="easyquestions" name="easyquestions"
                       value="" placeholder="Number of Easy Questions" onchange="easyQuest()" required>
                       <div>
-                        <h5 for="noofeasyquestions" class="totalquestioncount"><span style="color: rgb(104, 104, 104);">Total:</span> 10</h5>
+                        <h5 for="noofeasyquestions" class="totalquestioncount"><span style="color: rgb(104, 104, 104);">Total Questions Available:</span> 10</h5>
                       </div>
                   </div>
                   
                 </div>
                 <div class="row" id="q2">
-                  <div class="col-md-6 mt-4 p-1">
+                  <div class="col-md-6 mt-2 p-1">
                     <label for="validationTooltip01">Number of Moderate Questions</label>
                     <input type="number" id="moderate" class="form-control bg-white" id="moderatequestions"
                       name="moderatequestions" value="" placeholder="Number of Moderate Questions"
                       onchange="easyQuest()" required>
                       <div>
-                        <h5 for="noofeasyquestions" class="totalquestioncount"><span style="color: rgb(104, 104, 104);">Total:</span> 10</h5>
+                        <h5 for="noofeasyquestions" class="totalquestioncount"><span style="color: rgb(104, 104, 104);">Total Questions Available:</span> 10</h5>
                       </div>
                   </div>
-                  <div class="col-md-6 mt-4 p-1">
+                  <div class="col-md-6  p-1" style="margin-top: 0.7rem;">
                     <label for="validationTooltip01">Number of Hard Questions</label>
                     <input type="number" id="hard" class="form-control bg-white" id="hardquestions" name="hardquestions"
                       value="" placeholder="Number of Hard Questions" onchange="easyQuest()" required>
                       <div>
-                        <h5 for="noofeasyquestions" class="totalquestioncount"><span style="color: rgb(104, 104, 104);">Total:</span> 10</h5>
+                        <h5 for="noofeasyquestions" class="totalquestioncount"><span style="color: rgb(104, 104, 104);">Total Questions Available:</span> 10</h5>
                       </div>
                   </div>
                 </div>
@@ -322,24 +338,23 @@
         return true;
       }
     }
-
-    src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js";
-
     
-    button.onclick = function() {
-    var div = document.getElementById("main-panel");
-    if(div) {
-        div.style.widtgh = "100%";
+    async function fetchsubjects() {
+      const branch = document.getElementById("branch").value;
+       
+      const subjectData = await fetch(`http://127.0.0.1:9000/admin/getsubjectlist${branch}`).then(response => response.json()).then(data => data )
+      const subject = document.getElementById("subject")
+      subject.innerHTML=''
+      for (let i = 0; i < subjectData.length; i++) {
+        subject.innerHTML += `<option value=${subjectData[i].subject_name}>${subjectData[i].subject_name}</option>`
+      }
     }
 
-    let maindiv=document.getElementById('maindiv');
-    maindiv.classList.add
-
-
-};
-
-    
-
+    async function fetchquestioncount() {
+      const subject = document.getElementById("subject").value;
+       
+      
+    }
 
 
   </script>
