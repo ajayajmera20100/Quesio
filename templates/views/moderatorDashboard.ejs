@@ -106,7 +106,7 @@
       </nav>
 
 
-      <div class="main-panel">
+      <div class="main-panel" id="maindiv">
         <div class="content-wrapper flex">
           <div class="row">
             <div class="col-sm-12">
@@ -216,13 +216,13 @@
                                 <label for="difficulty">Difficulty Level : <sup>*</sup></label>
                               </div>
                               <div class="btn-group-sm btn-group-toggle col-md-8" data-toggle="buttons" id="difficulty">
-                                <label class="btn btn-secondary active">
-                                  <input type="radio" name="diff" value="easy" id="diff-option1" required> Easy
+                                <label class="btn active" style="background-color: #32B01D; border-color: #32B01D; color: white;">
+                                  <input type="radio" name="diff" value="easy" id="diff-option1"  required> Easy
                                 </label>
-                                <label class="btn btn-secondary">
+                                <label class="btn" style="background-color: #F1BC00; border-color: #F1BC00; color: white;">
                                   <input type="radio" name="diff" value="medium" id="diff-option2" required> Medium
                                 </label>
-                                <label class="btn btn-secondary">
+                                <label class="btn" style="background-color: #EE2B10; border-color: #EE2B10; color: white;">
                                   <input type="radio" name="diff" value="hard" id="diff-option3" required> Hard
                                 </label>
                               </div>
@@ -596,6 +596,8 @@
     let ianchor1 = document.getElementById("ianchor1")
     let ianchor2 = document.getElementById("ianchor2")
     let ianchor3 = document.getElementById("ianchor3")
+    let maindiv=document.getElementById('maindiv');
+    maindiv.style.margin = "0px 0px 0px 255px";
 
 
     window.onload = () => {
@@ -610,11 +612,15 @@
         hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.4rem)"
         brandq.style.transform = "translateX(-10rem)"
         counter = 1;
+        maindiv.style.margin = "0px 0px 0px 70px";
+
       }
       else {
         hamburgerbtn.style.transform = "translateX(5.5rem) translateY(-5.4rem)"
         brandq.style.transform = "translateX(0rem)"
         counter = 0;
+        maindiv.style.margin = "0px 0px 0px 255px";
+
       }
     })
 

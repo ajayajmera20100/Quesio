@@ -11850,6 +11850,14 @@ html {
   color: #ffffff;
 }
 
-/* manually added */
-
-/*# sourceMappingURL=style.css.map */
+.model{
+  position:fixed;
+  height:20vh;
+  width:60vw;
+  background-color:white;
+  top: 40vh;
+  left:20vw;
+  z-index: 10;
+  text-align:center;
+  box-sizing: border-box;
+}

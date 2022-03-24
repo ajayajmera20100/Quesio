@@ -63,7 +63,9 @@
                 <p class="sidebar-designation">Welcome</p>
                 <p class="sidebar-name">ADMIN</p>
               </div>
-              <button class="navbar-toggler navbar-toggler align-self-center d-lg-flex transition-btn "  type="button"
+              <button class="navbar-toggler navbar-toggler align-self-center d-lg-flex transition-btn " 
+              
+              type="button"
                 style="color: aliceblue;margin-top: 0.85rem;" data-toggle="minimize" id="hbtn"
                 style="transform: translateX(8.5rem);">
                 <span class="typcn typcn-th-menu"></span>
@@ -146,7 +148,7 @@
       </nav>
 
       <!-- partial main page -->
-      <div class="main-panel">
+      <div class="main-panel" id="maindiv">
         <div class="content-wrapper">
           <div class="row mb-4 ml-2">
             <div class="col-md-11 p-2">
@@ -242,7 +244,7 @@
                         <h5 for="noofmediumquestions" id="noofmediumquestions" class="totalquestioncount"><span style="color: rgb(104, 104, 104);">Total Questions Available:</span> 10</h5>
                       </div>
                   </div>
-                  <div class="col-md-6  p-1" style="margin-top: 0.7rem;">
+                  <div class="col-md-6 p-1" style="margin-top: 0.7rem;">
                     <label for="validationTooltip01">Number of Hard Questions</label>
                     <input type="number" id="hard" class="form-control bg-white" id="hardquestions" name="hardquestions"
                       value="" placeholder="Number of Hard Questions" onchange="easyQuest()" required>
@@ -254,7 +256,7 @@
               </div>
           </div>
           <div>
-            <div class="dashboard-btn">
+            <div class="dashboard-btn m-0 pb-5">
               <label for="errormsg" id="errmsg" style="visibility:hidden;color:red;display:block;">*Total Number of
                 Questions Exceeded!!</label>
               <button type="submit" class="btn" id="submitbtn" style="background-color: #6206a8; color: white">
@@ -281,10 +283,9 @@
     let counter = 0;
     let hamburgerbtn = document.getElementById("hbtn")
     let brandq = document.getElementById("brandq")
+    let maindiv=document.getElementById('maindiv');
+    maindiv.style.margin = "0px 0px 0px 255px";
 
-
-
-   
     window.onload = () => {
       hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.5rem)"
     }
@@ -294,11 +295,13 @@
         hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.5rem)"
         brandq.style.transform = "translateX(-10rem)"
         counter = 1;
+        maindiv.style.margin = "0px 0px 0px 70px";
       }
       else {
         hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.5rem)"
         brandq.style.transform = "translateX(0rem)"
         counter = 0;
+        maindiv.style.margin = "0px 0px 0px 255px";
       }
     })
 

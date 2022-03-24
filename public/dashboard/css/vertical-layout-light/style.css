@@ -9287,6 +9287,15 @@ pre code {
   margin-left: auto;
 }
 
+.containernew {
+  width: 100%;
+  padding-right: 13%;
+  padding-left: 0px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
@@ -10163,6 +10172,7 @@ pre code {
   color: #001737;
 }
 
+
 .table th,
 .table td {
   padding: 1.25rem 0.9375rem;
@@ -10171,6 +10181,9 @@ pre code {
   align-self: center;
   border-top: 1px solid #e8eff9;
 }
+
+
+
 
 .table thead th {
   vertical-align: bottom;
@@ -13895,6 +13908,12 @@ input[type="button"].btn-block {
   flex: 1 1 auto;
   padding: 1.25rem;
 }
+
+.card-body-new {
+  flex: 1 1 auto;
+  padding: 1rem;
+}
+
 
 .card-title {
   margin-bottom: 0.75rem;
@@ -24686,6 +24705,8 @@ body.avgrund-active {
   padding-top: 0;
 }
 
+
+
 .main-panel {
   transition: width 0.25s ease, margin 0.25s ease;
   width: calc(100% - 255px);
@@ -24694,7 +24715,7 @@ body.avgrund-active {
   display: flex;
   -webkit-flex-direction: column;
   flex-direction: column;
-  /* margin-left: 255px; */
+  margin-left: 70px;
   max-width: 100%;
 }
 
@@ -24757,7 +24778,8 @@ body.avgrund-active {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   padding: 0;
-  
+  height: 100%;
+  position: fixed;
   width: 255px;
   z-index: 11;
   transition: width 0.25s ease, background 0.25s ease;

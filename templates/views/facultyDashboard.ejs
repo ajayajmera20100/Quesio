@@ -93,7 +93,7 @@
 
 
 
-      <div class="main-panel">
+      <div class="main-panel" id="maindiv">
         <div class="content-wrapper flex">
           <div class="row">
             <div class="col-sm-12">
@@ -151,8 +151,9 @@
                 </div>
 
                 <div class="col-md-2">
-                  <button type="button" class="btn btn-primary-new" style="align-content: center;" data-toggle="modal"
-                    data-target=".bd-example-modal-lg">Add
+                  <button type="button" class="btn btn-primary-new text-white" style="align-content: center;" data-toggle="modal"
+                    data-target=".bd-example-modal-lg"  onmouseenter="addhover(this)"
+                    onmouseleave="removehover(this)">Add
                     Question</button>
 
                   <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
@@ -160,7 +161,7 @@
                     <div class="modal-dialog modal-lg">
                       <div class="modal-content p-5">
                         <div class="modal-header">
-                          <h2 class="modal-title" id="exampleModalLongTitle">Edit Submissions</h2>
+                          <h2 class="modal-title" id="exampleModalLongTitle">Add Question</h2>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
@@ -200,13 +201,13 @@
                                 <label for="difficulty">Difficulty Level : <sup>*</sup></label>
                               </div>
                               <div class="btn-group-sm btn-group-toggle col-md-8" data-toggle="buttons" id="difficulty">
-                                <label class="btn btn-secondary active">
+                                <label class="btn btn-secondary active" style="background-color: #32B01D; border-color: #32B01D; color: white;">
                                   <input type="radio" name="diff" value="easy" id="diff-option1" required> Easy
                                 </label>
-                                <label class="btn btn-secondary">
+                                <label class="btn btn-secondary" style="background-color: #F1BC00; border-color: #F1BC00; color: white;">
                                   <input type="radio" name="diff" value="medium" id="diff-option2" required> Medium
                                 </label>
-                                <label class="btn btn-secondary">
+                                <label class="btn btn-secondary" style="background-color: #EE2B10; border-color: #EE2B10; color: white;">
                                   <input type="radio" name="diff" value="hard" id="diff-option3" required> Hard
                                 </label>
                               </div>
@@ -345,7 +346,7 @@
                               </h5>
                             </option>
                             <% question.options.forEach((option,index)=>{ %>
-                              <option>
+                              <option disabled>
                                 <h5>
                                   <%=index+1 %>) <%=option %>
                                 </h5>
@@ -374,15 +375,15 @@
                             <div class="modal-dialog modal-lg">
                               <div class="modal-content p-5">
                                 <div class="modal-header">
-                                  <h2 class="modal-title" id="exampleModalLongTitle">Edit Submissions</h2>
+                                  <h2 class="modal-title" id="exampleModalLongTitle">Edit Question</h2>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                   </button>
                                 </div>
                                 <div class="modal-body">
                                   <form action="questions.html" method="POST">
-                                    <div class="row">
-                                      <div class="form-group col-md-4">
+                                    <div class="row" style="text-align:left;">
+                                      <div class="form-group col-md-4 pl-5">
                                         <label for="subject-name">Name Of The Subject : <sup>*</sup></label>
                                       </div>
                                       <div class="form-group col-md-8">
@@ -391,7 +392,7 @@
                                           </select>
                                         </div>
                                       </div>
-                                      <div class="form-group col-md-4">
+                                      <div class="form-group col-md-4 pl-5">
                                         <label for="chapter-name">Name Of The Chapter : <sup>*</sup></label>
                                       </div>
                                       <div class="form-group col-md-8">
@@ -401,21 +402,22 @@
                                         </div>
                                       </div>
                                     </div>
-                                    <div class="row d-flex justify-content-center">
-                                      <div class="form-group col-md-4">
+                                    <div class="row d-flex" style="text-align:left;">
+                                      <div class="form-group col-md-4 pl-5">
                                         <label for="difficulty">Difficulty Level : <sup>*</sup></label>
                                       </div>
                                       <div class="btn-group-sm btn-group-toggle col-md-8" data-toggle="buttons"
                                         id="difficulty">
-                                        <label class="btn btn-secondary">
+                                        <label class="btn  active" 
+                                        style="background-color: #32B01D; border-color: #32B01D; color: white;">
                                           <input type="radio" name="edit-diff-options" id="diff_1" value="easy" required>
                                           Easy
                                         </label>
-                                        <label class="btn btn-secondary">
+                                        <label class="btn " style="background-color: #F1BC00; border-color: #F1BC00; color: white;">
                                           <input type="radio" name="edit-diff-options" id="diff_2" value="medium" required>
                                           Medium
                                         </label>
-                                        <label class="btn btn-secondary">
+                                        <label class="btn " style="background-color: #EE2B10; border-color: #EE2B10; color: white;">
                                           <input type="radio" name="edit-diff-options" id="diff_3" value="hard" required>
                                           Hard
                                         </label>
@@ -432,15 +434,15 @@
                                       </div>
                                     </div>
 
-                                    <div class="row">
-                                      <div class="form-group col-md-2 py-2">
+                                    <div class="row" style="text-align:left;">
+                                      <div class="form-group col-md-2 pl-5 ">
                                         <label for="option_1">Option 1 : <sup>*</sup></label>
                                       </div>
-                                      <div class="col-md-8">
+                                      <div class="col-md-7">
                                         <input type="text" class="form-control" id="option_1" name="option1"
                                           placeholder="Option 1" required>
                                       </div>
-                                      <div class="form-check m-3">
+                                      <div class="form-check ">
                                         <input class="form-check-input" style="margin-left:-4rem;" type="radio"
                                           name="edit-correct" id="correct_1">
                                         <label class="form-check-label" for="correct_1">
@@ -449,15 +451,15 @@
                                       </div>
                                     </div>
 
-                                    <div class="row">
-                                      <div class="form-group col-md-2 py-2">
+                                    <div class="row" style="text-align:left;">
+                                      <div class="form-group col-md-2 pl-5">
                                         <label for="option_2">Option 2 : <sup>*</sup></label>
                                       </div>
-                                      <div class="col-md-8">
+                                      <div class="col-md-7">
                                         <input type="text" class="form-control" id="option_2" name="option2"
                                           placeholder="Option 2" required>
                                       </div>
-                                      <div class="form-check m-3">
+                                      <div class="form-check ">
                                         <input class="form-check-input" style="margin-left:-4rem;" type="radio"
                                           name="edit-correct" id="correct_2">
                                         <label class="form-check-label" for="correct_2">
@@ -466,15 +468,15 @@
                                       </div>
                                     </div>
 
-                                    <div class="row">
-                                      <div class="form-group col-md-2 py-2">
+                                    <div class="row" style="text-align:left;">
+                                      <div class="form-group col-md-2 pl-5">
                                         <label for="option_3">Option 3 : <sup>*</sup></label>
                                       </div>
-                                      <div class="col-md-8">
+                                      <div class="col-md-7">
                                         <input type="text" class="form-control" id="option_3" name="option3"
                                           placeholder="Option 3" required>
                                       </div>
-                                      <div class="form-check m-3">
+                                      <div class="form-check ">
                                         <input class="form-check-input" style="margin-left:-4rem;" type="radio"
                                           name="edit-correct" id="correct_3">
                                         <label class="form-check-label" for="correct_3">
@@ -483,18 +485,18 @@
                                       </div>
                                     </div>
 
-                                    <div class="row">
-                                      <div class="form-group col-md-2 py-2">
+                                    <div class="row" style="text-align:left;">
+                                      <div class="form-group col-md-2 pl-5">
                                         <label for="option_4">Option 4 : <sup>*</sup></label>
                                       </div>
-                                      <div class="col-md-8">
-                                        <input type="text" class="form-control" id="option_4" name="option4"
+                                      <div class="col-md-7">
+                                        <input type="text" class="form-control col-md-12" id="option_4" name="option4"
                                           placeholder="Option 4" required>
                                       </div>
-                                      <div class="form-check m-3">
+                                      <div class="form-check col-md-2" >
                                         <input class="form-check-input" style="margin-left:-4rem;" type="radio"
                                           name="edit-correct" id="correct_4">
-                                        <label class="form-check-label" for="correct_4">
+                                        <label class="form-check-label" style="text-align:left;" for="correct_4">
                                           Correct Answer
                                         </label>
                                       </div>
@@ -558,6 +560,8 @@
 
   <script src="/dashboard/js/dashboard.js"></script>
   <script>
+    let maindiv=document.getElementById('maindiv');
+    maindiv.style.margin = "0px 0px 0px 255px";
     let counter = 0;
     let hamburgerbtn = document.getElementById("hbtn")
     let brandq = document.getElementById("brandq")
@@ -572,13 +576,23 @@
         hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.5rem)"
         brandq.style.transform = "translatex(-10rem)"
         counter = 1;
+        maindiv.style.margin = "0px 0px 0px 70px";
       }
       else {
         hamburgerbtn.style.transform = "translateX(7.4rem) translateY(-5.5rem)"
         brandq.style.transform = "translatex(0rem)"
         counter = 0;
+        maindiv.style.margin = "0px 0px 0px 255px";
       }
     })
+
+    function colorwhite(obj){
+      obj.style.color = "white";
+    }
+
+    function removewhite(obj){
+      obj.style.color = "#7e7e7e";
+    }
 
     function colorwhite(obj){
       obj.style.color = "white";
@@ -657,7 +671,6 @@
         }
       }
       document.getElementById('edit-question').value = question.question
-
       document.getElementById('option_1').value = question.options[0];
       document.getElementById('option_2').value = question.options[1];
       document.getElementById('option_3').value = question.options[2];
