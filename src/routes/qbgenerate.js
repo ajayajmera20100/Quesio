@@ -20,7 +20,7 @@ Router.get('/',async(req, res)=>{
 
 Router.post('/',async(req, res)=>{
 
-    const {university,branch,subject,chapter,totalquestions,easyquestions,moderatequestions,hardquestions} = req.body;
+    const {university,branch,subject,timeduration,marks,date,totalquestions,easyquestions,moderatequestions,hardquestions} = req.body;
     
     const data=await QuestionModel.aggregate([
      {$match:{subject}},
@@ -65,7 +65,7 @@ Router.post('/',async(req, res)=>{
   let mymedium=shuffle(mydata.medium[0]).slice(0,moderatequestions)
   let myhard=shuffle(mydata.hard[0]).slice(0,hardquestions)
    
-  res.render('questionpaper',{subject,branch,myeasy,mymedium,myhard,count:1,totalquestions})
+  res.render('questionpaper',{university,subject,branch,myeasy,mymedium,myhard,timeduration,marks,date,count:1,totalquestions})
 
    
    });

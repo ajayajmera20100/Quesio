@@ -221,7 +221,7 @@
                     <input type="number" id="total" class="form-control bg-white" id="totalquestions"
                       name="totalquestions" value="" placeholder="Total Number of Questions" onchange="checkForm()" required>
                       <div>
-                        <h5 for="noofeasyquestions" class="totalquestioncount"><span style="color: rgb(104, 104, 104);">Total Questions Available:</span> <span id="maxtotal">10</span></h5>
+                        <h5 for="totalnumberofquestion" id="totalnumberofquestion" class="totalquestioncount"> </h5>
                       </div>
                   </div>
                   <div class="col-md-6 p-1" style="margin-top: 0.7rem;">
@@ -229,7 +229,7 @@
                     <input type="number" id="easy" class="form-control bg-white" id="easyquestions" name="easyquestions" onchange="checkForm()"
                       value="" placeholder="Number of Easy Questions" required>
                       <div>
-                        <h5 for="noofeasyquestions" class="totalquestioncount"><span style="color: rgb(104, 104, 104);">Total Questions Available:</span> <span id="maxeasy">10</span></h5>
+                        <h5 for="noofeasyquestions" id="noofeasyquestions" class="totalquestioncount">  </h5>
                       </div>
                   </div>
                   
@@ -241,7 +241,7 @@
                       name="moderatequestions" value="" placeholder="Number of Moderate Questions" onchange="checkForm()"
                        required>
                       <div>
-                        <h5 for="noofeasyquestions" class="totalquestioncount"><span style="color: rgb(104, 104, 104);">Total Questions Available:</span> <span id="maxmoderate">10</span></h5>
+                        <h5 for="noofmediumquestions" id="noofmediumquestions" class="totalquestioncount"> </h5>
                       </div>
                   </div>
                   <div class="col-md-6 p-1" style="margin-top: 0.7rem;">
@@ -249,7 +249,7 @@
                     <input type="number" id="hard" class="form-control bg-white" id="hardquestions" name="hardquestions"
                       value="" placeholder="Number of Hard Questions" required>
                       <div>
-                        <h5 for="noofeasyquestions" class="totalquestioncount"><span style="color: rgb(104, 104, 104);">Total Questions Available:</span> <span id="maxhard">10</span></h5>
+                        <h5 for="noofhardquestions" id="noofhardquestions" class="totalquestioncount"> </h5>
                       </div>
                   </div>
                 </div>
@@ -416,7 +416,25 @@
 
     async function fetchquestioncount() {
       const subject = document.getElementById("subject").value;
+      const questionData = await fetch(`http://127.0.0.1:9000/admin/getquestiondata${subject}`).then(response => response.json()).then(data => data )
+      var easy =0;
+      var medium=0;
+      var hard=0;
+      questionData.forEach(data=>{
+        if(data._id=='easy') easy=data.count;
+        if(data._id=='hard') hard=data.count;
+        if(data._id=='medium') medium=data.count;
+      })
+      console.log(easy)
+      console.log(medium)
+      console.log(hard)
        
+      totalnumberofquestion.innerHTML=`<span style="color: rgb(104, 104, 104);">Total Questions Available:</span>`+` ${easy+medium+hard}`
+      noofeasyquestions.innerHTML=`<span style="color: rgb(104, 104, 104);">Total Questions Available:</span>`+`${medium}`
+      noofmediumquestions.innerHTML=`<span style="color: rgb(104, 104, 104);">Total Questions Available:</span>`+` ${easy}`
+      noofhardquestions.innerHTML=`<span style="color: rgb(104, 104, 104);">Total Questions Available:</span>`+` ${hard}`
+
+
       
     }
 

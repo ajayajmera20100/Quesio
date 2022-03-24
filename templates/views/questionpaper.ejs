@@ -46,15 +46,15 @@
                 <div class="d-flex mt-4">
                   <div class="col-md-6">
                     <div class="mb-2">
-                      <p class="">Date : <%= new Date();%>
+                      <p class="">Date : <%= date%>
                       </p>
                     </div>
                     <div class="mb-2">
-                      <p class="">Max Marks :<%=totalquestions *2%>
+                      <p class="">Max Marks : <%=totalquestions *marks%>
                       </p>
                     </div>
-                    <div class="mb-1">
-                      <p class="">QP Code : QP1056</p>
+                    <div class="mb-2">
+                      <p class="">University : Mumbai University </p>
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -67,7 +67,8 @@
                       </p>
                     </div>
                     <div class="mb-2">
-                      <p class="">University : Mumbai University </p>
+                      <p class="">Duration : <%=timeduration %> min
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -75,7 +76,7 @@
               <div class="card-body pt-0">
                 <% myeasy.forEach(function(data){ %>
                   <hr>
-                  <div class="row">
+                  <div class="row p-3">
                     <div class="col-md-12">
                       <div class="mb-2">
                         <p class=""><span class="font-weight-bold">
@@ -96,7 +97,7 @@
                   <% count++; }) %>
                     <% mymedium.forEach(function(data,index){ %>
                       <hr>
-                      <div class="row">
+                      <div class="row p-3">
                         <div class="col-md-12">
                           <div class="mb-2">
                             <p class=""><span class="font-weight-bold">
@@ -116,7 +117,7 @@
                       <% count++; }) %>
                         <% myhard.forEach(function(data,index){ %>
                           <hr>
-                          <div class="row">
+                          <div class="row p-3">
                             <div class="col-md-12">
                               <div class="mb-2">
                                 <p class=""><span class="font-weight-bold">

@@ -152,8 +152,7 @@
 
                 <div class="col-md-2">
                   <button type="button" class="btn btn-primary-new text-white" style="align-content: center;" data-toggle="modal"
-                    data-target=".bd-example-modal-lg"  onmouseenter="addhover(this)"
-                    onmouseleave="removehover(this)">Add
+                    data-target=".bd-example-modal-lg"  >Add
                     Question</button>
 
                   <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
@@ -264,7 +263,7 @@
                                   placeholder="Option 3" required>
                               </div>
                               <div class="form-check">
-                                <input class="form-check-input" type="radio" name="correct" id="option3">
+                                <input class="form-check-input" type="radio" name="correct" id="correct3">
                                 <label class="form-check-label" for="correct3">
                                   Correct Answer
                                 </label>
@@ -408,7 +407,7 @@
                                       </div>
                                       <div class="btn-group-sm btn-group-toggle col-md-8" data-toggle="buttons"
                                         id="difficulty">
-                                        <label class="btn  active" 
+                                        <label class="btn " 
                                         style="background-color: #32B01D; border-color: #32B01D; color: white;">
                                           <input type="radio" name="edit-diff-options" id="diff_1" value="easy" required>
                                           Easy
@@ -655,7 +654,7 @@
           })
 
         })
-
+    window.location.reload(true)
     }
 
     async function editData(question_id) {
@@ -667,6 +666,7 @@
         if (document.getElementById(`diff_${i}`).value === question.difficulty) {
           console.log(i);
           document.getElementById(`diff_${i}`).parentElement.classList.add('active')
+          document.getElementById(`diff_${i}`).checked=true;
           break;
         }
       }

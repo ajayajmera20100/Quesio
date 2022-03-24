@@ -3,6 +3,11 @@ import express from "express";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 import jwt_decode from "jwt-decode" 
+require('dotenv').config();
+
+//for sendgrid
+const sgMail = require('@sendgrid/mail')
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 // models
 import { AdminModel } from "../models/admin";
@@ -13,7 +18,7 @@ import { SubjectModel } from '../models/subject'
 
 // Authorisation
 import isAuth from "../isauth";
-import req from "express/lib/request";
+
 
 const Router = express.Router();
 Router.use(cookieParser())
@@ -107,6 +112,49 @@ Router.get('/faculty', isAuth,async (req, res) => {
 Router.get('/faculty/approve:uid',async (req, res) => {
     const data=await UserModel.findByIdAndUpdate(req.params.uid,{isVarified:true});
     await data.save();
+    // console.log(data.email_id)
+    const msg = {
+        from: 'hg7527500@gmail.com',
+        to: data.email_id,
+        subject: 'Quesio - Account Verified',
+
+
+
+        text:`
+    
+    
+    
+        Hello, Thanks For Registering On Our Website.
+    
+    
+    
+        Your Account Is Now Verified. You Can Now Sign In To Your Account.
+    
+    
+    
+        `,
+    
+    
+    
+        html : `
+    
+        <h1>Quesio</h1>
+    
+        <p>Hello, Thanks For Registering On Our Website.</p>
+    
+        <p>Your Account Is Now Verified. You Can Now Sign In To Your Account.</p>
+    
+        `
+    
+    }
+
+    try{
+        await sgMail.send(msg);
+         
+    }catch(error){
+        console.log(error);   
+    }
+
     res.redirect('/admin/faculty');
 })
 
@@ -189,6 +237,7 @@ Router.get('/branchs',isAuth, async (req, res) => {
     const totalbranch = [... new Set([].concat.apply([], branches))] 
     const colleges = [... new Set([].concat.apply([], collegeslist))] 
     // console.log(branchdata)
+    // console.log(total_branch)
     // res.send(branchdata)
 
 // console.log(colleges);
@@ -200,11 +249,12 @@ Router.get('/branchs',isAuth, async (req, res) => {
 
 
 Router.post('/addbranch',async(req,res)=>{
-    const { university,college,branch}=req.body;
-    await CollegeModel.create({ university:university,
-        college_name: college,
-        branch: branch})
+        const collegename=req.body.college;
+        const branchname=req.body.branch;
+        const collegeid= await CollegeModel.findOneAndUpdate({college_name:collegename},{$push:{branch:branchname}})
+         
     res.redirect('/admin/branchs')
+    
 })
 
 Router.get('/branchdelete:bid',async(req,res)=>{
@@ -283,5 +333,24 @@ Router.get('/getsubjectlist:branchname',async(req,res)=>{
     // const branchesforcollege=await SubjectModel.find() 
     res.send(branchesforcollege)
 })
+
+Router.get('/getquestiondata:subjectname',async(req,res)=>{
+   
+    try {
+        const questiondata=await QuestionModel.aggregate([
+            {$match:{subject:req.params.subjectname}},
+            {$group:
+                {"_id":"$difficulty",
+                "count":{$sum:1}
+            },
+            }
+        ])
+        
+        res.send(questiondata)
+    } catch (error) {
+        res.send(error)
+    }
+})
+
 
 export default Router;
