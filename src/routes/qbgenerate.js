@@ -65,12 +65,11 @@ Router.post('/',async(req, res)=>{
   let mymedium=shuffle(mydata.medium[0]).slice(0,moderatequestions)
   let myhard=shuffle(mydata.hard[0]).slice(0,hardquestions)
    
-  res.render('questionpaper',{subject,branch,myeasy,mymedium,myhard,timeduration,marks,date,count:1,totalquestions})
+  res.render('questionpaper',{university,subject,branch,myeasy,mymedium,myhard,timeduration,marks,date,count:1,totalquestions})
 
    
    });
 
-   
 
 
 export default Router;
