@@ -9,11 +9,7 @@ import { SubjectModel } from "../models/subject";
 
 const Router = express.Router();
 Router.use(cookieParser())
-
-
-
-
-
+ 
 
 // Route: /questions
 // Description : Rendering questions page
