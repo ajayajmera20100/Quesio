@@ -79,5 +79,11 @@ Router.post('/', async (req, res) => {
   }
 })
 
+Router.get('/forgetpassword', (req, res) => {
+  
+  res.render('password-reset');
+
+})
+
 
 export default Router;
