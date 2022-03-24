@@ -106,7 +106,7 @@
       </nav>
 
 
-      <div class="main-panel">
+      <div class="main-panel" id="maindiv">
         <div class="content-wrapper flex">
           <div class="row">
             <div class="col-sm-12">
@@ -596,6 +596,8 @@
     let ianchor1 = document.getElementById("ianchor1")
     let ianchor2 = document.getElementById("ianchor2")
     let ianchor3 = document.getElementById("ianchor3")
+    let maindiv=document.getElementById('maindiv');
+    maindiv.style.margin = "0px 0px 0px 255px";
 
 
     window.onload = () => {
@@ -610,11 +612,15 @@
         hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.4rem)"
         brandq.style.transform = "translateX(-10rem)"
         counter = 1;
+        maindiv.style.margin = "0px 0px 0px 70px";
+
       }
       else {
         hamburgerbtn.style.transform = "translateX(5.5rem) translateY(-5.4rem)"
         brandq.style.transform = "translateX(0rem)"
         counter = 0;
+        maindiv.style.margin = "0px 0px 0px 255px";
+
       }
     })
 

@@ -63,7 +63,9 @@
                 <p class="sidebar-designation">Welcome</p>
                 <p class="sidebar-name">ADMIN</p>
               </div>
-              <button class="navbar-toggler navbar-toggler align-self-center d-lg-flex transition-btn "  type="button"
+              <button class="navbar-toggler navbar-toggler align-self-center d-lg-flex transition-btn " 
+              
+              type="button"
                 style="color: aliceblue;margin-top: 0.85rem;" data-toggle="minimize" id="hbtn"
                 style="transform: translateX(8.5rem);">
                 <span class="typcn typcn-th-menu"></span>
@@ -146,7 +148,7 @@
       </nav>
 
       <!-- partial main page -->
-      <div class="main-panel">
+      <div class="main-panel" id="maindiv">
         <div class="content-wrapper">
           <div class="row mb-4 ml-2">
             <div class="col-md-11 p-2">
@@ -265,11 +267,8 @@
     let counter = 0;
     let hamburgerbtn = document.getElementById("hbtn")
     let brandq = document.getElementById("brandq")
-
-
-
-
-
+    let maindiv=document.getElementById('maindiv');
+    maindiv.style.margin = "0px 0px 0px 255px";
 
     window.onload = () => {
       hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.5rem)"
@@ -280,11 +279,13 @@
         hamburgerbtn.style.transform = "translateX(-0.5rem) translateY(-5.5rem)"
         brandq.style.transform = "translateX(-10rem)"
         counter = 1;
+        maindiv.style.margin = "0px 0px 0px 70px";
       }
       else {
         hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.5rem)"
         brandq.style.transform = "translateX(0rem)"
         counter = 0;
+        maindiv.style.margin = "0px 0px 0px 255px";
       }
     })
 
@@ -322,6 +323,22 @@
       }
     }
 
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js";
+
+    
+    button.onclick = function() {
+    var div = document.getElementById("main-panel");
+    if(div) {
+        div.style.widtgh = "100%";
+    }
+
+    let maindiv=document.getElementById('maindiv');
+    maindiv.classList.add
+
+
+};
+
+    
 
 
 

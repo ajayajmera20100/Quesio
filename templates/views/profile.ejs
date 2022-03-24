@@ -117,7 +117,7 @@
         </ul>
       </nav>
 
-      <div class="main-panel">
+      <div class="main-panel" id="maindiv">
         <div class="content-wrapper flex">
           <div class="row mb-4 ml-2">
             <div class="col-md-11 p-2">
@@ -131,8 +131,8 @@
                 <div class="row">
                   <div class="col-md-6 mb-3 p-1">
                     <label for="inputlg">Name</label>
-                    <input type="text" class="form-control bg-white" value="<%=profile.name  %> " id="name"
-                      name="name" placeholder="Enter Your Full Name *" Disabled>
+                    <input type="text" class="form-control bg-white" value="<%=profile.name  %> " id="name" name="name"
+                      placeholder="Enter Your Full Name *" Disabled>
                   </div>
                   <div class="col-md-6 mb-3 p-1">
                     <label for="email" class="ml-2">Email-ID</label>
@@ -172,13 +172,14 @@
                   </div>
                   <div class="form-group col-md-6 mb-3 p-1">
                     <label for="phone" class="ml-2">Phone Number</label>
-                    <input type="number" class="form-control bg-white" id="phone" value="<%=profile.phone  %>" name="phone"
-                      placeholder="Enter Your Contact Number" Disabled>
+                    <input type="number" class="form-control bg-white" id="phone" value="<%=profile.phone  %>"
+                      name="phone" placeholder="Enter Your Contact Number" Disabled>
                   </div>
                 </div>
-                <input type="text" id="totalsubandyoe" name="totalsubandyoe" value="<%=profile.subject.length   %> " style="display: none;">
-                
-                <% profile.subject.forEach((data,index)=>{ %> 
+                <input type="text" id="totalsubandyoe" name="totalsubandyoe" value="<%=profile.subject.length   %> "
+                  style="display: none;">
+
+                <!-- <% profile.subject.forEach((data,index)=>{ %> 
                 <div class="row">
                  
                   <div class="form-group col-md-5 mb-3 p-1 mr-5">
@@ -192,26 +193,91 @@
                     value="<%=data.yearofexp  %>" disabled placeholder="View Years of Experience"  >
                   </div>
                 </div>
-                <% }) %> 
-              </div>
-              <div>
-                <div class="dashboard-btn">
-                  <button type="button" class="btn" id="editbutton" style="background-color: #6206a8; color: white">
-                    Edit Profile
-                  </button>
+                <% }) %>  -->
+                <div class="containernew">
+                <div class="row  justify-content-center ">
+                  <div class="col-lg-12  ">
+                    <div class="card">
+                      <div class="card-body-new">
+
+                        <div class="table-responsive">
+                          <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th style="font-weight: normal; font-size: small;">
+                                  Sr No.
+                                </th>
+                                <th style="font-weight: normal; font-size: small;">
+                                  Subject
+                                </th>
+                                <th style="font-weight: normal; font-size: small;">
+                                  Years of Experience
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+
+                              <tr>
+                                <td>
+                                  <h5>
+                                    1
+                                  </h5>
+                                </td>
+                                <td>
+                                  <h5>
+                                    DBMS
+                                  </h5>
+                                </td>
+                                <td>
+                                  <h5>
+                                    10
+                                  </h5>
+                                </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <h5>
+                                      2
+                                    </h5>
+                                  </td>
+                                  <td>
+                                    <h5>
+                                      OS
+                                    </h5>
+                                  </td>
+                                  <td>
+                                    <h5>
+                                      8
+                                    </h5>
+                                  </td>
+                                  </tr>
+                            </tbody>
+                          </table>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="dashboard-btn offset-5">
-                  <button type="submit" class="btn" id="savebutton"
-                    style="background-color: #6206a8; color: white; display: none;;">
-                    Save Profile
-                  </button>
-                </div>
               </div>
+                <div>
+                  <div class="dashboard-btn">
+                    <button type="button" class="btn" id="editbutton" style="background-color: #6206a8; color: white">
+                      Edit Profile
+                    </button>
+                  </div>
+                  <div class="dashboard-btn offset-5">
+                    <button type="submit" class="btn" id="savebutton"
+                      style="background-color: #6206a8; color: white; display: none;;">
+                      Save Profile
+                    </button>
+                  </div>
+                </div>
             </form>
           </div>
         </div>
       </div>
-       
+
       <script src="/dashboard/vendors/js/vendor.bundle.base.js"></script>
       <script src="/dashboard/js/off-canvas.js"></script>
       <script src="/dashboard/js/hoverable-collapse.js"></script>
@@ -222,16 +288,16 @@
       <script src="/dashboard/vendors/chart.js/Chart.min.js"></script>
       <script src="/dashboard/js/dashboard.js"></script>
       <script>
-        function getsubandyoe(){
-           
-          const sublength=`<%=profile.subject.length %> `;
+        function getsubandyoe() {
 
-          for(let i=0;i<sublength;i++){    
-           document.getElementById(`subject${i+1}`).disabled=false; 
-           document.getElementById(`yoe${i+1}`).disabled=false;   
-        }   
+          const sublength = `<%=profile.subject.length %> `;
+
+          for (let i = 0; i < sublength; i++) {
+            document.getElementById(`subject${i + 1}`).disabled = false;
+            document.getElementById(`yoe${i + 1}`).disabled = false;
+          }
         }
-         
+
         let editbutton = document.getElementById('editbutton');
         let savebutton = document.getElementById('savebutton');
         let email = document.getElementById('email');
@@ -240,6 +306,8 @@
         let fname = document.getElementById('name');
         let username = document.getElementById('username');
         let college = document.getElementById('college');
+        let maindiv=document.getElementById('maindiv');
+    maindiv.style.margin = "0px 0px 0px 255px";
 
         editbutton.addEventListener('click', () => {
           email.disabled = false;
@@ -266,16 +334,18 @@
             brandq.style.transform = "translateX(-10rem)"
 
             counter = 1;
+            maindiv.style.margin = "0px 0px 0px 70px";
           }
           else {
             hamburgerbtn.style.transform = "translateX(7.4rem) translateY(-6.2rem)"
             brandq.style.transform = "translateX(0rem)"
             counter = 0;
+            maindiv.style.margin = "0px 0px 0px 255px";
           }
         })
-        
-   
-       
+
+
+
       </script>
 
 </body>
