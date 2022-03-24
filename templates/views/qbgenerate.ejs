@@ -167,7 +167,7 @@
                   <div class="col-md-5 mb-3 p-1">
                     <label for="validationTooltip02">Branch</label>
                     <div class="dropdown">
-                      <select class="custom-select col-10 text-muted pl-4" style="height:3rem; border:none;" id="branch"
+                      <select onchange="fetchsubjects()" class="custom-select col-10 text-muted pl-4" style="height:3rem; border:none;" id="branch"
                         name="branch" required>
                         <option value="">Choose Branch</option>
                         <% totalbranch.forEach(branch=>{ %>
@@ -185,13 +185,11 @@
                   <div class="col-md-6 mb-3  p-1">
                     <label for="validationTooltip02">Subject</label>
                     <div class="dropdown" style="padding-right: 0.5rem;">
-                      <select class="custom-select col-10 text-muted p-2 pl-4" style="height:3rem; border:none; "
+                      <select onclick="fetchquestioncount()" class="custom-select col-10 text-muted p-2 pl-4" style="height:3rem; border:none; "
                         id="subject" name="subject" required>
                         <option value="">Choose Subject</option>
-                        <option value="DBMS">DBMS</option>
-                        <option value="DSA">DSA</option>
-                        <option value="OS">OS</option>
-                      </select>
+                        
+                      </select>   
                     </div>
                   </div>
 
@@ -339,8 +337,23 @@
         return true;
       }
     }
+    
+    async function fetchsubjects() {
+      const branch = document.getElementById("branch").value;
+       
+      const subjectData = await fetch(`http://127.0.0.1:9000/admin/getsubjectlist${branch}`).then(response => response.json()).then(data => data )
+      const subject = document.getElementById("subject")
+      subject.innerHTML=''
+      for (let i = 0; i < subjectData.length; i++) {
+        subject.innerHTML += `<option value=${subjectData[i].subject_name}>${subjectData[i].subject_name}</option>`
+      }
+    }
 
-
+    async function fetchquestioncount() {
+      const subject = document.getElementById("subject").value;
+       
+      
+    }
 
 
   </script>

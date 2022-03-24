@@ -52,8 +52,8 @@ Router.get('/you',(req,res)=>{
 Router.post('/', async (req, res) => {
   try {
     const user = await UserModel.findByEmailAndPassword(req.body.password, req.body.email);
-    if(!user.isuser){
-      res.render('login',{loginmessage:user});
+    if(user.isuser==null){
+      return res.render('login',{loginmessage:user});
     }
     if (user.isuser) {
       // generate jwt token
