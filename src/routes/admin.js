@@ -249,14 +249,10 @@ Router.get('/branchs',isAuth, async (req, res) => {
 
 
 Router.post('/addbranch',async(req,res)=>{
- 
-        console.log("in add barnch 1")
         const collegename=req.body.college;
         const branchname=req.body.branch;
-        console.log(collegename)
-        console.log(branchname)
-        const data=await CollegeModel.findOneAndUpdate({college_name:collegename},{ $push :{branch:branchname}})
-        // console.log(data)
+        const collegeid= await CollegeModel.findOneAndUpdate({college_name:collegename},{$push:{branch:branchname}})
+         
     res.redirect('/admin/branchs')
     
 })
