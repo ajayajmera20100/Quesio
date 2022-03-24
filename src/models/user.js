@@ -44,13 +44,13 @@ UserSchema.statics.findByEmailAndPassword = async (password, email) => {
        
         // check whether email exists
         const user = await UserModel.findOne({ email_id: email });
-        if (!user) throw new Error("User does not exist!!!");
+        if (!user) return "User Does not exist"
 
         //check if user irs verified
-        if (!user.isVarified) throw new Error("You are not verified yet try after sometime");
+        if (!user.isVarified) return "You are not verified yet try after sometime"
         // Compare password
         const doesPasswordMatch = await bcrypt.compare(password, user.password);
-        if (!doesPasswordMatch) throw new Error("Invalid Password!!!");
+        if (!doesPasswordMatch) return "Invalid Credentials!!!";
 
        
         return { user, "isuser": true, };
@@ -59,7 +59,7 @@ UserSchema.statics.findByEmailAndPassword = async (password, email) => {
         // Compare password
         const doesPasswordMatch = await bcrypt.compare(password, admin.password);
 
-        if (!doesPasswordMatch) throw new Error("Invalid Password!!!");
+        if (!doesPasswordMatch)  return "Invalid Credentials!!!";
        
         return { admin, "isuser": false };
     }

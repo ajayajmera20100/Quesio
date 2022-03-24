@@ -277,5 +277,11 @@ Router.get('/subjectdelete:sname',async(req,res)=>{
     res.redirect('/admin/subjects')
 
 })
+Router.get('/getsubjectlist:branchname',async(req,res)=>{
+   
+    const branchesforcollege=await SubjectModel.aggregate([{$match:{branch:req.params.branchname}},{$project:{subject_name:1}}])
+    // const branchesforcollege=await SubjectModel.find() 
+    res.send(branchesforcollege)
+})
 
 export default Router;
