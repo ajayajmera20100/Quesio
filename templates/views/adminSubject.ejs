@@ -237,7 +237,9 @@
                           <th style="font-weight: bold;">
                             Subject Name
                           </th>
-
+                          <th style="font-weight: bold;">
+                            Branch
+                          </th>
                           <th style="font-weight: bold;">
                             No. of Faculties
                           </th>
@@ -263,6 +265,11 @@
                             <td>
                               <h5>
                                 <%=data.subject %>
+                              </h5>
+                            </td>
+                            <td>
+                              <h5>
+                                <%=data.branch %>
                               </h5>
                             </td>
                             <td>
@@ -380,7 +387,8 @@
         })
 
       })
-
+      location.reload();
+      
     }
 
 
