@@ -82,9 +82,11 @@
                       >
                     </div>
                     <div class="text-center mt-4">
+                      <%if(loginmessage){ %> 
                       <div>
-                        <label for="invalidcredentials" class="invisible" style="color: red;">* Invalid Login Credentials</label>
+                        <label for="invalidcredentials"   style="color: red;"><%=loginmessage %> </label>
                       </div>
+                      <% } %> 
                       <button
                         class="btn btn-primary btn-auth-submit"
                         type="submit"
