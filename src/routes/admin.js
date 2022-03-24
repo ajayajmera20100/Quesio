@@ -13,7 +13,7 @@ import { SubjectModel } from '../models/subject'
 
 // Authorisation
 import isAuth from "../isauth";
-import req from "express/lib/request";
+
 
 const Router = express.Router();
 Router.use(cookieParser())
@@ -189,6 +189,7 @@ Router.get('/branchs',isAuth, async (req, res) => {
     const totalbranch = [... new Set([].concat.apply([], branches))] 
     const colleges = [... new Set([].concat.apply([], collegeslist))] 
     // console.log(branchdata)
+    // console.log(total_branch)
     // res.send(branchdata)
 
 // console.log(colleges);
@@ -200,11 +201,16 @@ Router.get('/branchs',isAuth, async (req, res) => {
 
 
 Router.post('/addbranch',async(req,res)=>{
-    const { university,college,branch}=req.body;
-    await CollegeModel.create({ university:university,
-        college_name: college,
-        branch: branch})
+ 
+        console.log("in add barnch 1")
+        const collegename=req.body.college;
+        const branchname=req.body.branch;
+        console.log(collegename)
+        console.log(branchname)
+        const data=await CollegeModel.findOneAndUpdate({college_name:collegename},{ $push :{branch:branchname}})
+        // console.log(data)
     res.redirect('/admin/branchs')
+    
 })
 
 Router.get('/branchdelete:bid',async(req,res)=>{
@@ -283,5 +289,24 @@ Router.get('/getsubjectlist:branchname',async(req,res)=>{
     // const branchesforcollege=await SubjectModel.find() 
     res.send(branchesforcollege)
 })
+
+Router.get('/getquestiondata:subjectname',async(req,res)=>{
+   
+    try {
+        const questiondata=await QuestionModel.aggregate([
+            {$match:{subject:req.params.subjectname}},
+            {$group:
+                {"_id":"$difficulty",
+                "count":{$sum:1}
+            },
+            }
+        ])
+        
+        res.send(questiondata)
+    } catch (error) {
+        res.send(error)
+    }
+})
+
 
 export default Router;
