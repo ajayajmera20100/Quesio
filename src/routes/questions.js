@@ -97,7 +97,7 @@ Router.post('/', async(req, res)=>{
 // Access: Public
 // Method : POST
 
-Router.post('/update:qid',isAuth, async(req, res)=>{
+Router.post('/update:qid', async(req, res)=>{
   try {
     console.log('in update question')
      const qid = req.params.qid;

@@ -167,8 +167,8 @@
                 </div>
 
                 <div class="col-md-2">
-                  <button type="button" class="btn btn-primary-new" style="align-content: center;" data-toggle="modal"
-                    data-target=".bd-example-modal-lg">Add
+                  <button type="button" class="btn btn-primary-new text-white" style="align-content: center;" data-toggle="modal"
+                    data-target=".bd-example-modal-lg"  >Add
                     Question</button>
 
                   <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
@@ -216,13 +216,13 @@
                                 <label for="difficulty">Difficulty Level : <sup>*</sup></label>
                               </div>
                               <div class="btn-group-sm btn-group-toggle col-md-8" data-toggle="buttons" id="difficulty">
-                                <label class="btn active" style="background-color: #32B01D; border-color: #32B01D; color: white;">
-                                  <input type="radio" name="diff" value="easy" id="diff-option1"  required> Easy
+                                <label class="btn btn-secondary active" style="background-color: #32B01D; border-color: #32B01D; color: white;">
+                                  <input type="radio" name="diff" value="easy" id="diff-option1" required> Easy
                                 </label>
-                                <label class="btn" style="background-color: #F1BC00; border-color: #F1BC00; color: white;">
+                                <label class="btn btn-secondary" style="background-color: #F1BC00; border-color: #F1BC00; color: white;">
                                   <input type="radio" name="diff" value="medium" id="diff-option2" required> Medium
                                 </label>
-                                <label class="btn" style="background-color: #EE2B10; border-color: #EE2B10; color: white;">
+                                <label class="btn btn-secondary" style="background-color: #EE2B10; border-color: #EE2B10; color: white;">
                                   <input type="radio" name="diff" value="hard" id="diff-option3" required> Hard
                                 </label>
                               </div>
@@ -279,7 +279,7 @@
                                   placeholder="Option 3" required>
                               </div>
                               <div class="form-check">
-                                <input class="form-check-input" type="radio" name="correct" id="option3">
+                                <input class="form-check-input" type="radio" name="correct" id="correct3">
                                 <label class="form-check-label" for="correct3">
                                   Correct Answer
                                 </label>
@@ -309,7 +309,7 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary" onclick="fetchquestion()"
+                          <button type="submit" class="btn btn-primary" onclick="fetchquestion()"
                             data-dismiss="modal">Save Changes</button>
                         </div>
                       </div>
@@ -385,62 +385,59 @@
                         </td>
                         </td>
                         <td>
-                          <button type="button" class="btn  btn-sm btn-primary-new " data-toggle="modal"
-                            data-target=".bd-example-modal-lg">Edit</button>
-                          <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+
+                          <button type="submit" class="btn  btn-sm btn-primary-new " data-toggle="modal"
+                            data-target=".bd-example-modal-edit" onclick="editData('<%=question.id %>')">Edit</button>
+                          <div class="modal fade bd-example-modal-edit" tabindex="-1" role="dialog"
                             aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                               <div class="modal-content p-5">
                                 <div class="modal-header">
-                                  <h2 class="modal-title" id="exampleModalLongTitle">Edit Submissions</h2>
+                                  <h2 class="modal-title" id="exampleModalLongTitle">Edit Question</h2>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                   </button>
                                 </div>
                                 <div class="modal-body">
                                   <form action="questions.html" method="POST">
-                                    <div class="row">
-                                      <div class="form-group col-md-4">
+                                    <div class="row" style="text-align:left;">
+                                      <div class="form-group col-md-4 pl-5">
                                         <label for="subject-name">Name Of The Subject : <sup>*</sup></label>
                                       </div>
                                       <div class="form-group col-md-8">
                                         <div class="input-group">
-                                          <select class="custom-select" id="subject-name" required>
-                                            <option value="">Choose...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                          <select class="custom-select" id="edit-subject-name" required disabled>
                                           </select>
                                         </div>
                                       </div>
-                                      <div class="form-group col-md-4">
+                                      <div class="form-group col-md-4 pl-5">
                                         <label for="chapter-name">Name Of The Chapter : <sup>*</sup></label>
                                       </div>
                                       <div class="form-group col-md-8">
                                         <div class="input-group">
-                                          <select class="custom-select" id="chapter-name" required>
-                                            <option value="">Choose...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                          <select class="custom-select" id="edit-chapter-name" required disabled>
                                           </select>
                                         </div>
                                       </div>
                                     </div>
-                                    <div class="row d-flex justify-content-center">
-                                      <div class="form-group col-md-4">
+                                    <div class="row d-flex" style="text-align:left;">
+                                      <div class="form-group col-md-4 pl-5">
                                         <label for="difficulty">Difficulty Level : <sup>*</sup></label>
                                       </div>
                                       <div class="btn-group-sm btn-group-toggle col-md-8" data-toggle="buttons"
                                         id="difficulty">
-                                        <label class="btn btn-secondary active">
-                                          <input type="radio" name="diff-options" id="diff-option1" required> Easy
+                                        <label class="btn " 
+                                        style="background-color: #32B01D; border-color: #32B01D; color: white;">
+                                          <input type="radio" name="edit-diff-options" id="diff_1" value="easy" required>
+                                          Easy
                                         </label>
-                                        <label class="btn btn-secondary">
-                                          <input type="radio" name="diff-options" id="diff-option2" required> Medium
+                                        <label class="btn " style="background-color: #F1BC00; border-color: #F1BC00; color: white;">
+                                          <input type="radio" name="edit-diff-options" id="diff_2" value="medium" required>
+                                          Medium
                                         </label>
-                                        <label class="btn btn-secondary">
-                                          <input type="radio" name="diff-options" id="diff-option3" required> Hard
+                                        <label class="btn " style="background-color: #EE2B10; border-color: #EE2B10; color: white;">
+                                          <input type="radio" name="edit-diff-options" id="diff_3" value="hard" required>
+                                          Hard
                                         </label>
                                       </div>
                                     </div>
@@ -450,74 +447,74 @@
                                         <label for="question">Enter Question : <sup>*</sup></label>
                                       </div>
                                       <div class="col-md-10">
-                                        <input type="text" class="form-control" id="question" name="question"
+                                        <input type="text" class="form-control" id="edit-question" name="question"
                                           placeholder="Question" required>
                                       </div>
                                     </div>
 
-                                    <div class="row">
-                                      <div class="form-group col-md-2">
-                                        <label for="question">Option 1 : <sup>*</sup></label>
+                                    <div class="row" style="text-align:left;">
+                                      <div class="form-group col-md-2 pl-5 ">
+                                        <label for="option_1">Option 1 : <sup>*</sup></label>
                                       </div>
                                       <div class="col-md-7">
-                                        <input type="text" class="form-control" id="question" name="question"
+                                        <input type="text" class="form-control" id="option_1" name="option1"
                                           placeholder="Option 1" required>
                                       </div>
-                                      <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="option" id="option1"
-                                          value="option1">
-                                        <label class="form-check-label" for="option1">
+                                      <div class="form-check ">
+                                        <input class="form-check-input" style="margin-left:-4rem;" type="radio"
+                                          name="edit-correct" id="correct_1">
+                                        <label class="form-check-label" for="correct_1">
                                           Correct Answer
                                         </label>
                                       </div>
                                     </div>
 
-                                    <div class="row">
-                                      <div class="form-group col-md-2">
-                                        <label for="question">Option 2 : <sup>*</sup></label>
+                                    <div class="row" style="text-align:left;">
+                                      <div class="form-group col-md-2 pl-5">
+                                        <label for="option_2">Option 2 : <sup>*</sup></label>
                                       </div>
                                       <div class="col-md-7">
-                                        <input type="text" class="form-control" id="question" name="question"
+                                        <input type="text" class="form-control" id="option_2" name="option2"
                                           placeholder="Option 2" required>
                                       </div>
-                                      <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="option" id="option2"
-                                          value="option2">
-                                        <label class="form-check-label" for="option2">
+                                      <div class="form-check ">
+                                        <input class="form-check-input" style="margin-left:-4rem;" type="radio"
+                                          name="edit-correct" id="correct_2">
+                                        <label class="form-check-label" for="correct_2">
                                           Correct Answer
                                         </label>
                                       </div>
                                     </div>
 
-                                    <div class="row">
-                                      <div class="form-group col-md-2">
-                                        <label for="question">Option 3 : <sup>*</sup></label>
+                                    <div class="row" style="text-align:left;">
+                                      <div class="form-group col-md-2 pl-5">
+                                        <label for="option_3">Option 3 : <sup>*</sup></label>
                                       </div>
                                       <div class="col-md-7">
-                                        <input type="text" class="form-control" id="question" name="question"
+                                        <input type="text" class="form-control" id="option_3" name="option3"
                                           placeholder="Option 3" required>
                                       </div>
-                                      <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="option" id="option3"
-                                          value="option3">
-                                        <label class="form-check-label" for="option3">
+                                      <div class="form-check ">
+                                        <input class="form-check-input" style="margin-left:-4rem;" type="radio"
+                                          name="edit-correct" id="correct_3">
+                                        <label class="form-check-label" for="correct_3">
                                           Correct Answer
                                         </label>
                                       </div>
                                     </div>
 
-                                    <div class="row">
-                                      <div class="form-group col-md-2">
-                                        <label for="question">Option 4 : <sup>*</sup></label>
+                                    <div class="row" style="text-align:left;">
+                                      <div class="form-group col-md-2 pl-5">
+                                        <label for="option_4">Option 4 : <sup>*</sup></label>
                                       </div>
                                       <div class="col-md-7">
-                                        <input type="text" class="form-control" id="question" name="question"
+                                        <input type="text" class="form-control col-md-12" id="option_4" name="option4"
                                           placeholder="Option 4" required>
                                       </div>
-                                      <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="option" id="option4"
-                                          value="option4">
-                                        <label class="form-check-label" for="option4">
+                                      <div class="form-check col-md-2" >
+                                        <input class="form-check-input" style="margin-left:-4rem;" type="radio"
+                                          name="edit-correct" id="correct_4">
+                                        <label class="form-check-label" style="text-align:left;" for="correct_4">
                                           Correct Answer
                                         </label>
                                       </div>
@@ -531,7 +528,8 @@
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                  <button type="button" class="btn btn-primary" data-dismiss="modal">Save
+                                  <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                    onclick="afterEdit('<%=question.id %>')">Save
                                     Changes</button>
                                 </div>
                               </div>
@@ -631,6 +629,121 @@
     function removewhite(obj){
       obj.style.color = "#7e7e7e";
     }
+    
+    async function fetchChapter() {
+      const value = document.getElementById("subject-name").value;
+      console.log(value)
+      const chapterData = await fetch(`http://localhost:9000/questions/chapter${value}`).then(response => response.json()).then(data => data[0].chapter)
+      const chapter = document.getElementById("chapter-name")
+      for (let i = 0; i < chapterData.length; i++) {
+        chapter.innerHTML += `<option value=${chapterData[i]}>${chapterData[i]}</option>`
+      }
+    }
+    async function fetchquestion() {
+      for (let i = 1; i <= 4; i++) {
+        if (document.getElementById(`correct${i}`).checked == true) {
+          document.getElementById(`correct${i}`).value = document.getElementById(`option${i}`).value
+          break;
+        }
+      }
+      const subject = document.getElementById('subject-name').value
+      const chapter = document.getElementById('chapter-name').value
+      const diff = document.querySelector('input[name="diff"]:checked').value;
+      const question = document.getElementById('question').value
+      const option1 = document.getElementById('option1').value
+      const option2 = document.getElementById('option2').value
+      const option3 = document.getElementById('option3').value
+      const option4 = document.getElementById('option4').value
+      const correct = document.querySelector('input[name="correct"]:checked').value;
+
+      await fetch("http://127.0.0.1:9000/questions",
+
+        {
+
+          method: 'POST',
+
+          headers: {
+
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+
+          body: JSON.stringify({
+            "subject": `${subject}`,
+            "chapter": `${chapter}`,
+            "diff": `${diff}`,
+            "question": `${question}`,
+            "option1": `${option1}`,
+            "option2": `${option2}`,
+            "option3": `${option3}`,
+            "option4": `${option4}`,
+            "correct": `${correct}`,
+          })
+
+        })
+        window.location.reload(true)
+    }
+
+    async function editData(question_id) {
+      const question = await fetch(`http://127.0.0.1:9000/questions/show${question_id}`).then(response => response.json()).then(data => data.question)
+      // console.log(question)
+      document.getElementById('edit-subject-name').innerHTML += `<option value="${question.subject}">${question.subject}</option>`
+      document.getElementById('edit-chapter-name').innerHTML += `<option value="${question.chapter}">${question.chapter}</option>`
+      for (let i = 1; i <= 3; i++) {
+        if (document.getElementById(`diff_${i}`).value === question.difficulty) {
+          console.log(i);
+          document.getElementById(`diff_${i}`).parentElement.classList.add('active')
+          document.getElementById(`diff_${i}`).checked=true;
+          break;
+        }
+      }
+      document.getElementById('edit-question').value = question.question
+      document.getElementById('option_1').value = question.options[0];
+      document.getElementById('option_2').value = question.options[1];
+      document.getElementById('option_3').value = question.options[2];
+      document.getElementById('option_4').value = question.options[3];
+
+      for (let i = 1; i <= 4; i++) {
+        if (document.getElementById(`option_${i}`).value === question.correct_options[0]) {
+          document.getElementById(`correct_${i}`).checked = true
+          break;
+        }
+      }
+    }
+    async function afterEdit(question_id) {
+      const subject = document.getElementById('edit-subject-name').value
+      const chapter = document.getElementById('edit-chapter-name').value
+      const diff = document.querySelector('input[name="edit-diff-options"]:checked').value;
+      // console.log(diff)
+      const question = document.getElementById('edit-question').value
+      const option1 = document.getElementById('option_1').value
+      const option2 = document.getElementById('option_2').value
+      const option3 = document.getElementById('option_3').value
+      const option4 = document.getElementById('option_4').value
+      let correct_ans;
+      for (let i = 1; i <= 4; i++) {
+        if (document.getElementById(`correct_${i}`).checked == true) {
+          correct_ans = document.getElementById(`option_${i}`).value
+          break;
+        }
+      }
+
+      // console.log(diff, question, option1, option2, option3, option4,correct_ans )
+      await fetch(`http://127.0.0.1:9000/questions/update${question_id}`,
+
+        {
+
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ "subject": `${subject}`, "chapter": `${chapter}`, "diff": `${diff}`, "question": `${question}`, "option1": `${option1}`, "option2": `${option2}`, "option3": `${option3}`, "option4": `${option4}`, "correct": `${correct_ans}` })
+        })
+
+        window.location.reload(true);
+    }
+
   </script>
 
 </body>
