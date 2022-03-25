@@ -15,6 +15,12 @@ Router.use(cookieParser())
 
 
 
+
+
+
+
+
+
 Router.get('/as', isAuth, (req, res) => {
   // res.json({token: req.mytoken})
   res.send(req.cookies.jwt)

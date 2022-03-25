@@ -9,6 +9,10 @@ import { SubjectModel } from "../models/subject";
 
 const Router = express.Router();
  
+// cloudinary
+import  cloudinary from "../../utils/cloudinary"
+import upload from "../../utils/multer";
+
 
 Router.get('/branchdata:collegename', async (req, res) => {
    // console.log("in register branchdata")
@@ -43,10 +47,10 @@ Router.get('/', async (req, res) => {
 // params: none
 // Access: Public
 // Method : POST
-Router.post('/', async (req, res) => {
+Router.post('/',upload.single("ugc"), async (req, res) => {
    try {
-      const { name, email, phoneno, university, college, branch, password, ugc, designation, nosubject } = req.body
-
+      const { name, email, phoneno, university, college, branch, password,  designation, nosubject } = req.body
+       
       // await UserModel.findByEmail(req.body.email);
 
       //save to db
@@ -90,6 +94,10 @@ Router.post('/', async (req, res) => {
          newUser.expertsubject = data
         
       }
+       
+      const result = await cloudinary.uploader.upload(req.file.path);
+      // console.log(result)
+      newUser.document=result.secure_url;
       await newUser.save()
       console.log(newUser);
       res.redirect('/login')

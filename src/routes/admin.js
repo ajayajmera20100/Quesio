@@ -165,7 +165,7 @@ Router.get('/faculty/disapprove:uid',async (req, res) => {
 })
 
 Router.get('/faculty/delete:uid',async (req, res) => {
-    // await UserModel.deleteOne({_id: req.params.uid})
+    await UserModel.deleteOne({_id: req.params.uid})
     console.log("in delete")
     res.redirect('/admin/faculty');
 })
@@ -188,7 +188,7 @@ Router.get('/moderator/disapprove:uid',async (req, res) => {
     res.redirect('/admin/moderator');
 })
 Router.get('/moderator/delete:uid',async (req, res) => {
-    // await UserModel.deleteOne({_id: req.params.uid})
+    await UserModel.deleteOne({_id: req.params.uid})
     console.log("in moderator delete")
     res.redirect('/admin/moderator');
 })
@@ -202,7 +202,7 @@ Router.get("/delete:qid",async(req,res)=> {
     const userid= jwt_decode(req.cookies.jwt).user
     const {qid} = req.params;
     console.log(qid)
-    // await QuestionModel.deleteOne({_id: qid})
+    await QuestionModel.deleteOne({_id: qid})
     // await UserModel.findByIdAndUpdate(userid,{$pull:{question_submited:qid,question_validated:qid}})
     res.redirect('/admin/questions')
   })
