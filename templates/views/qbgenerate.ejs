@@ -227,7 +227,7 @@
                   <div class="col-md-6 p-1" style="margin-top: 0.7rem;">
                     <label for="validationTooltip01">Number of Easy Questions</label>
                     <input type="number" id="easy" class="form-control bg-white" id="easyquestions" name="easyquestions"
-                      value="" placeholder="Number of Easy Questions" onchange="easyQuest()" required>
+                      value="" placeholder="Number of Easy Questions" required>
                       <div>
                         <h5 for="noofeasyquestions" id="noofeasyquestions" class="totalquestioncount">  </h5>
                       </div>
@@ -238,8 +238,8 @@
                   <div class="col-md-6 mt-2 p-1">
                     <label for="validationTooltip01">Number of Moderate Questions</label>
                     <input type="number" id="moderate" class="form-control bg-white" id="moderatequestions"
-                      name="moderatequestions" value="" placeholder="Number of Moderate Questions"
-                      onchange="easyQuest()" required>
+                      name="moderatequestions" value="" placeholder="Number of Moderate Questions" 
+                       required>
                       <div>
                         <h5 for="noofmediumquestions" id="noofmediumquestions" class="totalquestioncount"> </h5>
                       </div>
@@ -247,7 +247,7 @@
                   <div class="col-md-6 p-1" style="margin-top: 0.7rem;">
                     <label for="validationTooltip01">Number of Hard Questions</label>
                     <input type="number" id="hard" class="form-control bg-white" id="hardquestions" name="hardquestions"
-                      value="" placeholder="Number of Hard Questions" onchange="easyQuest()" required>
+                      value="" placeholder="Number of Hard Questions" required>
                       <div>
                         <h5 for="noofhardquestions" id="noofhardquestions" class="totalquestioncount"> </h5>
                       </div>
@@ -285,6 +285,11 @@
     let brandq = document.getElementById("brandq")
     let maindiv=document.getElementById('maindiv');
     maindiv.style.margin = "0px 0px 0px 255px";
+    let maxt = 0;
+    let maxe = 0;
+    let maxm = 0;
+    let maxh = 0;
+
 
     window.onload = () => {
       hamburgerbtn.style.transform = "translateX(8.5rem) translateY(-5.5rem)"
@@ -314,30 +319,44 @@
     let errmsg = document.getElementById('errmsg');
     let submitbtn = document.getElementById('submitbtn');
 
-    function easyQuest() {
-      if ((easy.value + hard.value + moderate.value) > total.value) {
-        total.style.border = "1px solid red";
-        errmsg.style.visibility = "visible";
-        submitbtn.disabled = true;
-      } else {
-        total.style.border = "none";
-        errmsg.style.visibility = "hidden";
-        submitbtn.disabled = false;
-      }
-    }
-    function checkForm() {
-      if ((easy.value + hard.value + moderate.value) > total.value) {
-        total.style.border = "1px solid red";
-        errmsg.style.visibility = "visible";
-        submitbtn.disabled = true;
+    total.addEventListener('keypress', function (e) {
+      if (e.keyCode === 13 || e.which === 13) {
+        checkForm();
+        console.log("total")
+        e.preventDefault();
         return false;
-      } else {
-        total.style.border = "none";
-        errmsg.style.visibility = "hidden";
-        submitbtn.disabled = false;
-        return true;
       }
-    }
+    });
+
+
+    easy.addEventListener('keypress', function (e) {
+      if (e.keyCode === 13 || e.which === 13) {
+        checkForm();
+        console.log("easy")
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    moderate.addEventListener('keypress', function (e) {
+      if (e.keyCode === 13 || e.which === 13) {
+        checkForm();
+        console.log("moderate")
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    hard.addEventListener('keypress', function (e) {
+      if (e.keyCode === 13 || e.which === 13) {
+        checkForm();
+        console.log("hard")
+        e.preventDefault();
+        return false;
+      }
+    });
+
+
     
     async function fetchsubjects() {
       const branch = document.getElementById("branch").value;
@@ -357,21 +376,101 @@
       var medium=0;
       var hard=0;
       questionData.forEach(data=>{
-        if(data._id=='easy') easy=data.count;
-        if(data._id=='hard') hard=data.count;
-        if(data._id=='medium') medium=data.count;
-      })
-      console.log(easy)
-      console.log(medium)
-      console.log(hard)
+        if(data._id=='easy') {
+          easy=data.count;
+          maxe = data.count;
+          maxt= maxt+data.count;
+        }
+        if(data._id=='hard') {
+          hard=data.count;
+          maxm = data.count;
+          maxt= maxt+data.count;
+        }
+
+        if(data._id=='medium') {
+          medium=data.count;
+          maxh = data.count;
+          maxt= maxt+data.count;
+        }
        
-      totalnumberofquestion.innerHTML=`<span style="color: rgb(104, 104, 104);">Total Questions Available:</span>`+` ${easy+medium+hard}`
-      noofeasyquestions.innerHTML=`<span style="color: rgb(104, 104, 104);">Total Questions Available:</span>`+`${medium}`
-      noofmediumquestions.innerHTML=`<span style="color: rgb(104, 104, 104);">Total Questions Available:</span>`+` ${easy}`
-      noofhardquestions.innerHTML=`<span style="color: rgb(104, 104, 104);">Total Questions Available:</span>`+` ${hard}`
+      })
+      // console.log(easy)
+      // console.log(medium)
+      // console.log(hard)
+      maxt= easy+medium+hard;
+      totalnumberofquestion.innerHTML=`<span style="color: rgb(104, 104, 104);">Total Questions Available:</span><span id="tm"> ${easy+medium+hard}</span>`
+      noofeasyquestions.innerHTML=`<span style="color: rgb(104, 104, 104);">Total Questions Available:</span><span id="em" >${medium} </span>`
+      noofmediumquestions.innerHTML=`<span style="color: rgb(104, 104, 104);">Total Questions Available:</span><span id="mm" >${easy} </span>`
+      noofhardquestions.innerHTML=`<span style="color: rgb(104, 104, 104);">Total Questions Available:</span><span id="hm" >${hard} </span>`
 
 
       
+    }
+
+
+    function checkForm() {
+      let wrong = false;
+      maxt = parseInt(document.getElementById("tm").innerHTML);
+      maxe = parseInt(document.getElementById("em").innerHTML);
+      maxm = parseInt(document.getElementById("mm").innerHTML);
+      maxh = parseInt(document.getElementById("hm").innerHTML);
+      console.log(total.value>maxt);
+      let totalexceed = false;
+      if(total.value > maxt){
+        wrong = true;
+        total.style.border = "1px solid red";
+        errmsg.style.visibility = "visible";
+        submitbtn.disabled = true;
+        totalexceed = true;
+        errmsg.innerHTML = "Maximum Number of Questions Exceeded!!";
+      }else{
+        total.style.border = "none";
+      }
+
+      if(easy.value>maxe){
+        wrong = true;
+        easy.style.border = "1px solid red";
+        errmsg.style.visibility = "visible";
+        submitbtn.disabled = true;
+        errmsg.innerHTML = "Maximum Number of Questions Exceeded!!";
+      }else{
+        easy.style.border = "none";
+      }
+      if(moderate.value>maxm){
+        wrong = true;
+        moderate.style.border = "1px solid red";
+        errmsg.style.visibility = "visible";
+        submitbtn.disabled = true;
+        errmsg.innerHTML = "Maximum Number of Questions Exceeded!!";
+      }else{
+        moderate.style.border = "none";
+      }
+      if(hard.value>maxh){
+        wrong = true;
+        hard.style.border = "1px solid red";
+        errmsg.style.visibility = "visible";
+        submitbtn.disabled = true;
+        errmsg.innerHTML = "Maximum Number of Questions Exceeded!!";
+      }else{
+        hard.style.border = "none";
+      }
+
+      if ((easy.value+moderate.value+hard.value) > total.value) {
+        wrong = true;
+        total.style.border = "1px solid red";
+        errmsg.style.visibility = "visible";
+        submitbtn.disabled = true;
+        errmsg.innerHTML = "Total Number of Questions Exceeded!!";
+      }else{
+        if(!totalexceed){
+          total.style.border = "none";
+        }
+      }
+
+      if(wrong == false){
+        errmsg.style.visibility = "hidden";
+        submitbtn.disabled = false;
+      }
     }
 
 
