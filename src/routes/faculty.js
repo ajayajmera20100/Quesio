@@ -3,6 +3,7 @@ import express from "express";
 import jwt from "jsonwebtoken";
 import jwt_decode from 'jwt-decode';
 import cookieParser from "cookie-parser";
+import {isAuth,isFaculty} from "../isauth";
 
 // models
 import { UserModel } from "../models/user";
@@ -17,7 +18,7 @@ Router.use(cookieParser())
 // Method : GET
 
 
-Router.get('/',async(req, res)=>{
+Router.get('/', async(req, res)=>{
   const userid= jwt_decode(req.cookies.jwt).user
   const facultydetail = await UserModel.findById(userid).populate('question_submited')
   

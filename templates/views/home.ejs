@@ -46,14 +46,32 @@
               <a class="nav-link font-nav" href="#faq">FAQs</a>
             </li>
           </ul>
+          <% if(signup){ %> 
           <ul class="navbar-nav mt-2 mt-lg-0">
+            <% if(usertype==='expert'){ %> 
             <li class="nav-item mr-2 mb-3 mb-lg-0">
-              <a class="btn btn-secondary btn-sm" href="/register">Sign Up</a>
+              <a class="btn btn-secondary btn-sm" href="/moderator">Dashboard</a>
             </li>
+            <% }else{ %> 
+              <li class="nav-item mr-2 mb-3 mb-lg-0">
+                <a class="btn btn-secondary btn-sm" href="/<%=usertype %> ">Dashboard</a>
+              </li>
+              <% } %> 
             <li class="nav-item">
-              <a class="btn btn-secondary btn-sm" href="/login">Login</a>
+              <a class="btn btn-secondary btn-sm" href="/logout">Logout</a>
             </li>
           </ul>
+          <% }else{ %>
+            <ul class="navbar-nav mt-2 mt-lg-0">
+              <li class="nav-item mr-2 mb-3 mb-lg-0">
+                <a class="btn btn-secondary btn-sm" href="/register">Sign Up</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-secondary btn-sm" href="/login">Login</a>
+              </li>
+            </ul>
+            <% } %>  
+
         </div>
       </nav>
     </div>

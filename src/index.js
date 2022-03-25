@@ -3,6 +3,10 @@ import path from 'path';
 require('dotenv').config();
 import cors from 'cors';
 
+import jwt from "jsonwebtoken";
+import cookieParser from "cookie-parser";
+import jwt_decode from "jwt-decode"
+
 // Initialize express
 const app = express();
 
@@ -35,11 +39,22 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(static_path));
 app.set('view engine', 'ejs');
 app.set('views', templates_path);
- 
+app.use(cookieParser())
 
 // Home Page
 app.get('/', async (req, res) => {
-  res.render('home');
+ try {
+  let signup=false;
+  const token=req.cookies.jwt
+  let usertype=''
+  if(token){
+    usertype= jwt_decode(req.cookies.jwt).usertype;
+    signup=true
+  }
+  res.render('home',{signup,usertype});
+ } catch (error) {
+   res.send(error)
+ }
 
 });
 

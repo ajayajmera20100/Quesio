@@ -218,7 +218,7 @@
                 <div class="row" id="q1">
                   <div class="col-md-6 mt-2 p-1">
                     <label for="validationTooltip01">Total Number of Questions</label>
-                    <input type="number" id="total" class="form-control bg-white" id="totalquestions"
+                    <input onchange="checkForm()" type="number" id="total" class="form-control bg-white" id="totalquestions"
                       name="totalquestions" value="" placeholder="Total Number of Questions" required>
                       <div>
                         <h5 for="totalnumberofquestion" id="totalnumberofquestion" class="totalquestioncount"> </h5>
@@ -226,7 +226,7 @@
                   </div>
                   <div class="col-md-6 p-1" style="margin-top: 0.7rem;">
                     <label for="validationTooltip01">Number of Easy Questions</label>
-                    <input type="number" id="easy" class="form-control bg-white" id="easyquestions" name="easyquestions"
+                    <input type="number" onchange="checkForm()" id="easy" class="form-control bg-white" id="easyquestions" name="easyquestions"
                       value="" placeholder="Number of Easy Questions" required>
                       <div>
                         <h5 for="noofeasyquestions" id="noofeasyquestions" class="totalquestioncount">  </h5>
@@ -237,7 +237,7 @@
                 <div class="row" id="q2">
                   <div class="col-md-6 mt-2 p-1">
                     <label for="validationTooltip01">Number of Moderate Questions</label>
-                    <input type="number" id="moderate" class="form-control bg-white" id="moderatequestions"
+                    <input type="number" id="moderate" onchange="checkForm()" class="form-control bg-white" id="moderatequestions"
                       name="moderatequestions" value="" placeholder="Number of Moderate Questions" 
                        required>
                       <div>
@@ -246,7 +246,7 @@
                   </div>
                   <div class="col-md-6 p-1" style="margin-top: 0.7rem;">
                     <label for="validationTooltip01">Number of Hard Questions</label>
-                    <input type="number" id="hard" class="form-control bg-white" id="hardquestions" name="hardquestions"
+                    <input type="number" id="hard" onchange="checkForm()" class="form-control bg-white" id="hardquestions" name="hardquestions"
                       value="" placeholder="Number of Hard Questions" required>
                       <div>
                         <h5 for="noofhardquestions" id="noofhardquestions" class="totalquestioncount"> </h5>
@@ -425,6 +425,7 @@
         errmsg.innerHTML = "Maximum Number of Questions Exceeded!!";
       }else{
         total.style.border = "none";
+        totalexceed=false
       }
 
       if(easy.value>maxe){
@@ -456,11 +457,25 @@
       }
 
       if ((easy.value+moderate.value+hard.value) > total.value) {
+        
         wrong = true;
         total.style.border = "1px solid red";
         errmsg.style.visibility = "visible";
         submitbtn.disabled = true;
         errmsg.innerHTML = "Total Number of Questions Exceeded!!";
+      }else{
+        if(!totalexceed){
+          total.style.border = "none";
+        }
+      }
+
+      if ((easy.value+moderate.value+hard.value) < total.value && easy.value>0  && moderate.value>0  && hard.value>0 ) {
+        
+        wrong = true;
+        total.style.border = "1px solid red";
+        errmsg.style.visibility = "visible";
+        submitbtn.disabled = true;
+        errmsg.innerHTML = "Total Number of Questions Not Match!!";
       }else{
         if(!totalexceed){
           total.style.border = "none";
